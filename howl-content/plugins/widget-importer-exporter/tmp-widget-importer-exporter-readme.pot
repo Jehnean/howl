@@ -1,0 +1,118 @@
+msgid ""
+msgstr "MIME-Version: 1.0\n"
+
+#. Name.
+msgid "Widget Importer &amp; Exporter"
+msgstr ""
+
+#. Short description.
+msgid "Import and export your widgets."
+msgstr ""
+
+#. Screenshot description.
+msgid "Main import/export screen"
+msgstr ""
+
+#. Screenshot description.
+msgid "Results from an import"
+msgstr ""
+
+#. Found in description header.
+msgid "Importing"
+msgstr ""
+
+#. Found in description header.
+msgid "Exporting"
+msgstr ""
+
+#. Found in description header.
+msgid "Translations"
+msgstr ""
+
+#. Found in description header.
+msgid "Developers"
+msgstr ""
+
+#. Found in description header.
+msgid "Follow me"
+msgstr ""
+
+#. Found in description list item.
+msgid "English (default)"
+msgstr ""
+
+#. Found in description list item.
+msgid "Spanish (es_ES) by <a href=\"http://www.labitacoradeltigre.com/\">Eduardo Larequi</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid "French (fr_FR) by <a href=\"http://josekost.fr/\">Jose Kost</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid "German (de_DE) by <a href=\"http://alex-dune.de\">Alexander Kesting</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid "Serbo-Croatian (sr_RS) by Borisa Djuraskovic of <a href=\"http://www.webhostinghub.com\">Web Hosting Hub</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid "Find my blog at <a href=\"http://stevengliebe.com\">stevengliebe.com</a>"
+msgstr ""
+
+#. Found in description list item.
+msgid "Follow me on Twitter (<a href=\"https://twitter.com/stevengliebe\">@stevengliebe</a>)"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Widget Importer &amp; Exporter is useful for moving widgets from one WordPress site to another, backing up widgets and for theme developers to provide users with sample widgets."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Importing is a matter of uploading an export file created by the plugin. The results of an import are shown in a nicely formatted table with an explanation of what happened with each sidebar and widget."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Importation takes into consideration sidebars not existing in the current theme (widgets imported as <em>Inactive</em>), widgets that already exist in the same sidebar (widgets not duplicated) and widgets that are not supported by the site (widgets not imported)."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Widget Importer &amp; Exporter can create an export file (in JSON format with .wie extension) out of currently active widgets. This file can be imported into other sites using this plugin or used to restore widgets to the same site later."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "The following translations are included."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "The <code>wie_before_import</code> action fires after a file is uploaded but before the data is imported. <code>wie_after_import</code> fires after the data is imported. The <code>wie_import_data</code> filter can be used to filter data before it is imported. Other filters are used throughout. Submit an issue on GitHub if you need more hooks (pull requests encouraged)."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Please jump on <a href=\"https://github.com/stevengliebe/widget-importer-exporter\">GitHub</a> to report issues and follow development."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "This project is made possible by <a href=\"http://churchthemes.com\">churchthemes.com</a> (<a href=\"https://twitter.com/churchthemes\">@churchthemes</a>)."
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "Please see <a href=\"http://codex.wordpress.org/Managing_Plugins#Installing_Plugins\">Installing Plugins</a> in the WordPress Codex."
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "After activation, go to <em>Tools &gt; Widget Import/Export</em>"
+msgstr ""
+
+#. Found in changelog paragraph.
+msgid "See <a href=\"https://github.com/stevengliebe/widget-importer-exporter/releases\">releases</a> on GitHub."
+msgstr ""
+
+#. Found in faq header.
+msgid "Why does the JSON export file use a .wie extension?"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "The export file contains JSON data that is not compatible with any other plugin. Therefore it has a proprietary file extension. This keeps people from confusing export files from other widget import/export plugins."
+msgstr ""

@@ -1,0 +1,69 @@
+# wordpress ignore file 
+
+wp-content/debug.log
+.htaccess
+.svn/
+.DS_Store
+wp-*.php
+xmlrpc.php
+# wp-admin/
+# wp-includes/
+# wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/*
+wp-content/backup-db/*
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/*
+wp-content/cache/supercache/*
+sitemap.xml
+sitemap.xml.gz
+readme.html
+license.txt
+index.php
+
+# SASS
+.sass-cache
+
+# OSX
+*.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+/.DS_Store
+git-hooks/*
+.bowerrc
+
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.logs
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+# NODE / NPM
+node_modules
+
+
+
