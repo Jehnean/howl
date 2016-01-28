@@ -8,6 +8,10 @@ class WPJMCL_Shortcode {
     }
 
     public function paid_claim_listing_shortcode( $atts ) {
+        if ( ! isset( $_REQUEST[ 'listing_id' ] ) ) {
+            return;
+        }
+
         return wpjmcl()->forms->get_form( 'claim-listing', $atts );
     }
 

@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: 4.1 
 Tested up to: 4.4
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 License: GNU General Public License v3.0
 
 Let users claim listings on your website! Once a listing is claimed a "Verified" badge will be displayed.
@@ -27,6 +27,11 @@ If you need help with customisation you will need to find and hire a developer c
 To install this plugin, please refer to the guide here: [http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation)
 
 == Changelog ==
+
+= 2.3.0: January 22, 2016 =
+
+* Fix: Block direct access to claim listing shortcode page.
+* Fix: Respect the "Default to Claim" setting.
 
 = 2.2.0: December 17, 2015 =
 

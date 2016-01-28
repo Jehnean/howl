@@ -3,7 +3,7 @@
  * Plugin Name: WP Job Manager - Claim Listing
  * Plugin URI: https://astoundify.com/downloads/wp-job-manager-claim-listing/
  * Description: Allow listings to be "claimed" to indicate verified ownership. A fee can be charged using WooCommerce.
- * Version: 2.2.0
+ * Version: 2.3.0
  * Author: Astoundify
  * Author URI: http://astoundify.com
  * Text Domain: wp-job-manager-claim-listing
@@ -20,7 +20,7 @@ class WP_Job_Manager_Claim_Listing {
      * @since 1.0.0
      * @var string $version Plugin version number.
      */
-    public $version = '2.2.0';
+    public $version = '2.3.0';
 
     /**
      * Instace of WP_Job_Manager_Claim_Listing.

@@ -72,7 +72,11 @@
 							'menu_class' => 'primary nav-menu'
 						) );
 					?>
+					<!-- notifications -->
+					<?php //echo bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ); ?>
 				</div>
+
+
 			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

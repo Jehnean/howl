@@ -577,39 +577,119 @@ foreach ( $integrations as $file => $dependancy ) {
 
 /* Howl Custom functions */
 
+
 /**
- * Redirect user after successful login.
+ * Add new register fields for WooCommerce registration.
  *
- * @param string $redirect_to URL to redirect to.
- * @param string $request URL the user is coming from.
- * @param object $user Logged user's data.
+ * @return string Register fields HTML.
+ */
+function wooc_extra_register_fields() {
+  ?>
+
+  <p class="form-row form-row-first">
+  <label for="reg_billing_first_name"><?php _e( 'First name', 'woocommerce' ); ?> <span class="required">*</span></label>
+  <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />
+  </p>
+
+  <p class="form-row form-row-last">
+  <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
+  <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
+  </p>
+
+  <?php
+}
+
+add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
+
+
+
+/**
+ * Validate the extra register fields.
+ *
+ * @param  string $username          Current username.
+ * @param  string $email             Current email.
+ * @param  object $validation_errors WP_Error object.
+ *
+ * @return void
+ */
+function wooc_validate_extra_register_fields( $username, $email, $validation_errors ) {
+  if ( isset( $_POST['billing_first_name'] ) && empty( $_POST['billing_first_name'] ) ) {
+    $validation_errors->add( 'billing_first_name_error', __( '<strong>Error</strong>: First name is required!', 'woocommerce' ) );
+  }
+
+  if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
+    $validation_errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
+  }
+}
+
+add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
+
+/**
+ * Save the extra register fields.
+ *
+ * @param  int  $customer_id Current customer ID.
+ *
+ * @return void
+ */
+function wooc_save_extra_register_fields( $customer_id ) {
+	if ( isset( $_POST['billing_first_name'] ) ) {
+		// WordPress default first name field.
+		update_user_meta( $customer_id, 'first_name', sanitize_text_field( $_POST['billing_first_name'] ) );
+
+		// WooCommerce billing first name.
+		update_user_meta( $customer_id, 'billing_first_name', sanitize_text_field( $_POST['billing_first_name'] ) );
+	}
+
+	if ( isset( $_POST['billing_last_name'] ) ) {
+		// WordPress default last name field.
+		update_user_meta( $customer_id, 'last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
+
+		// WooCommerce billing last name.
+		update_user_meta( $customer_id, 'billing_last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
+	}
+}
+
+add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
+
+/**
+ * Redirect users to custom URL based on their role after login
+ *
+ * @param string $redirect
+ * @param object $user
  * @return string
  */
+function wc_custom_user_redirect( $redirect, $user ) {
+	// Get the first of all the roles assigned to the user
+	$role = $user->roles[0];
+	$dashboard = admin_url();
+	$myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
+	if( $role == 'administrator' ) {
+		//Redirect administrators to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'shop-manager' ) {
+		//Redirect shop managers to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'editor' ) {
+		//Redirect editors to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'author' ) {
+		//Redirect authors to the dashboard
+		$redirect = $dashboard;
+	} elseif ( $role == 'customer' || $role == 'subscriber' ) {
+		//Redirect customers and subscribers to the "My Account" page
+		$redirect = $myaccount;
+	} else {
+		//Redirect any other role to the previous visited page or, if not available, to the home
+		$redirect = wp_get_referer() ? wp_get_referer() : home_url();
+	}
+	return $redirect;
+}
+add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
 
-// function my_login_redirect( $redirect_to, $request, $user ) {
-// 	//is there a user to check?
-// 	global $user;
-// 	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-// 		//check for admins
-// 		if ( in_array( 'administrator', $user->roles ) ) {
-// 			// redirect them to the default place
-// 			return $redirect_to;
-// 		} else {
-// 			return home_url('/my-account');
-// 		}
-// 	} else {
-// 		return $redirect_to;
-// 	}
-// }
-
-// add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
-
-// /**
-//  * Redirect user after successful registration/signup.
-//  */
-
-// function my_redirect_home() {
-// 	return home_url('/my-account/edit-account');
-// }
-
-// add_filter( 'registration_redirect', 'my_redirect_home' );
+function loggedin_page_template_redirect() {
+  if( is_page( 'login' ) && is_user_logged_in() ) {
+    wp_redirect( home_url( '/dashboard/' ) );
+    exit();
+  }
+}
+add_action( 'template_redirect', 'loggedin_page_template_redirect' );
