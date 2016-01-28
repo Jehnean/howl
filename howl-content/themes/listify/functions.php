@@ -592,14 +592,35 @@ function wooc_extra_register_fields() {
   </p>
 
   <p class="form-row form-row-last">
-  <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
-  <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
+	  <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
+	  <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
   </p>
+
 
   <?php
 }
 
+?>
+<?php
 add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
+
+function howl_pro_form() {?> 
+	<?php if ( is_page('pro-sign-up') ) : ?>
+		<p class="form-row form-row-wide">
+			<label for="reg_business_service"><?php _e( 'What kind of services do you offer?', 'woocommerce' ); ?></label>
+  		<input type="text" class="input-text" name="business_primary_service" id="reg_business_service" value="<?php if ( ! empty( $_POST['business_primary_service'] ) ) esc_attr_e( $_POST['business_primary_service'] ); ?>" />
+		</p>
+
+		<p class="form-row form-row-wide">
+			<label for="reg_business_location"><?php _e( 'Where is your business located?', 'woocommerce' ); ?></label>
+  		<input type="text" class="input-text" name="business_location" id="reg_business_location" value="<?php if ( ! empty( $_POST['business_location'] ) ) esc_attr_e( $_POST['business_location'] ); ?>" />
+		</p>
+	<?php endif;
+}
+?>
+<?php
+
+add_action( 'register_form', 'howl_pro_form' );
 
 
 
@@ -620,6 +641,7 @@ function wooc_validate_extra_register_fields( $username, $email, $validation_err
   if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
     $validation_errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
   }
+
 }
 
 add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
@@ -662,7 +684,7 @@ function wc_custom_user_redirect( $redirect, $user ) {
 	// Get the first of all the roles assigned to the user
 	$role = $user->roles[0];
 	$dashboard = admin_url();
-	$myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
+	$myaccount = get_permalink( wc_get_page_id( 'myaccount' ) ); // change to redirect to project dashboard
 	if( $role == 'administrator' ) {
 		//Redirect administrators to the dashboard
 		$redirect = $dashboard;
@@ -686,6 +708,7 @@ function wc_custom_user_redirect( $redirect, $user ) {
 }
 add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
 
+// If user is already logged in redirect to dashboard if this page is visited
 function loggedin_page_template_redirect() {
   if( is_page( 'login' ) && is_user_logged_in() ) {
     wp_redirect( home_url( '/dashboard/' ) );
