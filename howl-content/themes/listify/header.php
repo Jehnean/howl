@@ -74,6 +74,13 @@
 					?>
 					<!-- notifications -->
 					<?php //echo bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ); ?>
+
+					<div>
+						<?php  
+					$role = $user->roles[0];
+					print_r($role);
+					?>
+					</div>
 				</div>
 
 

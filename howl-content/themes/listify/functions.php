@@ -615,6 +615,13 @@ function howl_pro_form() {?>
 			<label for="reg_business_location"><?php _e( 'Where is your business located?', 'woocommerce' ); ?></label>
   		<input type="text" class="input-text" name="business_location" id="reg_business_location" value="<?php if ( ! empty( $_POST['business_location'] ) ) esc_attr_e( $_POST['business_location'] ); ?>" />
 		</p>
+
+	<?php  
+		// wp_update_user(array(
+		//   'ID' => $customer_id,
+		//   'role' => 'professional' // Update to desired role
+		// ));	
+	?>		
 	<?php endif;
 }
 ?>
@@ -685,6 +692,8 @@ function wc_custom_user_redirect( $redirect, $user ) {
 	$role = $user->roles[0];
 	$dashboard = admin_url();
 	$myaccount = get_permalink( wc_get_page_id( 'myaccount' ) ); // change to redirect to project dashboard
+	$customer_dashboard = get_permalink(922);
+	$pro_dashboard = get_permalink(924);
 	if( $role == 'administrator' ) {
 		//Redirect administrators to the dashboard
 		$redirect = $dashboard;
@@ -698,8 +707,11 @@ function wc_custom_user_redirect( $redirect, $user ) {
 		//Redirect authors to the dashboard
 		$redirect = $dashboard;
 	} elseif ( $role == 'customer' || $role == 'subscriber' ) {
-		//Redirect customers and subscribers to the "My Account" page
-		$redirect = $myaccount;
+		//Redirect customers to their dashboard
+		$redirect = $customer_dashboard;
+	} elseif ( $role == 'professional') {
+		//Redirect pros to their dashboard
+		$redirect = $pro_dashboard;
 	} else {
 		//Redirect any other role to the previous visited page or, if not available, to the home
 		$redirect = wp_get_referer() ? wp_get_referer() : home_url();
@@ -709,10 +721,10 @@ function wc_custom_user_redirect( $redirect, $user ) {
 add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
 
 // If user is already logged in redirect to dashboard if this page is visited
-function loggedin_page_template_redirect() {
-  if( is_page( 'login' ) && is_user_logged_in() ) {
-    wp_redirect( home_url( '/dashboard/' ) );
-    exit();
-  }
-}
-add_action( 'template_redirect', 'loggedin_page_template_redirect' );
+// function loggedin_page_template_redirect() {
+//   if( is_page( 'login' ) && is_user_logged_in() ) {
+//     wp_redirect( home_url( '/dashboard/' ) );
+//     exit();
+//   }
+// }
+// add_action( 'template_redirect', 'loggedin_page_template_redirect' );
