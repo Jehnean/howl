@@ -622,6 +622,10 @@ function wooc_validate_extra_register_fields( $username, $email, $validation_err
     $validation_errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
   }
 
+	if(!isset($_POST['term_agree']) && $_POST['term_agree'] != "on") {
+		$validation_errors->add('error', 'Please check box');
+	}
+
 }
 
 add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
