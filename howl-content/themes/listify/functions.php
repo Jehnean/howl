@@ -766,12 +766,3 @@ function wc_custom_user_redirect( $redirect, $user ) {
 	return $redirect;
 }
 add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
-
-// If user is already logged in redirect to dashboard if this page is visited
-// function loggedin_page_template_redirect() {
-//   if( is_page( 'login' ) && is_user_logged_in() ) {
-//     wp_redirect( home_url( '/dashboard/' ) );
-//     exit();
-//   }
-// }
-// add_action( 'template_redirect', 'loggedin_page_template_redirect' );
