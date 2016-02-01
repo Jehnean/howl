@@ -4,7 +4,7 @@ wp-content/debug.log
 .htaccess
 .svn/
 .DS_Store
-# wp-*.php
+wp-*.php
 xmlrpc.php
 wp-admin/
 wp-includes/
