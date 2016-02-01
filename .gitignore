@@ -34,7 +34,7 @@ Icon
 .Spotlight-V100
 .Trashes
 /.DS_Store
-git-hooks/*
+# git-hooks/*
 .bowerrc
 
 
