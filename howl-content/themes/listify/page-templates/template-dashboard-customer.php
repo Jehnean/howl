@@ -13,8 +13,7 @@ get_header(); ?>
 
       <main id="main" class="site-main col-md-10 col-md-offset-1 col-xs-12" role="main">
 
-
-      <?php    
+      <?php
 
       if ( !is_user_logged_in() ) {
         echo 'Please login to view this page';
