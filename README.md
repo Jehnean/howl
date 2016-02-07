@@ -4,7 +4,6 @@ This is currently in development (Not ready for testing)
 
 # Howl Site Dev
 
-
 ## Description
 
 Site development for the howl.co platform
@@ -19,7 +18,7 @@ Site development for the howl.co platform
 
 * [Jehnean]
 * [Christopher]
-* [Antonio]
+* [Antonio] afj176
 * [David]
 
 ## Requirements
