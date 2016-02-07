@@ -18,7 +18,7 @@ Site development for the howl.co platform
 
 * [Jehnean]
 * [Christopher]
-* [Antonio] darth-all afj176
+* [Antonio]
 * [David]
 
 ## Requirements
