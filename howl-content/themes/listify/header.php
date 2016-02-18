@@ -53,7 +53,7 @@
 						<a href="#search-header" data-toggle="#search-header" class="ion-close search-overlay-toggle"></a>
 					</div>
 				</div>
-                <?php endif; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 
@@ -73,7 +73,7 @@
 						) );
 					?>
 					<!-- notifications -->
-					<?php //echo bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ); ?>
+
 
 					<div>
 						<?php  

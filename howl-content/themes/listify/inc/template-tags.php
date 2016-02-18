@@ -271,3 +271,40 @@ function listify_content_nav( $nav_id ) {
 	<?php
 }
 endif;
+
+// function howl_get_pagination($args = null) {
+//   global $wp_query;
+    
+//   // Custom pagination query
+//   // Otherwise WP would display pages in the pagination that have nothing
+  
+//   $total_pages = $wp_query->max_num_pages;
+//   $big = 999999999; // need an unlikely integer
+//   $translated = __( 'Page', 'atmosphere' ); // Supply translatable string
+
+//   $paginate_links = paginate_links( array(
+//     'base' => add_query_arg('paged','%#%'),
+//     'format' => '?paged=%#%',
+//     'current' => max( 1, get_query_var('paged') ),
+//     'total' => $wp_query->max_num_pages,
+//     'type' => 'list',
+//     'prev_text' => 'Previous',
+//     'next_text' => 'Next',
+//     // 'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
+//   ));    
+
+//   $paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination text-center'>", $paginate_links );
+//   $paginate_links = str_replace( '<li><span class="page-numbers dots">', "<li><a href='#'>", $paginate_links );
+//   $paginate_links = str_replace( "<li><span class='page-numbers current'>", "<li class='current'><a href='#'>", $paginate_links );
+//   $paginate_links = str_replace( '</span>', '</a>', $paginate_links );
+//   $paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
+//   $paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );    
+
+// // Display the pagination if more than one page is found.
+//   if ( $paginate_links ) {
+//     echo '<div class="pagination-centered">';
+//     echo $paginate_links;
+//     echo '</div><!--// end .pagination -->';
+//   } 
+    
+// }

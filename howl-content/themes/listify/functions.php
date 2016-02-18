@@ -540,7 +540,8 @@ $includes = array(
 	'template-tags.php',
 	'extras.php',
 	'woocustom.php',
-	'customer-projects-post-type.php',
+	'post-type-customer-projects.php',
+	'post-type-faqs.php',
 );
 
 foreach ( $includes as $file ) {
