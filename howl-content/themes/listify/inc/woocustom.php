@@ -194,18 +194,18 @@ function wc_custom_user_redirect( $redirect, $user ) {
 add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
 
 // protect dashboards from outside eyes.
-// function howl_stop_guests( $content ) {
-//     global $post;
+function howl_stop_guests( $content ) {
+    global $post;
 
-//     if ( $post->post_type == 'customer-projects' ) {
-//         if ( !is_user_logged_in() ) {
-//             $content = 'Please login to view this page';
-//         }
-//     }
+    if ( $post->post_type == 'customer-projects' ) {
+        if ( !is_user_logged_in() ) {
+            $content = 'Please login to view this page';
+        }
+    }
 
-//     return $content;
-// }
-// add_filter( 'the_content', 'howl_stop_guests' );
+    return $content;
+}
+add_filter( 'the_content', 'howl_stop_guests' );
 
 
 /**

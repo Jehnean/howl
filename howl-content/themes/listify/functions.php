@@ -580,3 +580,10 @@ foreach ( $integrations as $file => $dependancy ) {
 
 /* Howl Custom functions */
 
+ function post_project_template_redirect() {
+    if( is_page( 'post-a-project' ) && ! is_user_logged_in() ) {
+        wp_redirect( home_url( '/sign-up/' ) );
+        exit();
+    }
+}
+add_action( 'template_redirect', 'post_project_template_redirect' );

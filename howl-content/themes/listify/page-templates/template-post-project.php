@@ -21,7 +21,9 @@ get_header(); ?>
       // echo apply_filters( 'the_content','[piklist_form form="profile-edit" add_on="theme"]');
 
       if ( !is_user_logged_in() ) {
-        echo 'Please login to view this page';
+        $redirect = get_permalink(18); // where this integer is id of registration page 
+        wp_redirect($redirect);
+        // exit;
       } else { ?>
 
       <div class="page-cover entry-cover no-image">

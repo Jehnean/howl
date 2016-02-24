@@ -1,6 +1,6 @@
 <?php
 /*  
-Title: Test
+Title: Post a Project
 Method: post
 Message: Data saved.
 Redirect: /customer-dashboard/
@@ -56,8 +56,19 @@ piklist('field', array(
       ,'Alabama' => __('Second Choice', 'howl')
       ,'third' => __('Third Choice', 'howl')
     )
- )); 
+ ));
 
+ piklist('field', array(
+   'type' => 'textarea'
+   ,'scope' => 'post'
+   ,'field' => 'post_content'
+   ,'label' => __('what seems to be happening?')
+   ,'description' => __('')
+   ,'attributes' => array(
+     'class' => 'project-description-text'
+   )
+   ,'position' => 'wrap'
+ ));
 
 piklist('field', array(
   'type' => 'submit',
