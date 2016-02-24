@@ -1,5 +1,8 @@
 
-		<?php $author = get_the_author(); ?>
+		<?php 
+			$author = get_the_author();
+			$image_ids = get_post_meta($post->ID, 'upload_media');
+		?>
 
   <?php do_action( 'listify_page_before' ); ?>
 
@@ -28,6 +31,23 @@
 		
 		<span>Description</span>
 		<?php the_content(); ?>
+
+		<?php
+			foreach ($image_ids as $image) {
+			  $myupload = get_post($image); 
+			  $title = $myupload->post_title;
+			  $description = $myupload->post_content;
+			  $caption = $myupload->post_excerpt;
+			 
+			  // echo 'title:' . $title;
+			  // echo 'description:' . $description;
+			  // echo 'caption:' . $caption;
+			 
+			 echo '<img src="' . wp_get_attachment_url($image) . '" alt="" />';
+			 
+			  // print_r($myupload); // Displays all data
+			}		  
+		?>
 		
 	</div>
 

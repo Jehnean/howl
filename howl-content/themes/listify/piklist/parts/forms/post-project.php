@@ -70,6 +70,18 @@ piklist('field', array(
    ,'position' => 'wrap'
  ));
 
+ piklist('field', array(
+  'type' => 'file'
+  ,'field' => 'upload_media'
+  ,'scope' => 'post_meta'
+  ,'label' => __('Add File(s)','howl')
+  ,'description' => __('','howl')
+  ,'options' => array(
+    'modal_title' => __('Add File(s)','howl')
+    ,'button' => __('Add','howl')
+  )
+));
+
 piklist('field', array(
   'type' => 'submit',
   'field' => 'submit',
