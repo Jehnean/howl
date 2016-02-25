@@ -75,6 +75,7 @@ piklist('field', array(
   ,'field' => 'upload_media'
   ,'scope' => 'post_meta'
   ,'label' => __('Add File(s)','howl')
+  // ,'add_more' => true
   ,'description' => __('','howl')
   ,'options' => array(
     'modal_title' => __('Add File(s)','howl')

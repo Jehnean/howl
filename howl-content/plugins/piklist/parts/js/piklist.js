@@ -1492,11 +1492,13 @@
                             .parent()
                             .children('div.piklist-field-addmore-wrapper');
 
-            $this.re_index($wrapper.parent(), true);
+            var $parent = $wrapper.parent();
 
             $wrapper
               .trigger('piklistaddmore', [$wrapper, 'remove'])
               .remove();
+              
+              $this.re_index($parent, true);
           }
           
         break;
