@@ -44,11 +44,11 @@
      var city = "",
          state = "",
          addr = "",
-         $address = $elem.find(".address");
+         $address = $elem.find(".address"),
+         hasResult = false;
      if (status == google.maps.GeocoderStatus.OK) {
        // if geocode success
        // if address found, pass to processing function
-       var hasResult = false;
 
        if(arrHas(results[1])){
          if(arrHas(results[1]["address_components"])){
@@ -92,8 +92,8 @@ function getBrowserLatLng($elem){
  geo.location.gmaps = function($elem){
    var $address = $elem.find(".address");
    if (navigator.geolocation) {
-     getBrowserLatLng($elem);
      // if geolocation supported, call function
+     getBrowserLatLng($elem);
    } else {
      $address.html("");
      geo.location.freegeoip($elem);
