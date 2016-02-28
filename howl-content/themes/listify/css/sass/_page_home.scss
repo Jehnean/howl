@@ -12,6 +12,10 @@
 	position: relative;
 }
 
+.homepage-cover.page-cover.entry-cover {
+	 background-color: #717a8f;
+}
+
 .homepage-cover p {
 	display: none;
 }
@@ -54,8 +58,15 @@
     padding-top: 40px;
 
 				.address {
-					 font-weight: bold;
-						display: inline-block;
+						font-family: 'Open Sans', sans-serif;
+						font-weight: bold;
+		    display: inline-block;
+		    font-size: 16px;
+		    color: white;
+		    line-height: 22px;
+		    vertical-align: text-bottom;
+						text-align: center;
+						margin-right: 5px;
 						&::before {
 								display: inline-block;
 								width: 16px;
@@ -67,7 +78,19 @@
 								background-position: top center;
 								vertical-align: text-bottom;
 								margin-right: 5px;
+								top: -4px;
+				    position: relative;
 						}
+
+				}
+
+				.action {
+						font-family: 'Open Sans', sans-serif;
+						font-size: 16px;
+						color: white;
+						line-height: 22px;
+						text-align: center;
+						vertical-align: text-bottom;
 				}
 
 	}
@@ -136,10 +159,52 @@
 		select,
 		.search_jobs > div.search_keywords input[type="text"],
 		.search_jobs > div.search_location input[type="text"] {
-			border: 0;
-			background: #fff;
-			box-shadow: none;
-			padding: 13px 16px;
+					/*border: 0;
+					background: #fff;
+					box-shadow: none;
+					padding: 13px 16px;*/
+			  background : #FFFFFF;
+			  background : rgba(255, 255, 255, 1);
+			  width : 450px;
+			  height : 60px;
+			  border-radius : 4px;
+			  -moz-border-radius : 4px;
+			  -webkit-border-radius : 4px;
+					font-family: 'Open Sans', sans-serif;
+			  font-size : 18px;
+			  line-height : 60px;
+			  color : #CCCCCC;
+			  color : rgb(204, 204, 204);
+
+					&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+							font-family: 'Open Sans', sans-serif;
+					  font-size : 18px;
+					  line-height : 60px;
+					  color : #CCCCCC;
+					  color : rgb(204, 204, 204);
+					}
+					&::-moz-placeholder { /* Firefox 19+ */
+							font-family: 'Open Sans', sans-serif;
+							font-size : 18px;
+							line-height : 60px;
+							color : #CCCCCC;
+							color : rgb(204, 204, 204);
+					}
+					&:-ms-input-placeholder { /* IE 10+ */
+							font-family: 'Open Sans', sans-serif;
+							font-size : 18px;
+							line-height : 60px;
+							color : #CCCCCC;
+							color : rgb(204, 204, 204);
+					}
+					&:-moz-placeholder { /* Firefox 18- */
+							font-family: 'Open Sans', sans-serif;
+							font-size : 18px;
+							line-height : 60px;
+							color : #CCCCCC;
+							color : rgb(204, 204, 204);
+					}
+
 		}
 
 		select {
@@ -193,8 +258,23 @@
 
 	.update_results {
 		width: 100%;
-		padding-top: 11px;
-		padding-bottom: 11px;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 0;
+		padding-right: 0;
+  background : #0A82DC;
+  background : rgba(10, 130, 220, 1);
+  width : 190px;
+  height : 60px;
+  border-radius : 4px;
+  -moz-border-radius : 4px;
+  -webkit-border-radius : 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size : 18px;
+		line-height: 60px;
+  text-transform : uppercase;
+  color : #FFFFFF;
+  color : rgb(255, 255, 255);
 	}
 
 		@include bp(md) {
