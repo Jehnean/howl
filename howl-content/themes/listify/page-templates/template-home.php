@@ -38,6 +38,10 @@ get_header(); ?>
 							)
 						);
 					?>
+					 <div class="geo-location">
+								<span class="address" data-format="city, state"></span>
+								<a class="action" data-action="google" href="#">Change Location</a>
+						</div>
 				</div>
 
 				<?php
@@ -45,7 +49,7 @@ get_header(); ?>
 						wp_reset_query();
 
 						add_filter( 'wp_video_shortcode_library', '__return_false' );
-						
+
 						the_content();
 
 						remove_filter( 'wp_video_shortcode_library', '__return_false' );
@@ -63,7 +67,7 @@ get_header(); ?>
 			<div class="container homepage-hero-style-<?php echo $style; ?>">
 
 			<div class="row content-area">
-				<div class="col-md-8 col-sm-7 col-xs-12 text-center">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center items-3-section-title">
 					<h2>Tell us what you need. Get free quotes. Choose the right pro for the job.</h2>
 			 	</div>
 			</div>
@@ -80,7 +84,7 @@ get_header(); ?>
 				<div class="customer-cta cta-module text-center">
 						<p>Not sure what you're looking for? Look around and explore different services.</p>
 						<a href="<?php echo esc_url( home_url( '/professional-services' ) ); ?>" class="button">Find Professionals</a>
-				</div>				
+				</div>
 			</div>
 
 			<div class="row content-area<?php echo $style; ?>">
@@ -90,7 +94,7 @@ get_header(); ?>
 						<h4 class="home-widget-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique cere alias et vero sunt, quod fugiat dicta autem quos cum? Similique quibusdam sit quidem voluptates ipsa laborum voluptatem illum?</h4>
 						<a href="<?php echo esc_url( home_url( '/how-it-works-professionals' ) ); ?>" class="button">How it Works</a>
 					</div>
-				</div>		
+				</div>
 			</div>
 		</div>
 	</main>

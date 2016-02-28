@@ -71,7 +71,8 @@ module.exports = function(grunt) {
 						'<%= dirs.facetwp %>/source/facetwp.js',
 						'<%= dirs.woocommerce %>/source/woocommerce.js',
 						'<%= dirs.jetpack %>/jetpack.js',
-						'<%= dirs.js %>/source/app.js'
+						'<%= dirs.js %>/source/app.js',
+						'<%= dirs.js %>/source/geo.js'
 					]
 				}
 			}

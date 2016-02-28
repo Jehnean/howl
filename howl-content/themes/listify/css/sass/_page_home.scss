@@ -45,6 +45,33 @@
 		height: auto !important;
 		position: absolute !important;
 	}
+
+	.geo-location {
+    display: block;
+    float: none;
+    clear: both;
+    text-align: center;
+    padding-top: 40px;
+
+				.address {
+					 font-weight: bold;
+						display: inline-block;
+						&::before {
+								display: inline-block;
+								width: 16px;
+								height: 16px;
+								content: "";
+								background-image: url("../images/location.png");
+								background-size: contain;
+								background-repeat: no-repeat;
+								background-position: top center;
+								vertical-align: text-bottom;
+								margin-right: 5px;
+						}
+				}
+
+	}
+
 }
 
 .homepage-cover .home-widget {
@@ -57,6 +84,8 @@
 
 .homepage-cover .home-widget-title {
 	font-size: 20px;
+	font-family: 'Open Sans', sans-serif;
+	color: #FFF;
 }
 
 	@include bp(sm) {
@@ -67,18 +96,19 @@
 
 	@include bp(md) {
 		.homepage-cover .home-widget-title {
-			font-size: 40px;
+			font-size: 60px;
 		}
 	}
 
 .homepage-cover .home-widget-description {
-	font-size: 13px;
+	font-size: 30px;
 	line-height: 1.5;
+	color: #FFF;
 }
 
 	@include bp(sm) {
 		.homepage-cover .home-widget-description {
-			font-size: 16px;
+			font-size: 30px;
 		}
 	}
 
@@ -89,7 +119,7 @@
 	.home-widget-title,
 	.home-widget-description {
 		text-shadow: none;
-		text-transform: uppercase;
+		/*text-transform: uppercase;*/
 		letter-spacing: 0.1em;
 	}
 
@@ -288,6 +318,17 @@
 .home-widget,
 .homepage-hero-style-none .home-widget:first-child {
 	margin: 4em 0;
+}
+
+.site-main {
+	.items-3-section-title {
+			h2 {
+				font-size: 62px;
+				line-height: 1.2;
+				font-family: 'Open Sans', sans-serif;
+				font-weight: 300;
+			}
+	}
 }
 
 .home-widget + .container {
