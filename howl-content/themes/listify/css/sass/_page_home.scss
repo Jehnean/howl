@@ -284,7 +284,6 @@
 		}
 }
 
-
 /** Map */
 
 .template-home .listify_widget_search_listings,
@@ -763,8 +762,36 @@ body:not(.facetwp) .locate-me {
 
 /** Features */
 
+ .homepage-hero-style-video {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+	}
+
+.home-how-it-works {
+	background-image : url('../images/bg-how-it-works-home-section.png');
+	background-repeat : no-repeat;
+	background-size: contain;
+	margin-left: 0;
+	margin-right: 0;
+	overflow: hidden;
+
+ & > .col-xs-12 {
+		 padding-left: 0;
+			padding-right: 0;
+
+			& .home-widget > .row {
+					margin-left: 0;
+					margin-right: 0;
+			}
+
+	}
+
+
+}
+
 .home-features-wrapper {
-	margin-bottom: -3em;
+			margin-bottom: -3em;
 }
 
 .home-feature {
@@ -781,8 +808,8 @@ body:not(.facetwp) .locate-me {
 .home-feature-media {
 
 	img {
-		width: 50%;
-		max-width: 100%;
+		width : 88px;
+	 height : 80px;
 		height: auto;
 		margin: 0 auto;
 		display: block;
