@@ -110,7 +110,7 @@
 .site-footer {
 	color: #515b6a;
 	padding: 3em 0;
-	background-color: #22262c;
+	background-color: #E6E6E6 !important;
 	overflow: hidden;
 }
 
@@ -136,7 +136,7 @@
 /** Widgets */
 
 .site-footer-widgets {
-	background-color: #2f3339;
+	background-color: #F2F2F2 !important;
 	padding: 6em 0;
 }
 
@@ -168,8 +168,8 @@
 	margin-bottom: 3em;
 
 	li:before {
-		margin-right: 6px;	
-	}	
+		margin-right: 6px;
+	}
 }
 
 .footer-widget:last-child {
@@ -178,6 +178,9 @@
 
 .footer-widget-title {
 	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	color: #B2B2B2;
 	text-transform: uppercase;
 	margin: 0 0 1em;
 }
@@ -185,7 +188,10 @@
 .footer-widget,
 .footer-widget a,
 .footer-widget a:hover {
-	color: #fff;
+	color: #686868;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
 }
 
 .footer-widget ul,

@@ -27,10 +27,7 @@
 			<div class="container">
 				<div class="primary-header-inner">
 					<div class="site-branding">
-						<?php $header_image = get_header_image(); ?>
-						<?php if ( ! empty( $header_image ) ) : ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
-						<?php endif; ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="/howl-content/uploads/2016/01/howl-logo-white-small.png" alt=""></a>
 
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -76,7 +73,7 @@
 
 
 					<div>
-						<?php  
+						<?php
 					$role = $user->roles[0];
 					print_r($role);
 					?>

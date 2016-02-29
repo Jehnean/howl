@@ -7,6 +7,10 @@
 
 /** Global content area */
 
+body {
+	 overflow-x: hidden;
+}
+
 .container {
 	padding-left: 25px;
 	padding-right: 25px;
