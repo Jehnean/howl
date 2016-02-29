@@ -434,11 +434,11 @@
 
 	@include bp(md) {
 		.home-widget {
-			margin: 9em 0;
+			margin: 110px 0 40px;
 		}
 
 		.home-widget + .container {
-			margin-top: -9em;
+			margin-top: -110px;
 		}
 	}
 
@@ -470,17 +470,61 @@
 }
 
 .home-widget-title {
-	font-size: 20px;
+	font-size: 50px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 200;
+	line-height: 64px;
+}
+
+.customer-cta.cta-module.text-center {
+    height: 190px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    width: 100%;
+
+				p {
+				  font-family: 'Open Sans', sans-serif;
+				  font-size : 25px;
+				  line-height : 55px;
+				  color : #333333;
+				  color : rgb(51, 51, 51);
+				}
+
+				.button {
+						background : #0A82DC;
+				  background : rgba(10, 130, 220, 1);
+				  width : 270px;
+				  height : 60px;
+				  border-radius : 4px;
+				  -moz-border-radius : 4px;
+				  -webkit-border-radius : 4px;
+				  font-family: 'Open Sans', sans-serif;
+				  font-size : 18px;
+						padding: 0;
+						line-height: 60px;
+				  text-transform : uppercase;
+						text-align: center;
+				  color : #FFFFFF;
+				  color : rgb(255, 255, 255);
+				}
+
 }
 
 	@include bp(sm) {
 		.home-widget-title {
-			font-size: 26px;
+			font-size: 50px;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 200;
+			line-height: 64px;
 		}
 	}
 
 .home-widget-description {
-	font-size: 13px;
+	font-size: 25px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 200;
+	line-height: 28px;
 	color: #b4bcc7;
 	margin-top: 0.33em;
 }
@@ -488,9 +532,63 @@
 	@include bp(sm) {
 		.home-widget-description {
 			margin-top: 0.75em;
-			font-size: 16px;
+			font-size: 25px;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 200;
+			line-height: 28px;
 		}
 	}
+
+.home-footer-headline {
+
+		background-color: #7F7F7F;
+
+		.home-widget-title {
+			 margin-bottom: 10px;
+				color: #FFF;
+		}
+
+  .home-widget-description {
+			 color: #FFF;
+			 max-width: 754px;
+				text-align: center;
+				font-size: 30px;
+				line-height: 42px;
+				font-family: 'Open Sans', sans-serif;
+				display: block;
+				margin: 0 auto 20px;
+		}
+
+		.button {
+				background : #0A82DC;
+				background : rgba(10, 130, 220, 1);
+				width : 270px;
+				height : 60px;
+				border-radius : 4px;
+				-moz-border-radius : 4px;
+				-webkit-border-radius : 4px;
+				font-family: 'Open Sans', sans-serif;
+				font-size : 18px;
+				padding: 0;
+				line-height: 60px;
+				text-transform : uppercase;
+				text-align: center;
+				color : #FFFFFF;
+				color : rgb(255, 255, 255);
+				margin-top: 30px;
+				margin-bottom: 30px;
+				display: inline-block;
+
+				&:hover {
+					background : #0A82DC;
+					background : rgba(10, 130, 220, 1);
+					text-decoration: underline;
+				}
+
+		}
+
+}
+
 
 /** Recent */
 .listify_widget_recent_listings.home-widget:not(:last-child),
@@ -768,27 +866,82 @@ body:not(.facetwp) .locate-me {
 			width: 100%;
 	}
 
+	.listify_widget_features {
+				.row {
+							& > .col-md-4 {
+									height: 520px;
+							}
+				}
+	}
+
 .home-how-it-works {
-	background-image : url('../images/bg-how-it-works-home-section.png');
-	background-repeat : no-repeat;
-	background-size: contain;
 	margin-left: 0;
 	margin-right: 0;
 	overflow: hidden;
 
  & > .col-xs-12 {
+
+			.listify_widget_features {
+				background-image : url('../images/bg-how-it-works-home-section.png');
+				background-repeat : no-repeat;
+				background-size: cover;
+			}
+
 		 padding-left: 0;
 			padding-right: 0;
 
-			& .home-widget > .row {
-					margin-left: 0;
-					margin-right: 0;
-					padding-top: 110px;
-	    padding-bottom: 110px;
+					.row {
+								& .home-widget > .row  {
+										margin-left: 0;
+										margin-right: 0;
+							}
+					padding-top: 50px;
+	    padding-bottom: 50px;
+					max-width: 1140px;
+	    margin: 0 auto;
+			}
+
+			.listify_widget_taxonomy_image_grid {
+				 & > .row {
+							padding-top: 50px;
+							padding-bottom: 15px;
+							max-width: 1140px;
+							margin: 0 auto;
+							clear:both;
+							float: none;
+					}
 			}
 
 	}
 
+
+	.button {
+			background : #0A82DC;
+			background : rgba(10, 130, 220, 1);
+			width : 270px;
+			height : 60px;
+			border-radius : 4px;
+			-moz-border-radius : 4px;
+			-webkit-border-radius : 4px;
+			font-family: 'Open Sans', sans-serif;
+			font-size : 18px;
+			padding: 0;
+			line-height: 60px;
+			text-transform : uppercase;
+			text-align: center;
+			color : #FFFFFF;
+			color : rgb(255, 255, 255);
+			margin-top: 30px;
+			margin-bottom: 30px;
+			display: inline-block;
+
+			&:hover {
+				background : #0A82DC;
+				background : rgba(10, 130, 220, 1);
+				text-decoration: underline;
+			}
+
+	}
 
 }
 
