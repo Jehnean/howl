@@ -783,6 +783,8 @@ body:not(.facetwp) .locate-me {
 			& .home-widget > .row {
 					margin-left: 0;
 					margin-right: 0;
+					padding-top: 110px;
+	    padding-bottom: 110px;
 			}
 
 	}
@@ -800,13 +802,15 @@ body:not(.facetwp) .locate-me {
 
 .home-feature-title h2 {
 	margin: 1.25em 0 0.75em;
-	font-size: 23px;
+	font-size: 35px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 200;
 	line-height: 1.5;
 	text-align: center;
 }
 
 .home-feature-media {
-
+ height: 92px;
 	img {
 		width : 88px;
 	 height : 80px;
@@ -815,6 +819,12 @@ body:not(.facetwp) .locate-me {
 		display: block;
 	}
 
+}
+
+.home-feature-description {
+	  p {
+				 text-align: center;
+			}
 }
 
 
