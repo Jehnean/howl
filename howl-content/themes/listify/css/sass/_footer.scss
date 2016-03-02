@@ -120,6 +120,8 @@
 
 .site-info {
 	line-height: 26px;
+	text-transform: uppercase;
+	color: #666666;
 }
 
 	@include bp(sm) {

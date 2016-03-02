@@ -542,8 +542,13 @@
 .home-footer-headline {
 
 		background-color: #7F7F7F;
+		background-image: url("../images/howl-for-pros-bg.jpg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		height: 724px;
 
 		.home-widget-title {
+			 margin-top: 180px;
 			 margin-bottom: 10px;
 				color: #FFF;
 		}
