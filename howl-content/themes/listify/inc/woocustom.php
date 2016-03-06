@@ -231,7 +231,6 @@ function has_woocommerce_subscription($the_user_id, $the_product_id, $the_status
 function modify_contact_methods($profile_fields) {
 
   // Add new fields
-  $profile_fields['company_name'] = 'Business Name';
   $profile_fields['company_category'] = 'Business Primary Category';
 
   return $profile_fields;
