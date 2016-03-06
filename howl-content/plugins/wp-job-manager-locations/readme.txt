@@ -2,12 +2,12 @@
 
 Author URI: http://astoundify.com
 Plugin URI: http://astoundify.com
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=contact@astoundify.com&item_name=Donation+for+Astoundify WP Job Manager Regions
+Donate link: https://www.paypal.me/astoundify
 Contributors: Astoundify
 Tags: job, job listing, job region
-Requires at least: 4.1
-Tested up to: 4.3.1
-Stable Tag: 1.9.1
+Requires at least: 4.4 
+Tested up to: 4.4.*
+Stable Tag: 1.10.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,6 +31,10 @@ Astoundify has released two themes that are fully integrated with the WP Job Man
 == Frequently Asked Questions ==
 
 == Changelog ==
+
+= 1.10.0: February 5, 2016 =
+
+* New: Use `search_contains` to search less strictly.
 
 = 1.9.1: October 30, 2015 =
 

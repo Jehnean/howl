@@ -1,10 +1,9 @@
 === WP Job Manager ===
 Contributors: mikejolley, automattic
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mike.jolley@me.com&currency_code=&amount=&return=&item_name=Buy+me+a+coffee+for+A+New+Job+Board+Plugin+for+WordPress
 Tags: job manager, job listing, job board, job management, job lists, job list, job, jobs, company, hiring, employment, employer, employees, candidate, freelance, internship, job listings, positions, board, application, hiring, listing, manager, recruiting, recruitment, talent
 Requires at least: 4.1
 Tested up to: 4.4
-Stable tag: 1.23.13
+Stable tag: 1.24.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -63,13 +62,13 @@ You can get the above add-ons and several others at discount with our [Core Add-
 
 = Contributing and reporting bugs =
 
-You can contribute code to this plugin via GitHub: [https://github.com/mikejolley/wp-job-manager](https://github.com/mikejolley/wp-job-manager) and localizations via [https://translate.wordpress.org/projects/wp-plugins/wp-job-manager](https://translate.wordpress.org/projects/wp-plugins/wp-job-manager)
+You can contribute code to this plugin via GitHub: [https://github.com/mikejolley/wp-job-manager](https://github.com/Automattic/WP-Job-Manager) and localizations via [https://translate.wordpress.org/projects/wp-plugins/wp-job-manager](https://translate.wordpress.org/projects/wp-plugins/wp-job-manager)
 
 Thanks to all of our contributors.
 
 = Support =
 
-Use the WordPress.org forums for community support where we try to help all users. If you spot a bug, you can log it (or fix it) on [Github](https://github.com/mikejolley/wp-job-manager) where we can act upon them more efficiently.
+Use the WordPress.org forums for community support where we try to help all users. If you spot a bug, you can log it (or fix it) on [Github](https://github.com/Automattic/WP-Job-Manager) where we can act upon them more efficiently.
 
 If you need help with one of our add-ons, [please raise a ticket in our help desk](https://wpjobmanager.com/support/).
 
@@ -141,6 +140,16 @@ You can view (and contribute) translations via the [translate.wordpress.org](htt
 6. Job listings in admin.
 
 == Changelog ==
+
+= 1.24.0 =
+* Feature - Use featured images to store company logos.
+* Feature - Search term names for keywords.
+* Feature - Search custom fields in backend job listing search.
+* Tweak - Allow job expiry field to be localised.
+* Fix - The above change avoids creation of duplicate images in media library.
+* Dev - Added methods to WP_Job_Manager_Form; get_steps, get_step_key, set_step.
+* Dev - Made WP_Job_Manager_Form call the next 'handler' if no view is defined for the next step.
+* Dev - Added template to control job preview form.
 
 = 1.23.13 =
 * Fix - Conflict between the_job_location() and the regions plugin.

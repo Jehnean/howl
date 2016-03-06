@@ -2,12 +2,12 @@
 
 Author URI: http://astoundify.com
 Plugin URI: https://wordpress.org/plugins/wp-job-manager-contact-listing/
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=contact@appthemer.com&item_name=Donation+for+Astoundify WP Job Manager Contact Listing
+Donate link: https://www.paypal.me/astoundify
 Contributors: Astoundify
 Tags: job, job listing, job apply, gravity forms, wp job manager, gravity forms, gravityforms, ninja forms, ninjaforms, contact form 7, cf7
-Requires at least: 4.1
-Tested up to: 4.2.1
-Stable Tag: 1.0.5
+Requires at least: 4.4 
+Tested up to: 4.4.*
+Stable Tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -38,7 +38,7 @@ The plugin can also be used on any theme but no extra styling (outside the CSS t
 You **must** create a *hidden* field with the following specific settings:
 
 * **Label:** Listing ID
-* **Allow field to be dynamically populated:** `{entry_id}`
+* **Allow field to be dynamically populated:** `{embed_post:ID}`
 
 The Job/Resume listing must also have an email address associated with it, not a URL to a website.
 
@@ -74,6 +74,10 @@ If you have purchased Jobify and still have questions, please post on our dedica
 3. Visit the FAQ for specifics on each form plugin.
 
 == Changelog ==
+
+= 1.1.0: February 25, 2016 =
+
+* New: Fall back to the listing owner's user account email if no `_application` field value exists.
 
 = 1.0.5: April, 9, 2015 =
 

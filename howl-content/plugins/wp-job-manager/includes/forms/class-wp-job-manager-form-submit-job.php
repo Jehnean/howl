@@ -257,10 +257,11 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 					}
 					if ( ! empty( $check_value ) ) {
 						foreach ( $check_value as $file_url ) {
-							$file_url = current( explode( '?', $file_url ) );
+							$file_url  = current( explode( '?', $file_url ) );
+							$file_info = wp_check_filetype( $file_url );
 
-							if ( ( $info = wp_check_filetype( $file_url ) ) && ! in_array( $info['type'], $field['allowed_mime_types'] ) ) {
-								throw new Exception( sprintf( __( '"%s" (filetype %s) needs to be one of the following file types: %s', 'wp-job-manager' ), $field['label'], $info['ext'], implode( ', ', array_keys( $field['allowed_mime_types'] ) ) ) );
+							if ( ! is_numeric( $file_url ) && $file_info && ! in_array( $file_info['type'], $field['allowed_mime_types'] ) ) {
+								throw new Exception( sprintf( __( '"%s" (filetype %s) needs to be one of the following file types: %s', 'wp-job-manager' ), $field['label'], $file_info['ext'], implode( ', ', array_keys( $field['allowed_mime_types'] ) ) ) );
 							}
 						}
 					}
@@ -506,6 +507,38 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 	}
 
 	/**
+	 * Create an attachment
+	 * @param  string $attachment_url
+	 * @return int attachment id
+	 */
+	protected function create_attachment( $attachment_url ) {
+		include_once( ABSPATH . 'wp-admin/includes/image.php' );
+		include_once( ABSPATH . 'wp-admin/includes/media.php' );
+
+		$attachment_url = str_replace( array( WP_CONTENT_URL, site_url() ), array( WP_CONTENT_DIR, ABSPATH ), $attachment_url );
+		$attachment     = array(
+			'post_title'   => get_the_title( $this->job_id ),
+			'post_content' => '',
+			'post_status'  => 'inherit',
+			'post_parent'  => $this->job_id,
+			'guid'         => $attachment_url
+		);
+
+		if ( $info = wp_check_filetype( $attachment_url ) ) {
+			$attachment['post_mime_type'] = $info['type'];
+		}
+
+		$attachment_id = wp_insert_attachment( $attachment, $attachment_url, $this->job_id );
+
+		if ( ! is_wp_error( $attachment_id ) ) {
+			wp_update_attachment_metadata( $attachment_id, wp_generate_attachment_metadata( $attachment_id, $attachment_url ) );
+			return $attachment_id;
+		}
+
+		return 0;
+	}
+
+	/**
 	 * Set job meta + terms based on posted values
 	 *
 	 * @param  array $values
@@ -528,20 +561,25 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 						wp_set_object_terms( $this->job_id, array( $values[ $group_key ][ $key ] ), $field['taxonomy'], false );
 					}
 
+				// Company logo is a featured image
+				} elseif ( 'company_logo' === $key ) {
+					$attachment_id = is_numeric( $values[ $group_key ][ $key ] ) ? absint( $values[ $group_key ][ $key ] ) : $this->create_attachment( $values[ $group_key ][ $key ] );
+					set_post_thumbnail( $this->job_id, $attachment_id );
+					update_user_meta( get_current_user_id(), '_company_logo', $attachment_id );
+
 				// Save meta data
 				} else {
 					update_post_meta( $this->job_id, '_' . $key, $values[ $group_key ][ $key ] );
-				}
 
-				// Handle attachments
-				if ( 'file' === $field['type'] ) {
-					// Must be absolute
-					if ( is_array( $values[ $group_key ][ $key ] ) ) {
-						foreach ( $values[ $group_key ][ $key ] as $file_url ) {
-							$maybe_attach[] = str_replace( array( WP_CONTENT_URL, site_url() ), array( WP_CONTENT_DIR, ABSPATH ), $file_url );
+					// Handle attachments
+					if ( 'file' === $field['type'] ) {
+						if ( is_array( $values[ $group_key ][ $key ] ) ) {
+							foreach ( $values[ $group_key ][ $key ] as $file_url ) {
+								$maybe_attach[] = $file_url;
+							}
+						} else {
+							$maybe_attach[] = $values[ $group_key ][ $key ];
 						}
-					} else {
-						$maybe_attach[] = str_replace( array( WP_CONTENT_URL, site_url() ), array( WP_CONTENT_DIR, ABSPATH ), $values[ $group_key ][ $key ] );
 					}
 				}
 			}
@@ -551,38 +589,18 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 
 		// Handle attachments
 		if ( sizeof( $maybe_attach ) && apply_filters( 'job_manager_attach_uploaded_files', true ) ) {
-			/** WordPress Administration Image API */
-			include_once( ABSPATH . 'wp-admin/includes/image.php' );
-			include_once( ABSPATH . 'wp-admin/includes/media.php' );
-
 			// Get attachments
 			$attachments     = get_posts( 'post_parent=' . $this->job_id . '&post_type=attachment&fields=ids&post_mime_type=image&numberposts=-1' );
 			$attachment_urls = array();
 
 			// Loop attachments already attached to the job
-			foreach ( $attachments as $attachment_key => $attachment ) {
-				$attachment_urls[] = str_replace( array( WP_CONTENT_URL, site_url() ), array( WP_CONTENT_DIR, ABSPATH ), wp_get_attachment_url( $attachment ) );
+			foreach ( $attachments as $attachment_id ) {
+				$attachment_urls[] = wp_get_attachment_url( $attachment_id );
 			}
 
 			foreach ( $maybe_attach as $attachment_url ) {
 				if ( ! in_array( $attachment_url, $attachment_urls ) ) {
-					$attachment = array(
-						'post_title'   => get_the_title( $this->job_id ),
-						'post_content' => '',
-						'post_status'  => 'inherit',
-						'post_parent'  => $this->job_id,
-						'guid'         => $attachment_url
-					);
-
-					if ( $info = wp_check_filetype( $attachment_url ) ) {
-						$attachment['post_mime_type'] = $info['type'];
-					}
-
-					$attachment_id = wp_insert_attachment( $attachment, $attachment_url, $this->job_id );
-
-					if ( ! is_wp_error( $attachment_id ) ) {
-						wp_update_attachment_metadata( $attachment_id, wp_generate_attachment_metadata( $attachment_id, $attachment_url ) );
-					}
+					$this->create_attachment( $attachment_url );
 				}
 			}
 		}
@@ -593,7 +611,6 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 			update_user_meta( get_current_user_id(), '_company_website', isset( $values['company']['company_website'] ) ? $values['company']['company_website'] : '' );
 			update_user_meta( get_current_user_id(), '_company_tagline', isset( $values['company']['company_tagline'] ) ? $values['company']['company_tagline'] : '' );
 			update_user_meta( get_current_user_id(), '_company_twitter', isset( $values['company']['company_twitter'] ) ? $values['company']['company_twitter'] : '' );
-			update_user_meta( get_current_user_id(), '_company_logo', isset( $values['company']['company_logo'] ) ? $values['company']['company_logo'] : '' );
 			update_user_meta( get_current_user_id(), '_company_video', isset( $values['company']['company_video'] ) ? $values['company']['company_video'] : '' );
 		}
 
@@ -608,28 +625,15 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 
 		if ( $this->job_id ) {
 			$job_preview       = true;
-			$action            = $this->get_action();
 			$post              = get_post( $this->job_id );
-			setup_postdata( $post );
 			$post->post_status = 'preview';
-			?>
-			<form method="post" id="job_preview" action="<?php echo esc_url( $action ); ?>">
-				<div class="job_listing_preview_title">
-					<input type="submit" name="continue" id="job_preview_submit_button" class="button job-manager-button-submit-listing" value="<?php echo apply_filters( 'submit_job_step_preview_submit_text', __( 'Submit Listing', 'wp-job-manager' ) ); ?>" />
-					<input type="submit" name="edit_job" class="button job-manager-button-edit-listing" value="<?php _e( 'Edit listing', 'wp-job-manager' ); ?>" />
-					<input type="hidden" name="job_id" value="<?php echo esc_attr( $this->job_id ); ?>" />
-					<input type="hidden" name="step" value="<?php echo esc_attr( $this->step ); ?>" />
-					<input type="hidden" name="job_manager_form" value="<?php echo $this->form_name; ?>" />
-					<h2>
-						<?php _e( 'Preview', 'wp-job-manager' ); ?>
-					</h2>
-				</div>
-				<div class="job_listing_preview single_job_listing">
-					<h1><?php the_title(); ?></h1>
-					<?php get_job_manager_template_part( 'content-single', 'job_listing' ); ?>
-				</div>
-			</form>
-			<?php
+
+			setup_postdata( $post );
+
+			get_job_manager_template( 'job-preview.php', array(
+				'form' => $this
+			) );
+
 			wp_reset_postdata();
 		}
 	}
@@ -658,7 +662,7 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 				// Update job listing
 				$update_job                  = array();
 				$update_job['ID']            = $job->ID;
-				$update_job['post_status']   = get_option( 'job_manager_submission_requires_approval' ) ? 'pending' : 'publish';
+				$update_job['post_status']   = apply_filters( 'submit_job_post_status', get_option( 'job_manager_submission_requires_approval' ) ? 'pending' : 'publish', $job );
 				$update_job['post_date']     = current_time( 'mysql' );
 				$update_job['post_date_gmt'] = current_time( 'mysql', 1 );
 				$update_job['post_author']   = get_current_user_id();

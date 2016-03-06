@@ -60,7 +60,7 @@
 
 .mfp-content .mfp-close:before {
 	@include ionicon;
-	color: #b4bcc7;
+	color: $light-gray;
 	font-size: 32px;
 	padding-left: 2px;
 	content: '\f128';

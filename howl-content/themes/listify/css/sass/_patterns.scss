@@ -181,7 +181,7 @@ img.aligncenter,
 
 .search-form .search-submit:before {
 	@include ionicon;
-	color: #b4bcc7;
+	color: $light-gray;
 	font-size: 24px;
 	content: '\f2f5';
 	vertical-align: middle;

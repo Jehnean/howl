@@ -50,7 +50,7 @@ body:not(.facetwp) .locate-me {
 
 	&:before {
 		@include ionicon;
-		color: #B4BCC7;
+		color: $light-gray;
 		font-size: 16px;
 		content: '\f2e9';
 		line-height: 44px;
@@ -209,7 +209,7 @@ body.facetwp .locate-me {
 }
 
 .showing_jobs {
-	color: #b4bcc7;
+	color: $light-gray;
 	margin-top: 1em;
 	padding: 1em;
 	border: 1px solid #e9edf2;

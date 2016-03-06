@@ -60,12 +60,6 @@ class WP_Job_Manager_Writepanels {
 				'placeholder' => '@yourcompany',
 				'priority'    => 6
 			),
-			'_company_logo' => array(
-				'label'       => __( 'Company Logo', 'wp-job-manager' ),
-				'placeholder' => __( 'URL to the company logo', 'wp-job-manager' ),
-				'type'        => 'file',
-				'priority'    => 7
-			),
 			'_company_video' => array(
 				'label'       => __( 'Company Video', 'wp-job-manager' ),
 				'placeholder' => __( 'URL to the company video', 'wp-job-manager' ),
@@ -88,8 +82,8 @@ class WP_Job_Manager_Writepanels {
 			);
 			$fields['_job_expires'] = array(
 				'label'       => __( 'Listing Expiry Date', 'wp-job-manager' ),
-				'placeholder' => __( 'yyyy-mm-dd', 'wp-job-manager' ),
 				'priority'    => 11,
+				'placeholder' => _x( 'yyyy-mm-dd', 'Date format placeholder', 'wp-job-manager' ),
 				'value'       => metadata_exists( 'post', $post->ID, '_job_expires' ) ? get_post_meta( $post->ID, '_job_expires', true ) : calculate_job_expiry( $post->ID ),
 			);
 		}

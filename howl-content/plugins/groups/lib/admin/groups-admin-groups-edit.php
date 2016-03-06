@@ -151,6 +151,8 @@ function groups_admin_groups_edit( $group_id ) {
 		$output .= '</div>';
 	}
 
+	$output .= apply_filters( 'groups_admin_groups_edit_form_after_fields', '', $group_id );
+
 	$output .= '<div class="field">';
 	$output .= wp_nonce_field( 'groups-edit', GROUPS_ADMIN_GROUPS_NONCE, true, false );
 	$output .= '<input class="button button-primary" type="submit" value="' . __( 'Save', GROUPS_PLUGIN_DOMAIN ) . '"/>';
@@ -208,7 +210,6 @@ function groups_admin_groups_edit_submit() {
 		}
 
 		$group_id = Groups_Group::update( compact( "group_id", "name", "parent_id", "description" ) );
-
 		if ( $group_id ) {
 			$capability_table       = _groups_get_tablename( "capability" );
 			$group_capability_table = _groups_get_tablename( "group_capability" );
@@ -237,6 +238,7 @@ function groups_admin_groups_edit_submit() {
 					Groups_Group_Capability::create( array( 'group_id' => $group_id, 'capability_id' => $cap ) );
 				}
 			}
+			do_action( 'groups_admin_groups_edit_submit_success', $group_id );
 		}
 		return $group_id;
 	} else {

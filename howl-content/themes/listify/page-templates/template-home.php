@@ -64,14 +64,14 @@ get_header(); ?>
 		<?php do_action( 'listify_page_before' ); ?>
 
 		<main id="main" class="site-main" role="main">
-			<div class="container homepage-hero-style-<?php echo $style; ?>">
+			<div class="container">
 
 			<div class="row content-area leadertext-area">
-				<div class="col-md-12 col-sm-12 col-xs-12 text-center items-3-section-title">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center items-3-section-title home-widget">
 					<h2>Tell us what you need. Get free quotes. Choose the right pro for the job.</h2>
 			 	</div>
 			</div>
-
+		</div>
 			<div class="row content-area home-how-it-works">
 				<div class="col-xs-12">
 				<?php

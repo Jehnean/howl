@@ -391,7 +391,7 @@
 }
 
 .comment-meta a {
-	color: #b4bcc7;
+	color: $light-gray;
 	font-size: 17px;
 	line-height: 1;
 	margin-right: 10px;
@@ -402,7 +402,7 @@
 }
 
 .commentlist a.comment-ago {
-	color: #B4BCC7;
+	color: $light-gray;
 	margin: 1.5em 0 0;
 	display: block;
 }
@@ -692,7 +692,7 @@ a.upload-images span {
 	line-height: normal;
 
 	.job_listing-author-descriptor {
-		color: #B4BCC7;
+		color: $light-gray;
 		font-weight: 400;
 		font-size: 13px;
 		display: block;

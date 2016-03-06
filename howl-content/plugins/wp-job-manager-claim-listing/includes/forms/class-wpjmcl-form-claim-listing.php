@@ -48,7 +48,7 @@ class WPJMCL_Form_Claim_Listing extends WP_Job_Manager_Form {
 
         $this->steps  = (array) apply_filters( 'wpjmcl_claim_listing_steps', array(
             'wc-pay' => array(
-                'name'     => __( 'Choose a package', 'wp-job-manager-wc-paid-listings' ),
+                'name'     => __( 'Choose a package', 'wp-job-manager-claim-listing' ),
                 'view'     => array( __CLASS__, 'choose_package' ),
                 'handler'  => array( __CLASS__, 'choose_package_handler' ),
                 'priority' => 5,
@@ -88,7 +88,7 @@ class WPJMCL_Form_Claim_Listing extends WP_Job_Manager_Form {
         }
         $packages      = wpjmcl()->packages->get_packages_for_claiming();
         $user_packages = array();
-        $button_text   = 'before' !== get_option( 'job_manager_paid_listings_flow' ) ? __( 'Submit &rarr;', 'wp-job-manager-wc-paid-listings' ) : __( 'Claim listing &rarr;', 'wp-job-manager-wc-paid-listings' );
+        $button_text   = 'before' !== get_option( 'job_manager_paid_listings_flow' ) ? __( 'Submit &rarr;', 'wp-job-manager-claim-listing' ) : __( 'Claim listing &rarr;', 'wp-job-manager-claim-listing' );
         ?>
         <form method="post" id="job_package_selection">
             <div class="job_listing_packages_title">
@@ -96,7 +96,7 @@ class WPJMCL_Form_Claim_Listing extends WP_Job_Manager_Form {
                 <input type="hidden" name="job_id" value="<?php echo esc_attr( $job_id ); ?>" />
                 <input type="hidden" name="step" value="<?php echo esc_attr( $step ); ?>" />
                 <input type="hidden" name="job_manager_form" value="<?php echo $form_name; ?>" />
-                <h2><?php _e( 'Choose a package', 'wp-job-manager-wc-paid-listings' ); ?></h2>
+                <h2><?php _e( 'Choose a package', 'wp-job-manager-claim-listing' ); ?></h2>
             </div>
             <div class="job_listing_packages">
                 <?php get_job_manager_template( 'package-selection.php', array( 'packages' => $packages, 'user_packages' => $user_packages ), 'wc-paid-listings', JOB_MANAGER_WCPL_PLUGIN_DIR . '/templates/' ); ?>
@@ -160,16 +160,16 @@ class WPJMCL_Form_Claim_Listing extends WP_Job_Manager_Form {
      */
     private static function validate_package( $package_id, $is_user_package ) {
         if ( empty( $package_id ) ) {
-            return new WP_Error( 'error', __( 'Invalid Package', 'wp-job-manager-wc-paid-listings' ) );
+            return new WP_Error( 'error', __( 'Invalid Package', 'wp-job-manager-claim-listing' ) );
         } elseif ( $is_user_package ) {
             if ( ! wc_paid_listings_package_is_valid( get_current_user_id(), $package_id ) ) {
-                return new WP_Error( 'error', __( 'Invalid Package', 'wp-job-manager-wc-paid-listings' ) );
+                return new WP_Error( 'error', __( 'Invalid Package', 'wp-job-manager-claim-listing' ) );
             }
         } else {
             $package = wc_get_product( $package_id );
 
             if ( ! $package->is_type( 'job_package' ) && ! $package->is_type( 'job_package_subscription' ) ) {
-                return new WP_Error( 'error', __( 'Invalid Package', 'wp-job-manager-wc-paid-listings' ) );
+                return new WP_Error( 'error', __( 'Invalid Package', 'wp-job-manager-claim-listing' ) );
             }
 
             // Don't let them buy the same subscription twice if the subscription is for the package
@@ -177,7 +177,7 @@ class WPJMCL_Form_Claim_Listing extends WP_Job_Manager_Form {
                 $user_subscriptions = WC_Subscriptions_Manager::get_users_subscriptions( get_current_user_id() );
                 foreach ( $user_subscriptions as $user_subscription ) {
                     if ( $user_subscription['product_id'] == $package_id ) {
-                        return new WP_Error( 'error', __( 'You already have this subscription.', 'wp-job-manager-wc-paid-listings' ) );
+                        return new WP_Error( 'error', __( 'You already have this subscription.', 'wp-job-manager-claim-listing' ) );
                     }
                 }
             }

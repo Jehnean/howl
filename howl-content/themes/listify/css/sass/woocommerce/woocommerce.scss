@@ -36,7 +36,7 @@
 	.amount,
 	.subscription-details {
 		font-size: 12px;
-		color: #b4bcc7;
+		color: $light-gray;
 		position: relative;
 		width: auto;
 		margin-right: 0;
@@ -620,7 +620,7 @@ table.variations {
 }
 
 .widget_layered_nav_filters a:before {
-	color: #b4bcc7;
+	color: $light-gray;
 	content: '\f12a';
 	margin-right: 6px;
 }

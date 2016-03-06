@@ -106,7 +106,7 @@ function listify_get_color_schemes() {
 			'header_textcolor' => '#ffffff', // text
 			'color-navigation-text' => '#ffffff',
 			'color-header-background' => '#3396d1', // background
-			'color-body-text' => '#717a8f', // text
+			'color-body-text' => '#000', // text
 			'color-link' => '#3396d1', // text
 			'color-primary' => '#77c04b', // mixed
 			'color-accent' => '#3396d1', // mixed

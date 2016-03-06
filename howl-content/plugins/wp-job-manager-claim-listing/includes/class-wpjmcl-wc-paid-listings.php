@@ -91,8 +91,8 @@ class WPJMCL_WC_Paid_Listings {
         $product_type_options['use_for_claims'] = array(
             'id'            => '_use_for_claims',
             'wrapper_class' => 'show_if_job_package show_if_job_package_subscription',
-            'label'         => __( 'Use for claims', 'wp-job-manager-claim-listing' ),
-            'description'   => __( 'Allow this product to be a option for claiming a listing', 'wp-job-manager-claim-listing' ),
+            'label'         => __( 'Use for Claiming a Listing', 'wp-job-manager-claim-listing' ),
+            'description'   => __( 'Allow this package to be a option for claiming a listing. These packages will not appear on the standard listing submission form.', 'wp-job-manager-claim-listing' ),
             'default'       => 'no'
         );
 
