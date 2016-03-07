@@ -58,11 +58,11 @@
     padding-top: 40px;
 
 				.address {
-						font-family: 'Open Sans', sans-serif;
+						font-family: $body-font-family;
 						font-weight: bold;
 		    display: inline-block;
 		    font-size: 16px;
-		    color: white;
+		    color: $white;
 		    line-height: 22px;
 		    vertical-align: text-bottom;
 						text-align: center;
@@ -85,9 +85,9 @@
 				}
 
 				.action {
-						font-family: 'Open Sans', sans-serif;
+						font-family: $body-font-family;
 						font-size: 16px;
-						color: white;
+						color: $white;
 						line-height: 22px;
 						text-align: center;
 						vertical-align: text-bottom;
@@ -107,8 +107,8 @@
 
 .homepage-cover .home-widget-title {
 	font-size: 20px;
-	font-family: 'Open Sans', sans-serif;
-	color: #FFF;
+	font-family: $body-font-family;
+	color: $white;
 }
 
 	@include bp(sm) {
@@ -126,7 +126,7 @@
 .homepage-cover .home-widget-description {
 	font-size: 30px;
 	line-height: 1.5;
-	color: #FFF;
+	color: $white;
 }
 
 	@include bp(sm) {
@@ -149,7 +149,7 @@
 	&.has-image {
 		.home-widget-title,
 		.home-widget-description {
-			color: #fff;
+			color: $white;
 		}
 	}
 
@@ -160,45 +160,45 @@
 		.search_jobs > div.search_keywords input[type="text"],
 		.search_jobs > div.search_location input[type="text"] {
 					/*border: 0;
-					background: #fff;
+					background: $white;
 					box-shadow: none;
 					padding: 13px 16px;*/
-			  background : #FFFFFF;
+			  background : $white;
 			  background : rgba(255, 255, 255, 1);
 			  width : 450px;
 			  height : 60px;
 			  border-radius : 4px;
 			  -moz-border-radius : 4px;
 			  -webkit-border-radius : 4px;
-					font-family: 'Open Sans', sans-serif;
+					font-family: $body-font-family;
 			  font-size : 18px;
 			  line-height : 60px;
 			  color : #CCCCCC;
 			  color : rgb(204, 204, 204);
 
 					&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-							font-family: 'Open Sans', sans-serif;
+							font-family: $body-font-family;
 					  font-size : 18px;
 					  line-height : 60px;
 					  color : #CCCCCC;
 					  color : rgb(204, 204, 204);
 					}
 					&::-moz-placeholder { /* Firefox 19+ */
-							font-family: 'Open Sans', sans-serif;
+							font-family: $body-font-family;
 							font-size : 18px;
 							line-height : 60px;
 							color : #CCCCCC;
 							color : rgb(204, 204, 204);
 					}
 					&:-ms-input-placeholder { /* IE 10+ */
-							font-family: 'Open Sans', sans-serif;
+							font-family: $body-font-family;
 							font-size : 18px;
 							line-height : 60px;
 							color : #CCCCCC;
 							color : rgb(204, 204, 204);
 					}
 					&:-moz-placeholder { /* Firefox 18- */
-							font-family: 'Open Sans', sans-serif;
+							font-family: $body-font-family;
 							font-size : 18px;
 							line-height : 60px;
 							color : #CCCCCC;
@@ -217,8 +217,8 @@
 		.search_jobs > div.search_keywords input[type="text"]:focus,
 		.search_jobs > div.search_location input[type="text"]:focus,
 		.chosen-container-single .chosen-single {
-			border-color: #fff;
-			background: #fff;
+			border-color: $white;
+			background: $white;
 			box-shadow: none;
 		}
 
@@ -269,11 +269,11 @@
   border-radius : 4px;
   -moz-border-radius : 4px;
   -webkit-border-radius : 4px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $body-font-family;
   font-size : 18px;
 		line-height: 60px;
   text-transform : uppercase;
-  color : #FFFFFF;
+  color : $white;
   color : rgb(255, 255, 255);
 	}
 
@@ -402,9 +402,9 @@
 .site-main {
 	.items-3-section-title {
 			h2 {
-				font-size: 62px;
+				font-size: 54px;
 				line-height: 1.2;
-				font-family: 'Open Sans', sans-serif;
+				font-family: $body-font-family;
 				font-weight: 300;
 			}
 	}
@@ -471,7 +471,7 @@
 
 .home-widget-title {
 	font-size: 50px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: $body-font-family;
 	font-weight: 200;
 	line-height: 64px;
 }
@@ -484,7 +484,7 @@
     width: 100%;
 
 				p {
-				  font-family: 'Open Sans', sans-serif;
+				  font-family: $body-font-family;
 				  font-size : 25px;
 				  line-height : 55px;
 				  color : #333333;
@@ -499,13 +499,13 @@
 				  border-radius : 4px;
 				  -moz-border-radius : 4px;
 				  -webkit-border-radius : 4px;
-				  font-family: 'Open Sans', sans-serif;
+				  font-family: $body-font-family;
 				  font-size : 18px;
 						padding: 0;
 						line-height: 60px;
 				  text-transform : uppercase;
 						text-align: center;
-				  color : #FFFFFF;
+				  color : $white;
 				  color : rgb(255, 255, 255);
 				}
 
@@ -514,7 +514,7 @@
 	@include bp(sm) {
 		.home-widget-title {
 			font-size: 50px;
-			font-family: 'Open Sans', sans-serif;
+			font-family: $body-font-family;
 			font-weight: 200;
 			line-height: 64px;
 		}
@@ -522,7 +522,7 @@
 
 .home-widget-description {
 	font-size: 25px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: $body-font-family;
 	font-weight: 200;
 	line-height: 28px;
 	color: $light-gray;
@@ -533,7 +533,7 @@
 		.home-widget-description {
 			margin-top: 0.75em;
 			font-size: 25px;
-			font-family: 'Open Sans', sans-serif;
+			font-family: $body-font-family;
 			font-weight: 200;
 			line-height: 28px;
 		}
@@ -546,20 +546,22 @@
 		background-repeat: no-repeat;
 		// background-size: contain; kinda buggy disabled 
 		height: 724px;
+    float: left;
+    width: 100%;		
 
 		.home-widget-title {
 			 margin-top: 180px;
 			 margin-bottom: 10px;
-				color: #FFF;
+				color: $white;
 		}
 
   .home-widget-description {
-			 color: #FFF;
+			 color: $white;
 			 max-width: 754px;
 				text-align: center;
 				font-size: 30px;
 				line-height: 42px;
-				font-family: 'Open Sans', sans-serif;
+				font-family: $body-font-family;
 				display: block;
 				margin: 0 auto 20px;
 		}
@@ -572,13 +574,13 @@
 				border-radius : 4px;
 				-moz-border-radius : 4px;
 				-webkit-border-radius : 4px;
-				font-family: 'Open Sans', sans-serif;
+				font-family: $body-font-family;
 				font-size : 18px;
 				padding: 0;
 				line-height: 60px;
 				text-transform : uppercase;
 				text-align: center;
-				color : #FFFFFF;
+				color : $white;
 				color : rgb(255, 255, 255);
 				margin-top: 30px;
 				margin-bottom: 30px;
@@ -928,13 +930,13 @@ body:not(.facetwp) .locate-me {
 			border-radius : 4px;
 			-moz-border-radius : 4px;
 			-webkit-border-radius : 4px;
-			font-family: 'Open Sans', sans-serif;
+			font-family: $body-font-family;
 			font-size : 18px;
 			padding: 0;
 			line-height: 60px;
 			text-transform : uppercase;
 			text-align: center;
-			color : #FFFFFF;
+			color : $white;
 			color : rgb(255, 255, 255);
 			margin-top: 30px;
 			margin-bottom: 30px;
@@ -961,7 +963,7 @@ body:not(.facetwp) .locate-me {
 .home-feature-title h2 {
 	margin: 1.25em 0 0.75em;
 	font-size: 35px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: $body-font-family;
 	font-weight: 200;
 	line-height: 1.5;
 	text-align: center;
@@ -1029,7 +1031,7 @@ body:not(.facetwp) .locate-me {
 
 	.button {
 		background: none;
-		border: 2px solid #fff;
+		border: 2px solid $white;
 		border-radius: 6px;
 		padding-top: 14px;
 		padding-bottom: 14px;

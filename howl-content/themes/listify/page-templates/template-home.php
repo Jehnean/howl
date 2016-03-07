@@ -87,13 +87,15 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<div class="row content-area<?php echo $style; ?> home-footer-headline">
-				<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-					<div class="home-widget-section-title">
-						<h3 class="home-widget-title"><?php // the_title(); ?>Howl for Professionals</h3>
-						<h4 class="home-widget-description">Immediately connect to consumers. No empty leads.
-Smallest, flat fee for services like this.</h4>
-						<a href="<?php echo esc_url( home_url( '/how-it-works-professionals' ) ); ?>" class="button">How it Works</a>
+			<div class="home-footer-headline">
+				<div class="row content-area<?php echo $style; ?>">
+					<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+						<div class="home-widget-section-title">
+							<h3 class="home-widget-title"><?php // the_title(); ?>Howl for Professionals</h3>
+							<h4 class="home-widget-description">Immediately connect to consumers. No empty leads.
+	Smallest, flat fee for services like this.</h4>
+							<a href="<?php echo esc_url( home_url( '/how-it-works-professionals' ) ); ?>" class="button">How it Works</a>
+						</div>
 					</div>
 				</div>
 			</div>

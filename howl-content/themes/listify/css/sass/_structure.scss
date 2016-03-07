@@ -23,6 +23,11 @@ body {
 		}
 	}
 
+.content-area {
+	float: left;
+	width: 100%;	
+}
+
 .content-area,
 .post-type-archive-job_listing .content-area {
 	margin-top: 1.5em;
@@ -45,3 +50,98 @@ body {
 			margin-top: 2.5em;
 		}
 	}
+
+// Howl Custom
+
+.image-headline-wrapper {
+	height: auto !important;
+	padding: 0 0 42px;
+
+	p {
+		color: $white;
+	}
+
+	.image-widget-description {
+    @include widget-description-copy($white, 21px);
+	}
+
+	.home-feature {
+		margin-bottom: 0;
+
+		// .home-feature-media {
+
+		// }
+
+		.home-feature-title {
+			text-align: center;
+			
+			h3 {
+				color: $white;
+				font-size: 35px;
+				font-weight: 100;
+			}
+		}
+	}
+
+}
+
+.standard-description-module {
+	background: $medium-gray;
+  float: left;
+  width: 100%;	
+
+	.standard-widget-description {
+		@include widget-description-copy(#4d4d4d, 21px);
+	}
+
+	.home-feature {
+		margin-bottom: 0;
+
+		.home-feature-title {
+			h3 {
+				color: #4d4d4d;
+				font-size: 42px;
+			}
+		}
+
+		.home-feature-title,
+		.home-feature-description {
+			text-transform: uppercase;
+		}
+	}
+}
+
+.simple-callout-module {
+  padding: 60px 0;
+	float: left;
+	width: 100%;  
+
+	.simple-callout-title {
+	  font-size: 47px;
+	} 
+
+	.simple-callout-description {
+	  font-size: 35px;
+	}	 
+}
+
+.how-it-works-steps-module {
+	padding-bottom: 95px;
+
+	img {
+		width: 100%
+	}
+
+	.callout-feature-content {
+		padding: 7em 0;
+
+		.callout-feature-title {
+			font-weight: 100;
+			color: #0a82dc;
+		}
+
+		p {
+			margin-top: 0;
+		}
+	}
+}

@@ -5,5 +5,24 @@
  * 
  */
 
+
+$body-font-family: 'Open Sans', sans-serif;
+
+
+$white: #fff;
 $light-gray: #b4bcc7;
 $medium-gray: #f7f7f7;
+
+
+
+@mixin widget-description-copy ($copy-color, $copy-font-size) {
+	color: $copy-color;
+	max-width: 800px;
+	text-align: center;
+	font-size: $copy-font-size;
+	line-height: 35px;
+	font-family: $body-font-family;
+	display: block;
+	margin: 0 auto 20px;
+	font-weight: 100;	
+}

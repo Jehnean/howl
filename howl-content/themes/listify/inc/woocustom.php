@@ -233,6 +233,10 @@ function modify_contact_methods($profile_fields) {
   // Add new fields
   $profile_fields['company_category'] = 'Business Primary Category';
 
+  // Remove old fields
+  unset($profile_fields['github']);
+  unset($profile_fields['googleplus']);
+
   return $profile_fields;
 }
 add_filter('user_contactmethods', 'modify_contact_methods');

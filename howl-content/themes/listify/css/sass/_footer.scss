@@ -3,6 +3,11 @@
  */
 
 
+.footer-wrapper {
+	float: left;
+	width: 100%;
+}
+
 /** Call to Action */
 
 .call-to-action {
@@ -180,7 +185,7 @@
 
 .footer-widget-title {
 	font-size: 14px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: $body-font-family;
 	font-weight: 500;
 	color: #B2B2B2;
 	text-transform: uppercase;
@@ -191,7 +196,7 @@
 .footer-widget a,
 .footer-widget a:hover {
 	color: #686868;
-	font-family: 'Open Sans', sans-serif;
+	font-family: $body-font-family;
 	font-size: 14px;
 	font-weight: 300;
 }
