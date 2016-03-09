@@ -56,9 +56,26 @@ body {
 .image-headline-wrapper {
 	height: auto !important;
 	padding: 0 0 42px;
+	position: relative;
+	
+	&:after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,.55);
+		z-index: 1;		
+	}
 
 	p {
 		color: $white;
+	}
+
+	div {
+    position: relative;
+    z-index: 3;		
 	}
 
 	.image-widget-description {
@@ -68,9 +85,9 @@ body {
 	.home-feature {
 		margin-bottom: 0;
 
-		// .home-feature-media {
-
-		// }
+		.inner-feature-media {
+			text-align: center;			
+		}
 
 		.home-feature-title {
 			text-align: center;
@@ -88,7 +105,8 @@ body {
 .standard-description-module {
 	background: $medium-gray;
   float: left;
-  width: 100%;	
+  padding: 35px 0;
+  width: 100%;
 
 	.standard-widget-description {
 		@include widget-description-copy(#4d4d4d, 21px);
@@ -100,7 +118,7 @@ body {
 		.home-feature-title {
 			h3 {
 				color: #4d4d4d;
-				font-size: 42px;
+				font-size: 32px;
 			}
 		}
 
@@ -121,7 +139,9 @@ body {
 	} 
 
 	.simple-callout-description {
-	  font-size: 35px;
+	  p {
+	  	font-size: 35px;
+	  }
 	}	 
 }
 

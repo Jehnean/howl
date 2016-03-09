@@ -73,13 +73,6 @@
 					?>
 					<!-- notifications -->
 
-
-					<div>
-						<?php
-					$role = $user->roles[0];
-					print_r($role);
-					?>
-					</div>
 				</div>
 
 

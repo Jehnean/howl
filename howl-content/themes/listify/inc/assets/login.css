@@ -1,0 +1,96 @@
+
+
+html, body.login {
+  width: auto;
+  height: auto;
+  background: #f7f7f7;
+}
+
+.login {
+  text-indent: -999em;
+}
+
+.login .message {
+  color: #fff !important;
+  background-color: #f7f7f7  !important;
+  border: 1px solid #999 !important;
+  text-align: center;
+  
+}
+
+#login {
+  text-indent: 0;
+}
+
+.login h1 a {
+  background: url("images/admin-logo.png") 0 0 no-repeat; /* Logo */
+  background-size: contain;
+  height: 100px !important;
+  width: 242px !important;
+  display: block;
+
+}
+
+.login label {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.login form .input {
+  background: rgb(242,242,242) !important;
+}
+
+#loginform {
+  background: #f7f7f7;
+  border: 1px solid #999 !important;
+}
+
+#loginform input {
+  border: 1px solid #999 !important;
+}
+
+#wp-submit {
+  background: rgb(10, 130, 220);
+  text-shadow: none;
+  color: #fff !important;
+  padding: 6px 24px;
+}
+
+.login #backtoblog a, .login #nav a {
+  color: #336699 !important;
+  text-shadow: none;
+}
+
+.login #backtoblog a:hover, .login #nav a:hover {
+  color: rgb(0,0,0) !important;
+  text-decoration: none;
+}
+
+.login form {
+  background-color: #f4f4f4;
+  box-shadow: rgb(0,0,0);
+  -webkit-box-shadow: rgb(0,0,0);
+  border: none;
+}
+
+input.button-primary, button.button-primary, a.button-primary {
+  color: rgb(0,0,0) !important;
+  border-color: rgb(202,201,202);
+}
+
+.input {
+  background: #f4f4f4 !important;
+}
+#nav {
+  text-align: center;
+}
+
+#backtoblog {
+  /*display: none;*/
+  text-align: center;
+}
+
+input:-webkit-autofill {
+  background: #f4f4f4 !important;
+}

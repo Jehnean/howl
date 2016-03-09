@@ -539,6 +539,7 @@ $includes = array(
 	'custom-header.php',
 	'template-tags.php',
 	'extras.php',
+	'branding.php',
 	'woocustom.php',
 	'post-type-customer-projects.php',
 	'post-type-faqs.php',
