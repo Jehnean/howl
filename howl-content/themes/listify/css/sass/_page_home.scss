@@ -143,7 +143,6 @@
 	.home-widget-description {
 		text-shadow: none;
 		/*text-transform: uppercase;*/
-		letter-spacing: 0.1em;
 	}
 
 	&.has-image {
@@ -567,31 +566,7 @@
 		}
 
 		.button {
-				background : #0A82DC;
-				background : rgba(10, 130, 220, 1);
-				width : 270px;
-				height : 60px;
-				border-radius : 4px;
-				-moz-border-radius : 4px;
-				-webkit-border-radius : 4px;
-				font-family: $body-font-family;
-				font-size : 18px;
-				padding: 0;
-				line-height: 60px;
-				text-transform : uppercase;
-				text-align: center;
-				color : $white;
-				color : rgb(255, 255, 255);
-				margin-top: 30px;
-				margin-bottom: 30px;
-				display: inline-block;
-
-				&:hover {
-					background : #0A82DC;
-					background : rgba(10, 130, 220, 1);
-					text-decoration: underline;
-				}
-
+			@include blue-btn;
 		}
 
 }

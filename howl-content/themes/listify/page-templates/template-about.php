@@ -48,42 +48,97 @@ get_header(); ?>
 		<?php endif; ?>
 
 		<?php do_action( 'listify_page_before' ); ?>
-			
-			<div class="container homepage-hero-style-<?php echo $style; ?>">
-				
-			<div class="home-widget">
-				<h3 class="home-widget-title">We'll match you to customers in your area for for relevant project.</h3>
-			</div>
-
-			</div>
-
-			<div class="container homepage-hero-style-<?php echo $style; ?>">
-				
-				<div class="home-widget">
-					<h3 class="home-widget-title">1. Get notificed when jobs are available</h3>
-					<p class="home-widget-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis rerum, distinctio amet quibusdam facere sint possimus vel sed. </p>
+    <main id="main" class="site-main" role="main">			
+			<div class="container small-text-description-block">
+				<div class="inner-leadertext-area">
+					<div class="content-area leadertext-area">
+						<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+							<h2 class="block-widget-title">The easiest way to hire local professionals.</h2>	
+							<p>No matter the project. Howl's technology takes care of the hiring process so you can spend your valuable time on the things that matter.</p>
+						</div>
+						
+					</div>
 				</div>
 
 			</div>
 
-			<div class="container homepage-hero-style-<?php echo $style; ?>">
-				
-				<div class="home-widget">
-					<h3 class="home-widget-title">2. Pick the projects you want.</h3>
-					<p class="home-widget-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis rerum, distinctio amet quibusdam facere sint possimus vel sed. </p>
-				</div>
+      <div class="standard-description-module">
+        <div class="content-area<?php echo $style; ?> container ">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <h2 class="standard-widget-title">Designed with pros in mind</h2>
+                <p class="standard-widget-description">We are here to help you grow your business in the most cost effective way possible. Just because we could charge more, doesn't mean we should. Howl is a better stand-alone alternative.</p>
+            </div>
+          </div>            
+        </div>			
 
-			</div>
+        <div class="container">
+          <div class="row text-center">
 
-			<div class="container homepage-hero-style-<?php echo $style; ?>">
-				
-				<div class="home-widget">
-					<h3 class="home-widget-title">3. Approve a time of service and get hired.</h3>
-					<p class="home-widget-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis rerum, distinctio amet quibusdam facere sint possimus vel sed. </p>
-				</div>
+            <div class="col-md-4">
+              <div class="about-feature">
 
-			</div>
+                <div class="about-feature-title">
+                  <h3>200,000</h3>
+                </div>
 
+                <div class="about-feature-description">
+                  <p>Active Professionals</p>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="col-md-4">
+              <div class="about-feature">
+
+                <div class="about-feature-title">
+                  <h3>400+</h3>
+                </div>
+
+                <div class="about-feature-description">
+                  <p>Types of Services</p>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="col-md-4">
+              <div class="about-feature">
+
+                <div class="about-feature-title">
+                  <h3>$500,000</h3>
+                </div>
+
+                <div class="about-feature-description">
+                  <p>Yearly revenue for pros</p>
+                </div>
+              </div>
+              
+            </div>            
+
+          </div>
+        </div>
+      </div>
+
+      <div class="simple-callout-module button-callout-module">
+        <div class="container">         
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+              <h3 class="simple-callout-title">Get started with Howl</h3>
+              <div class="simple-callout-description">
+              	<p>Need to hire a great professional? Want to grow your own business? We can help. Already have an account? <a href="/login">Log In</a>.</p>
+              </div>
+
+              <div class="home-how-it-works">
+              	<a href="" class="button">Customer Sign Up</a> <a href="" class="button">Professional Sign Up</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+	</main>
 	<?php endwhile; ?>
 
 

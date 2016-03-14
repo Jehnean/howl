@@ -4,3 +4,15 @@ body .gform_wrapper h3.gform_title {
 
 	font-weight: 400;
 }
+
+.gform_body {
+  input {
+    background: $white;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
+  
+}

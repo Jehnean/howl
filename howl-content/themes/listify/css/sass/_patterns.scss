@@ -7,20 +7,36 @@
 /* Placeholder text color -- selectors need to be separate to work. */
 
 ::-webkit-input-placeholder {
-	color: #939393;
+	color: $dark-gray;
+	font-family: $body-font-family;
+	font-size: 16px;
+	font-weight: 100;	
 }
 
 :-moz-placeholder {
-	color: #939393;
+	color: $dark-gray;
+	font-family: $body-font-family;
+	font-size: 16px;
+	font-weight: 100;	
 }
 
 ::-moz-placeholder {
-	color: #939393;
+	color: $dark-gray;
 	opacity: 1; /* Since FF19 lowers the opacity of the placeholder by default */
+	font-family: $body-font-family;
+	font-size: 16px;
+	font-weight: 100;	
 }
 
 :-ms-input-placeholder {
-	color: #939393;
+	color: $dark-gray;
+	font-family: $body-font-family;
+	font-size: 16px;
+	font-weight: 100;	
+}
+
+body {
+	color: $dark-gray;
 }
 
 /* Make sure embeds and iframes fit their containers */
@@ -43,6 +59,7 @@ p {
 	font-family: $body-font-family;
 	font-size: 16px;
 	font-weight: 100;
+	color: $dark-gray;
 }
 
 p > embed,
@@ -176,14 +193,16 @@ img.aligncenter,
 }
 
 .search-form .search-field {
-	padding-left: 50px;
+	padding-right: 50px;
+	font-family: $body-font-family;
+	background: $white;
 }
 
 .search-form .search-submit,
 .search-form .search-submit:hover {
 	position: absolute;
-	top: 0;
-	left: 5px;
+	top: 10px;
+	right: 5px;
 	width: 44px;
 	height: 44px;
 	background: none;

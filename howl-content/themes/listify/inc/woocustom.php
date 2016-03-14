@@ -240,3 +240,100 @@ function modify_contact_methods($profile_fields) {
   return $profile_fields;
 }
 add_filter('user_contactmethods', 'modify_contact_methods');
+
+// Move to gravity forms file
+// update the "1" to the ID of your form
+add_action( 'gform_after_submission_1', 'launch_flexible_modal', 10, 2 );
+function launch_flexible_modal(){ ?>
+    
+    <script type="text/javascript">
+    jQuery(document).ready(function($){
+        
+        if($('#gforms_confirmation_message_1').length != 0) {
+            
+        $('#flexFormModal').modal('show')
+            
+        }
+        
+    });
+    </script>
+    
+    <?php
+}
+
+add_action( 'gform_after_submission_2', 'launch_contact_modal', 10, 2 );
+function launch_contact_modal(){ ?>
+    
+    <script type="text/javascript">
+    jQuery(document).ready(function($){
+        
+        if($('#gforms_confirmation_message_2').length != 0) {
+            
+        $('#callModal').modal('show')
+            
+        }
+        
+    });
+    </script>
+    
+    <?php
+}
+
+/**
+ * Fix Gravity Form Tabindex Conflicts
+ * http://gravitywiz.com/fix-gravity-form-tabindex-conflicts/
+ */
+add_filter( 'gform_tabindex', 'gform_tabindexer', 10, 2 );
+function gform_tabindexer( $tab_index, $form = false ) {
+    $starting_index = 1000; // if you need a higher tabindex, update this number
+    if( $form )
+        add_filter( 'gform_tabindex_' . $form['id'], 'gform_tabindexer' );
+    return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
+}
+
+/**
+ * Dynamically pulls related posts regardless
+ *
+ */
+function howl_get_related_posts( $post_id, $related_count, $args = array() ) {
+    $args = wp_parse_args( (array) $args, array(
+        'orderby' => 'rand',
+        'return'  => 'query', // Valid values are: 'query' (WP_Query object), 'array' (the arguments array)
+    ) );
+ 
+    $related_args = array(
+        'post_type'      => get_post_type( $post_id ),
+        'posts_per_page' => $related_count,
+        'post_status'    => 'publish',
+        'post__not_in'   => array( $post_id ),
+        'orderby'        => $args['orderby'],
+        'tax_query'      => array()
+    );
+ 
+    $post       = get_post( $post_id );
+    $taxonomies = get_object_taxonomies( $post, 'names' );
+ 
+    foreach( $taxonomies as $taxonomy ) {
+        $terms = get_the_terms( $post_id, $taxonomy );
+        if ( empty( $terms ) ) continue;
+        $term_list = wp_list_pluck( $terms, 'slug' );
+        if( isset($term_list) ) {
+          $term_list = array_values($term_list);
+          $related_args['tax_query'][] = array(
+              'taxonomy' => $taxonomy,
+              'field'    => 'slug',
+              'terms'    => $term_list[0]
+          );
+        }
+
+    }
+ 
+    if( count( $related_args['tax_query'] ) > 1 ) {
+        $related_args['tax_query']['relation'] = 'OR';
+    }
+    if( $args['return'] == 'query' ) {
+        return new WP_Query( $related_args );
+    } else {
+        return $related_args;
+    }
+}

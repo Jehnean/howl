@@ -1,0 +1,116 @@
+.icon-column-block .icon-column {
+  border: 1px solid $border-gray;
+  margin-bottom: 20px;
+  padding: 60px;
+
+  p {
+    margin-bottom: 0;
+    font-weight: 300;
+    font-size: 24px;
+
+    a {
+      color: $dark-gray;
+
+      &:hover {
+        text-decoration: underline;
+        
+      }
+    }  
+  }
+}
+
+@include bp(md) {
+  .icon-column-block .icon-column {
+    border: 1px solid gray;
+    margin-right: 12px;
+    width: 30.333333%;
+  }
+
+
+}
+
+.form-block {
+  border-bottom: 1px solid $light-gray;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+.gform_fields .gfield {
+    margin-bottom: 21px;
+    float: left;
+    width: 100%;    
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .ginput_complex {
+    span {
+      width: 100%;
+
+      &:first-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  input[type="radio"] {
+    width: 20px;
+  }
+
+  .ginput_container_select,
+  .select,
+  select {
+    width: 100%;
+  }
+
+  select {
+    background-color: $white !important;
+    border: 2px solid $border-gray;
+    font-family: $body-font-family;
+    box-shadow: none;
+  }
+
+  textarea {
+    background: $white;
+  }
+
+  .gfield_label,
+  label {
+    display: none;
+  }
+
+  .gform_button {
+    @include blue-btn;
+    width: 100%;
+  }
+}
+
+@include bp(md) {
+
+ .form-block {
+  .ginput_complex {
+    span {
+      width: 48%;
+      float: left;
+
+      &:first-child {
+        margin-right: 20px;
+      }
+
+      }
+    } 
+
+  }
+}
+.form-block .inner-content-wrapper {
+  max-width: 620px;
+  display: block;
+  margin: 0 auto 20px;  
+}

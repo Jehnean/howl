@@ -9,3 +9,246 @@
 		border-top-right-radius: 4px;
 	}
 }
+
+.blog {
+  .page-title {
+    font-size: 42px;
+    padding: 2em 0;
+    border-bottom: 1px solid $light-gray;
+    margin-bottom: 24px;    
+  }
+
+  article.post {
+    border: 1px solid $light-gray;
+    border-top: 0;
+  }
+
+}
+
+.blog,
+.single-post,
+.page-template-template-login-customer {
+  .site-header .primary-header {
+    .nav-menu li>a, 
+    ul.nav-menu li>a {
+      color: $dark-gray !important;
+
+      &:hover {
+        text-decoration: underline;        
+      }
+    }
+
+  .site-branding img {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url(../images/build/howl-logo-dark.png) no-repeat;
+    background-size: contain;
+    width: 115px; /* Width of new image */
+    height: 47px; /* Height of new image */
+    padding-left: 115px; /* Equal to width of new image */    
+  } 
+
+
+  }
+}  
+
+.blog,
+.single-post {
+
+
+  .widget {
+    color: $dark-gray;
+    font-family: $body-font-family;
+    font-size: 16px;
+    font-weight: 100;    
+
+    a {
+      color: $dark-gray;
+      font-weight: 300;
+      font-size: 16px;
+
+      &:hover {
+        text-decoration: underline;      
+      }
+    }
+
+    &.widget_recent_entries {
+      .post-date {
+        color: $medium-gray;
+      }
+    }
+
+    &.widget-1 {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .search-form {
+      label {
+        width: 100%;
+      }
+
+      input[type=search] {
+        border-radius: 4px;
+        width: 100%;
+        padding: 20px;
+      }      
+    }
+
+
+  }
+
+
+}
+
+.single-post {
+  .site-main {
+    padding: 3.5em 42px 0 0;
+  }
+
+  .entry-meta {
+    text-align: center;
+    color: $white;
+    font-size: 33px;
+    font-weight: 300;
+    font-family: $body-font-family;
+    text-shadow: none;
+    margin-top: 14px;
+
+    .entry-date {
+      margin-right: 0;
+    }
+  }
+
+  .lead {
+    font-size: 35px;
+    font-weight: 100;
+    color: $medium-gray;
+  }
+
+  .content-area {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .widget-area {
+    border-left: 0;
+    padding-top: 3.5em;
+
+    @include bp(sm) {          
+      border-left: 1px solid $border-gray;
+    }
+
+    .widget {
+      margin-bottom: 0;
+    }
+
+    .widget-title {
+      font-size: 24px;
+      border: 0;
+      padding: 0;
+    }
+
+    .textwidget,
+    .textwidget p {
+      font-size: 16px;
+      font-weight: 300;
+      font-family: $body-font-family;
+    }
+  }
+
+}
+
+
+
+.widget-title {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 18px;  
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+article.post {
+
+  .entry-title {
+    font-size: 35px;
+    margin-bottom: 0;
+
+    a {
+      color: $dark-gray;
+    }
+  }
+
+  .entry-date {
+    color: $light-gray;
+    font-weight: 100;
+    font-family: $body-font-family;
+  }
+
+  .read-more-cta {
+    float: left;
+    padding-bottom: 21px;
+    text-align: center;
+    width: 100%;    
+  }
+
+  .entry-summary {
+    padding: 0 40px;
+
+    p {
+      margin-top: 34px;
+    }
+  }
+}
+
+.blog-subheader {
+  padding: 21px 0;
+
+  .button,
+  .blue-btn,
+  .clear-btn {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.related-posts-wrapper {
+  float: left;
+  margin-bottom: 45px;
+  width: 100%;
+  border-top: 1px solid $border-gray;
+}
+
+.related-posts-wrapper {
+  padding-top: 30px;
+
+  h3 {
+    font-size: 48px;
+    color: $dark-gray;
+    margin-bottom: 40px;
+  }
+
+  // .related-thumbnail {
+
+  // }
+
+  .related-description {
+    h4 {
+      margin-top: 0;      
+    }
+
+    a {
+      color: $dark-gray;
+      font-size: 28px;
+      padding: 20px 26px 0;
+      display: inline-block;
+    }
+
+    .entry-date {
+      color: $light-gray;
+      font-weight: 100;
+      font-family: $body-font-family;
+    }
+  }
+}

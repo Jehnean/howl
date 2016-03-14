@@ -10,8 +10,10 @@ $body-font-family: 'Open Sans', sans-serif;
 
 
 $white: #fff;
-$light-gray: #b4bcc7;
-$medium-gray: #f7f7f7;
+$medium-gray: #b4bcc7;
+$light-gray: #BDBDBD;
+$border-gray: #f7f7f7;
+$dark-gray: #686868;
 
 
 
@@ -25,4 +27,60 @@ $medium-gray: #f7f7f7;
 	display: block;
 	margin: 0 auto 20px;
 	font-weight: 100;	
+}
+
+@mixin blue-btn () {
+	background : #0A82DC;
+	background : rgba(10, 130, 220, 1);
+	width : 270px;
+	height : 60px;
+	border-radius : 4px;
+	-moz-border-radius : 4px;
+	-webkit-border-radius : 4px;
+	font-family: $body-font-family;
+	font-size : 18px;
+	padding: 0;
+	line-height: 60px;
+	text-transform : uppercase;
+	text-align: center;
+	color : $white;
+	color : rgb(255, 255, 255);
+	margin-top: 30px;
+	margin-bottom: 30px;
+	display: inline-block;
+
+	&:hover {
+		color: $white;
+		background : #0A82DC;
+		background : rgba(10, 130, 220, 1);
+		text-decoration: underline;
+	}
+}
+
+.button,
+.blue-btn {
+	@include blue-btn;
+}
+
+.clear-btn {
+  background: $white;
+  color: $dark-gray;
+  border: 2px solid $border-gray;
+	height : 60px;
+	border-radius : 4px;
+	-moz-border-radius : 4px;
+	-webkit-border-radius : 4px;
+	font-family: $body-font-family;
+	font-size : 18px;
+	padding: 0;
+	line-height: 60px;	
+	display: inline-block;
+	text-transform : uppercase;
+	text-align: center;
+	width : 270px;
+
+	&:hover {
+		color: $dark-gray;
+		text-decoration: underline;		
+	}	
 }

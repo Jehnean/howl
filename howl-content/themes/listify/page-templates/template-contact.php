@@ -25,16 +25,6 @@ get_header(); ?>
 					<div class="listify_widget_search_listings">
 						<div class="home-widget-section-title">
 							<h1 class="home-widget-title"><?php // the_title(); ?>How can we help you?</h1>
-							<div class="search-form-container">
-              <!-- Move below to separate file -->
-              <form role="search" method="get" class="search-form" action="<?php echo esc_url( get_post_type_archive_link( 'job_listing' ) ); ?>">
-                <label>
-                  <span class="screen-reader-text"><?php _e( 'Search for:', 'listify' ); ?></span>
-                  <input type="search" class="search-field" placeholder="<?php esc_attr_e( 'Search for anything. (booking a pro, getting paid, reviews)', 'listify' ); ?>" value="" name="search_keywords" title="<?php echo esc_attr_e( 'Search for anything', 'listify' ); ?>" />
-                </label>
-                <button type="submit" class="search-submit"></button>
-              </form>                
-              </div>
 					</div>
 
 				</div>
@@ -58,25 +48,143 @@ get_header(); ?>
 		<?php endif; ?>
 
 		<?php do_action( 'listify_page_before' ); ?>
-
-    <div id="primary" class="container" role="main">
-      <div class="row content-area">
-        <main id="main" class="site-main col-md-12 col-sm-7 col-xs-12 ">
-          <div class="center-block">
-          <h3 class="home-widget-title">Popular Topics</h3>
-          <p class="home-widget-description">Lorem ipsum dolor sit amet</p>  
+    <main id="main" class="site-main" role="main">
+      <div class="container large-text-description-block">
+        
+        <div class="content-area leadertext-area">
+          <div class="col-md-12 col-sm-12 col-xs-12 text-center items-3-section-title">
+            <h2 class="home-widget-title">Popular Topics</h2>
+            <p class="home-widget-description">Find some solutions to commonly asked questions.</p>
           </div>
           
-        </main>
+        </div>
+
       </div>
 
-      <div class="row content-area">
-        <main id="main" class="site-main col-md-8 col-sm-7 col-xs-12">
-          <h3 class="home-widget-title">Send us a Message</h3>
-          <p class="home-widget-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima quidem dignissimos voluptatum laboriosam fuga dolore, necessitatibus saepe ad accusantium. In animi, voluptates voluptatibus similique ratione eius nulla voluptatum dolorum aperiam.</p>
-        </main>
+      <div class="container icon-column-block">
+        <div class="row text-center">
+          <div class="icon-column col-md-4 col-sm-12 col-xs-12">
+            <div class="icon-header">
+              
+            </div>
+            <div class="block-description">
+              <p><a href="">How it works for customers.</a></p>
+            </div>
+          </div>
+
+          <div class="icon-column col-md-4 col-sm-12 col-xs-12">
+            <div class="icon-header">
+              
+            </div>
+            <div class="block-description">
+              <p><a href="">How do pros get matched to projects?</a></p>
+            </div>
+          </div>
+
+          <div class="icon-column col-md-4 col-sm-12 col-xs-12">
+            <div class="icon-header">
+              
+            </div>
+            <div class="block-description">
+              <p><a href="">No spam or fake leads. We Promise.</a></p>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="row text-center">
+          <div class="icon-column col-md-4 col-sm-12 col-xs-12">
+            <div class="icon-header">
+              
+            </div>
+            <div class="block-description">
+              <p><a href="">How it works for professionals.</a></p>
+            </div>
+          </div>
+
+          <div class="icon-column col-md-4 col-sm-12 col-xs-12">
+            <div class="icon-header">
+              
+            </div>
+            <div class="block-description">
+              <p><a href="">How do you reviews work?</a></p>
+            </div>
+          </div>
+
+          <div class="icon-column col-md-4 col-sm-12 col-xs-12">
+            <div class="icon-header">
+              
+            </div>
+            <div class="block-description">
+              <p><a href="">Learn about professional pricing.</a></p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+    <div class="form-block">
+      <div class="container small-text-description-block" id="contactform">
+        <div class="inner-content-wrapper">
+          <div class="content-area leadertext-area">
+            <div class="col-md-12 col-sm-12 col-xs-12 ">
+              <div class="text-wrapper text-center">
+                <h2 class="block-widget-title">Send us a message</h2>  
+                <p>We'd love to hear from you! Please help us improve this platform by sending us your comments, suggesstions, and complaints - and let us know if you'd like to help. You can use the form below to reach us. We read every email and completed form you send. Promise.</p>  
+              </div>
+              
+              <?php gravity_form('Flexible Contact Form', false, false, false, '', true); ?>
+
+          <div class="modal fade bs-example-modal-lg" id="flexFormModal" tabindex="-1" role="dialog" aria-labelledby="flexFormModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <h1>Thank you for sending us a message!</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              </div>
+            </div>
+          </div>
+            </div>
+            
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <div class="form-block">
+      <div class="container small-text-description-block">
+        <div class="inner-content-wrapper">
+          <div class="content-area leadertext-area">
+            <div class="col-md-12 col-sm-12 col-xs-12 ">
+              <div class="text-wrapper text-center">
+                <h2 class="block-widget-title">Let's Talk!</h2>  
+                <p>Please share your email address and telephone number to have a customer service representative give you a call right away.</p>  
+              </div>
+              
+              <?php gravity_form('Phone Call Feedback', false, false, false, '', true); ?>
+
+
+          <div class="modal fade bs-example-modal-lg" id="callModal" tabindex="-1" role="dialog" aria-labelledby="callModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <h1>Thanks for requesting a call.</h1>
+                <p>A Howl customer service representative will give you a call at right away.</p>
+
+                <a href="" class="button">Cancel call</a>
+
+                <p><sub>Need something else? <a href="/contact-us#contactform">Contact Us</a></sub></p>
+              </div>
+            </div>
+          </div>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </main>
+
 
 	<?php endwhile; ?>
 

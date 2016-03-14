@@ -103,12 +103,12 @@
 		}
 	}
 
-.entry-meta > span:before {
-	@include ionicon;
-	margin: -4px 3px 0 0;
-	vertical-align: middle;
-	display: inline-block;
-}
+// .entry-meta > span:before {
+// 	@include ionicon;
+// 	margin: -4px 3px 0 0;
+// 	vertical-align: middle;
+// 	display: inline-block;
+// }
 
 .entry-meta .entry-author img {
 	width: 30px;
@@ -118,23 +118,23 @@
 	margin: -2px 5px 0 0;
 }
 
-.entry-date:before {
-	content: '\f117';
+// .entry-date:before {
+// 	content: '\f117';
 
-	font-size: 16px;
-}
+// 	font-size: 16px;
+// }
 
-.entry-comments:before {
-	content: '\f11d';
-	font-size: 18px;
-}
+// .entry-comments:before {
+// 	content: '\f11d';
+// 	font-size: 18px;
+// }
 
-.entry-share .ion-share:before {
-	content: '\f220';
-	font-size: 18px;
-	margin-top: -5px;
-	vertical-align: middle;
-}
+// .entry-share .ion-share:before {
+// 	content: '\f220';
+// 	font-size: 18px;
+// 	margin-top: -5px;
+// 	vertical-align: middle;
+// }
 
 .entry-content h3 {
 	font-size: 15px;
