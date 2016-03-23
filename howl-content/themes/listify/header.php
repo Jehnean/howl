@@ -35,6 +35,13 @@
 						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 					</div>
 
+					<div class="mini-menu">
+						<ul>
+							<li><a href="/post-a-project">Find Professionals</a></li>
+							<li><a href="/how-it-works">How it Works</a></li>
+						</ul>
+					</div>
+
 					<div class="primary nav-menu">
 						<?php
 							wp_nav_menu( array(

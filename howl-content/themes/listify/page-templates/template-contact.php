@@ -65,7 +65,7 @@ get_header(); ?>
         <div class="row text-center">
           <div class="icon-column col-md-4 col-sm-12 col-xs-12">
             <div class="icon-header">
-              
+              <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-contact-customer-how-it-works.png" alt="">
             </div>
             <div class="block-description">
               <p><a href="">How it works for customers.</a></p>
@@ -74,7 +74,7 @@ get_header(); ?>
 
           <div class="icon-column col-md-4 col-sm-12 col-xs-12">
             <div class="icon-header">
-              
+              <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-contact-pro-matching.png" alt="">
             </div>
             <div class="block-description">
               <p><a href="">How do pros get matched to projects?</a></p>
@@ -83,7 +83,7 @@ get_header(); ?>
 
           <div class="icon-column col-md-4 col-sm-12 col-xs-12">
             <div class="icon-header">
-              
+              <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-contact-no-spam.png" alt="">
             </div>
             <div class="block-description">
               <p><a href="">No spam or fake leads. We Promise.</a></p>
@@ -95,7 +95,7 @@ get_header(); ?>
         <div class="row text-center">
           <div class="icon-column col-md-4 col-sm-12 col-xs-12">
             <div class="icon-header">
-              
+              <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-contact-pro-how-it-works.png" alt="">
             </div>
             <div class="block-description">
               <p><a href="">How it works for professionals.</a></p>
@@ -104,7 +104,7 @@ get_header(); ?>
 
           <div class="icon-column col-md-4 col-sm-12 col-xs-12">
             <div class="icon-header">
-              
+              <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-contact-reviews.png" alt="">
             </div>
             <div class="block-description">
               <p><a href="">How do you reviews work?</a></p>
@@ -113,7 +113,7 @@ get_header(); ?>
 
           <div class="icon-column col-md-4 col-sm-12 col-xs-12">
             <div class="icon-header">
-              
+              <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-contact-pro-pricing.png" alt="">
             </div>
             <div class="block-description">
               <p><a href="">Learn about professional pricing.</a></p>
@@ -134,9 +134,9 @@ get_header(); ?>
               
               <?php gravity_form('Flexible Contact Form', false, false, false, '', true); ?>
 
-          <div class="modal fade bs-example-modal-lg" id="flexFormModal" tabindex="-1" role="dialog" aria-labelledby="flexFormModal">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
+          <div class="modal fade bs-example-modal-md" id="flexFormModal" tabindex="-1" role="dialog" aria-labelledby="flexFormModal">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content text-center">
                 <h1>Thank you for sending us a message!</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               </div>
@@ -157,19 +157,20 @@ get_header(); ?>
             <div class="col-md-12 col-sm-12 col-xs-12 ">
               <div class="text-wrapper text-center">
                 <h2 class="block-widget-title">Let's Talk!</h2>  
-                <p>Please share your email address and telephone number to have a customer service representative give you a call right away.</p>  
+                <p>Please share your email address and telephone number to have a customer service representative give you a call at right away.</p>  
               </div>
               
               <?php gravity_form('Phone Call Feedback', false, false, false, '', true); ?>
 
 
-          <div class="modal fade bs-example-modal-lg" id="callModal" tabindex="-1" role="dialog" aria-labelledby="callModal">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <h1>Thanks for requesting a call.</h1>
-                <p>A Howl customer service representative will give you a call at right away.</p>
+          <div class="modal fade bs-example-modal-md" id="callModal" tabindex="-1" role="dialog" aria-labelledby="callModal">
 
-                <a href="" class="button">Cancel call</a>
+            <div class="modal-dialog modal-md">
+              <div class="modal-content text-center">
+                <h1>Thanks for requesting a call.</h1>
+                <p>A Howl customer service representative will give you a call at <?php $field_value; ?>right away.</p>
+
+                <a href="#" class="blue-btn">Cancel call</a>
 
                 <p><sub>Need something else? <a href="/contact-us#contactform">Contact Us</a></sub></p>
               </div>

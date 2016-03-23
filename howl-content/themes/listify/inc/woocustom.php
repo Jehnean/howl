@@ -14,12 +14,12 @@ function wooc_extra_register_fields() {
 
   <p class="form-row form-row-first">
   <label for="reg_billing_first_name"><?php _e( 'First name', 'woocommerce' ); ?> <span class="required">*</span></label>
-  <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />
+  <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" placeholder="First Name"/>
   </p>
 
   <p class="form-row form-row-last">
 	  <label for="reg_billing_last_name"><?php _e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
-	  <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
+	  <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" placeholder="Last Name"/>
   </p>
 
 
@@ -337,3 +337,10 @@ function howl_get_related_posts( $post_id, $related_count, $args = array() ) {
         return $related_args;
     }
 }
+
+// Move to gravity forms file
+
+// add_filter( 'gform_get_input_value_2_3', 'get_feedback_phone_number', 10, 4 );
+// function get_feedback_phone_number($fields){
+//   return $fields;
+// }

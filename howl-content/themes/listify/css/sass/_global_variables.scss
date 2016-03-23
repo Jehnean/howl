@@ -10,10 +10,12 @@ $body-font-family: 'Open Sans', sans-serif;
 
 
 $white: #fff;
+$blue: #0BBDEA;
 $medium-gray: #b4bcc7;
 $light-gray: #BDBDBD;
 $border-gray: #f7f7f7;
 $dark-gray: #686868;
+$bg-dark-gray: #333333;
 
 
 
@@ -63,7 +65,7 @@ $dark-gray: #686868;
 }
 
 .clear-btn {
-  background: $white;
+  background: transparent;
   color: $dark-gray;
   border: 2px solid $border-gray;
 	height : 60px;
@@ -78,6 +80,10 @@ $dark-gray: #686868;
 	text-transform : uppercase;
 	text-align: center;
 	width : 270px;
+
+	&.dark-bdr {
+		border: 1px solid $dark-gray;
+	}
 
 	&:hover {
 		color: $dark-gray;

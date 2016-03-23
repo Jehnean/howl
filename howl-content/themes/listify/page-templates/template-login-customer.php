@@ -36,7 +36,7 @@ get_header(); ?>
 
 
 <div class="alternate-login-header text-center">
-  <p>Or log in with your email</p>
+  <span class="thin-line"></span><p>Or log in with your email</p><span class="thin-line"></span>
 </div>
 
 

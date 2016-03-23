@@ -12,5 +12,5 @@
 		<input type="search" class="search-field" placeholder="<?php esc_attr_e( 'Search', 'listify' ); ?>" value=""
 		name="s" title="<?php echo esc_attr_e( 'Search for:', 'listify' ); ?>" />
 	</label>
-	<button type="submit" class="search-submit"><i class="ion-ios-search-strong"></i></button>
+	<button type="submit" class="search-submit blue-btn">GO</button>
 </form>

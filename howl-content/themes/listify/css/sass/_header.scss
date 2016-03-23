@@ -6,12 +6,23 @@
 .page-template-template-contact,
 .page-template-template-findpros,
 .page-template-template-about,
-.page-template-template-howitworks {
+.page-template-template-howitworks,
+.page-template-template-joinaspro {
   
   .site-header {
 		position: absolute;
 		width: 100%;  	
   } 
+
+  .mini-menu {
+  	ul li a {
+  		color: $white;
+  	}
+  }
+
+	.primary.nav-menu .menu a {
+		color: $white;
+	}  
 
   .primary-header {
   	background: transparent !important;
@@ -69,6 +80,29 @@
 	display: table-cell;
 	vertical-align: middle;
 	text-align: left;
+	width: 15%;
+}
+
+.mini-menu {
+  text-align: left;
+  display: table-cell;
+
+  ul {
+  	list-style-type: none;
+  	margin: 28px 0;
+  	
+  	li {
+  		display: inline-block;
+	    font-size: 15px;
+	    margin-right: 12px;
+	    font-weight: 300;
+	    font-family: $body-font-family;
+
+	    a {
+	    	color: $dark-gray;
+	    }
+  	}
+  }	
 }
 
 .site-title {
@@ -253,4 +287,9 @@
 .navigation-bar .nav-current-account-user-dropdown {
 	display: block;
 	float: none;
+}
+
+.errorpage-cover {
+	float: left;
+	width: 100%;
 }

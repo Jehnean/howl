@@ -70,7 +70,7 @@ get_header(); ?>
 
       <p class="form-row">
         <?php wp_nonce_field( 'woocommerce-register' ); ?>
-        <input type="submit" class="button" name="register" value="<?php esc_attr_e( 'Professional Sign Up', 'woocommerce' ); ?>" />
+        <input type="submit" class="blue-btn" name="register" value="<?php esc_attr_e( 'Professional Sign Up', 'woocommerce' ); ?>" />
       </p>
 
       <?php do_action( 'woocommerce_register_form_end' ); ?>

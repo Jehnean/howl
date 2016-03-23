@@ -213,3 +213,41 @@ span.page-numbers,
 .bypostauthor {
 	width: auto;
 }
+
+// About // Move to own file later
+.about-page-leaderboard {
+	h2 {
+		font-size: 36px;
+		line-height: 47px;
+		color: $medium-gray;
+	}
+}
+
+.standard-description-module.about-description-module {
+	h2 {
+		font-size: 36px;
+		line-height: 47px;
+	}
+
+	p {
+		font-size: 16px;
+		line-height: 21px;
+		max-width: 620px;
+	}
+
+	.about-feature {
+		.about-feature-title {
+			h3 {
+				font-size: 70px;
+				color: $medium-gray;
+			}
+		}
+
+		.about-feature-description {
+			p {
+				font-size: 21px;
+				color: $medium-gray;
+			}
+		}
+	}
+}

@@ -1,7 +1,11 @@
 .icon-column-block .icon-column {
-  border: 1px solid $border-gray;
+  border: 2px solid $border-gray;
   margin-bottom: 20px;
   padding: 60px;
+
+  .icon-header {
+    margin-bottom: 14px;
+  }
 
   p {
     margin-bottom: 0;
@@ -21,7 +25,7 @@
 
 @include bp(md) {
   .icon-column-block .icon-column {
-    border: 1px solid gray;
+    border: 2px solid $border-gray;
     margin-right: 12px;
     width: 30.333333%;
   }
@@ -30,7 +34,7 @@
 }
 
 .form-block {
-  border-bottom: 1px solid $light-gray;
+  border-bottom: 2px solid $border-gray;
 
   &:last-child {
     border-bottom: 0;

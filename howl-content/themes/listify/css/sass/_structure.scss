@@ -103,7 +103,7 @@ body {
 }
 
 .standard-description-module {
-	background: $medium-gray;
+	background: $border-gray;
   float: left;
   padding: 35px 0;
   width: 100%;
@@ -132,7 +132,21 @@ body {
 .simple-callout-module {
   padding: 60px 0;
 	float: left;
-	width: 100%;  
+	width: 100%;
+
+	&.dark-callout-module {
+		background: $bg-dark-gray;
+
+		.simple-callout-title {
+			color: $white;
+		}
+
+		.simple-callout-description {
+			p {
+				color: $white;
+			}
+		}
+	}
 
 	.simple-callout-title {
 	  font-size: 47px;
@@ -187,7 +201,8 @@ body {
 	}
 }
 
-// Login page 
+// Forms
+
 .login-content-wrapper {
   max-width: 620px;
   display: block;
@@ -204,7 +219,14 @@ body {
 
   .social-login-container {
 		text-align: center;
-		margin-bottom: 60px;
+		margin-bottom: 40px;
+
+		.social-login-disclaimer {
+			font-size: 14px;
+			color: $medium-gray;
+			margin-top: 20px;
+			margin-bottom: 0;
+		}
   }
 
 	.wc-social-login {
@@ -252,4 +274,93 @@ body {
 		}
 	}
 
+}
+
+.panel-pricing {
+	background: $white;
+	border: 2px solid $border-gray;
+	box-shadow: none;
+	
+
+	&.light-bg {
+		background: $border-gray;
+	}
+
+	&.blue-bg {
+		background: $blue;
+
+		h3,
+		p,
+		li,
+		.clear-btn {
+			color: $white;
+		}
+
+		.clear-btn {
+			border: 1px solid $white;
+		}
+	}
+
+	ul {
+		margin: 0;
+		font-family: $body-font-family;
+		font-weight: 300;
+	}
+
+	.list-group {
+		padding: 50px 0;
+	}
+
+	.list-group-item {
+		background-color: transparent;		
+		border: none;
+		margin-bottom: 0;
+		font-size: 16px;
+	}
+
+	.panel-body {
+		p {
+			font-size: 50px;
+			line-height: 27px;
+
+			span {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.panel-heading {
+		h3 {
+			text-transform: uppercase;
+			font-size: 20px;
+		}
+	}
+}
+
+.alternate-login-header {
+	.thin-line {
+		display: inline-block;
+		height: 1px;
+		background: $light-gray;
+		width: 32%;
+		vertical-align: middle;		
+	}
+
+	p {
+    display: inline-block;
+    margin: 0px 14px;		
+	}
+
+}
+
+form.login,
+form.register {
+	margin-top: 40px;
+}
+
+.form-disclaimer {
+	p {
+		font-size: 14px;
+		color: $medium-gray;
+	}
 }

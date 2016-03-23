@@ -50,19 +50,33 @@ get_header(); ?>
 		<?php do_action( 'listify_page_before' ); ?>
     <main id="main" class="site-main" role="main">			
 			<div class="container small-text-description-block">
-				<div class="inner-leadertext-area">
+				<div class="inner-leadertext-area about-page-leaderboard">
 					<div class="content-area leadertext-area">
 						<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-							<h2 class="block-widget-title">The easiest way to hire local professionals.</h2>	
-							<p>No matter the project. Howl's technology takes care of the hiring process so you can spend your valuable time on the things that matter.</p>
+              
+              <?php 
+                $about_page_section_title = get_field('standard_header_title');
+                $about_page_section_description = get_field('standard_header_description');
+                $general_content_area = get_field('general_content_area');
+              ?>
+
+							<h2 class="block-widget-title"><?php echo $about_page_section_title; ?></h2>	
+							<?php echo $about_page_section_description ?>
+
+              
 						</div>
 						
+
 					</div>
 				</div>
 
+        <div class="general-content-area-wrapper">
+          <?php echo $general_content_area; ?>
+        </div>
+
 			</div>
 
-      <div class="standard-description-module">
+      <div class="standard-description-module about-description-module">
         <div class="content-area<?php echo $style; ?> container ">
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 text-center">

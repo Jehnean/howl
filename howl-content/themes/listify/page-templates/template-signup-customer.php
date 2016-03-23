@@ -13,29 +13,35 @@ get_header(); ?>
 
   <?php while ( have_posts() ) : the_post(); ?>
 
-  <div class="listify_widget_search_listings">
+<div class="login-content-wrapper">
+  <div class="login-header-title-container">
     <div class="home-widget-section-title">
       <h1 class="home-widget-title"><?php // the_title(); ?>Sign Up</h1>
       <h2 class="home-widget-description"><?php //echo strip_shortcodes( get_the_content() ); ?> Are you a professional? <a href="<?php echo esc_url( home_url( '/pro-sign-up' ) ); ?>">Sign up here!</a> Already have an account? <a href="<?php echo esc_url( home_url( '/login' ) ); ?>">Log in here.</a></h2>
+    </div>
   </div>
 
-</div>    
-
+<div class="social-login-container">
   <?php woocommerce_social_login_buttons(); ?>
 
-<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
+  <p class="social-login-disclaimer text-center">
+    Don't worry, we won't post to your social media.
+  </p>  
+</div>
 
-<p>Don't worry we won't post to your social media account.</p>
+<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 <?php wc_print_notices(); ?>  
 
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
-  </div>
+  <!-- </div> -->
 
   <div class="col-2">
 
-    <p><?php _e( 'Or sign up with your email', 'woocommerce' ); ?></p>
+  <div class="alternate-login-header text-center">
+    <span class="thin-line"></span><p><?php _e( 'Or sign up with your email', 'woocommerce' ); ?></p><span class="thin-line"></span>
+  </div>
 
     <form method="post" class="register">
 
@@ -59,7 +65,7 @@ get_header(); ?>
 
         <p class="form-row form-row-wide">
           <label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-          <input type="password" class="input-text" name="password" id="reg_password" />
+          <input type="password" class="input-text" name="password" id="reg_password" placeholder="Password*" />
         </p>
 
       <?php endif; ?>
@@ -75,19 +81,23 @@ get_header(); ?>
         <input type="submit" class="button" name="register" value="<?php esc_attr_e( 'Sign Up', 'woocommerce' ); ?>" />
       </p>
 
+      <div class="form-disclaimer text-center">
+        <p>By signing up with Howl, you agree with our <a href="/terms-of-service">Terms &amp; Conditions.</a></p>
+      </div>
+
       <?php do_action( 'woocommerce_register_form_end' ); ?>
 
     </form>
 
   </div>
 
-</div>
+<!-- </div> -->
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); ?>
 
     <?php do_action( 'listify_page_before' ); ?>
-
+</div>
   <?php endwhile; ?>
 
 
