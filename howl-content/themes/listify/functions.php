@@ -53,8 +53,9 @@ function listify_setup() {
 	 */
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu (header)', 'listify' ),
-		'secondary' => __( 'Secondary Menu', 'listify' ),
-		'tertiary' => __( 'Tertiary Menu', 'listify' ),
+		// 'secondary' => __( 'Secondary Menu', 'listify' ),
+		// 'tertiary' => __( 'Tertiary Menu', 'listify' ),
+		'mini-menu'  => __( 'Mini Menu', 'listify' ),
 		'social'  => __( 'Social Menu (footer)', 'listify' ),
 		'footer1' => __( 'Footer Menu 1', 'listify' ),
 		'footer2' => __( 'Footer Menu 2', 'listify' ),
@@ -538,6 +539,7 @@ $includes = array(
 	'widgets/class-widget-home-feature-callout.php',
 	'custom-header.php',
 	'template-tags.php',
+	'gravitycustom.php',
 	'extras.php',
 	'branding.php',
 	'woocustom.php',

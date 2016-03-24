@@ -241,55 +241,6 @@ function modify_contact_methods($profile_fields) {
 }
 add_filter('user_contactmethods', 'modify_contact_methods');
 
-// Move to gravity forms file
-// update the "1" to the ID of your form
-add_action( 'gform_after_submission_1', 'launch_flexible_modal', 10, 2 );
-function launch_flexible_modal(){ ?>
-    
-    <script type="text/javascript">
-    jQuery(document).ready(function($){
-        
-        if($('#gforms_confirmation_message_1').length != 0) {
-            
-        $('#flexFormModal').modal('show')
-            
-        }
-        
-    });
-    </script>
-    
-    <?php
-}
-
-add_action( 'gform_after_submission_2', 'launch_contact_modal', 10, 2 );
-function launch_contact_modal(){ ?>
-    
-    <script type="text/javascript">
-    jQuery(document).ready(function($){
-        
-        if($('#gforms_confirmation_message_2').length != 0) {
-            
-        $('#callModal').modal('show')
-            
-        }
-        
-    });
-    </script>
-    
-    <?php
-}
-
-/**
- * Fix Gravity Form Tabindex Conflicts
- * http://gravitywiz.com/fix-gravity-form-tabindex-conflicts/
- */
-add_filter( 'gform_tabindex', 'gform_tabindexer', 10, 2 );
-function gform_tabindexer( $tab_index, $form = false ) {
-    $starting_index = 1000; // if you need a higher tabindex, update this number
-    if( $form )
-        add_filter( 'gform_tabindex_' . $form['id'], 'gform_tabindexer' );
-    return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
-}
 
 /**
  * Dynamically pulls related posts regardless
@@ -337,10 +288,3 @@ function howl_get_related_posts( $post_id, $related_count, $args = array() ) {
         return $related_args;
     }
 }
-
-// Move to gravity forms file
-
-// add_filter( 'gform_get_input_value_2_3', 'get_feedback_phone_number', 10, 4 );
-// function get_feedback_phone_number($fields){
-//   return $fields;
-// }

@@ -341,8 +341,8 @@ body .gform_wrapper input[type=email],
 body .gform_wrapper input[type=tel],
 body .gform_wrapper input[type=number],
 body .gform_wrapper input[type=password] {
-	font-size: 13px;
-	padding: 12px 15px;
+	font-size: 15px;
+	padding: 20px 20px;
 }
 
 body .gform_wrapper .gfield_checkbox li label,
@@ -419,3 +419,75 @@ body .gform_wrapper ul.gfield_checkbox li input[type="checkbox"]:checked+label {
     width: auto; 	
   }
 }
+
+.post-project-form {
+    max-width: 600px;
+    margin: 0 auto;
+
+	.gform_drop_area {
+		padding: 25px;
+		border: 2px dashed $medium-gray;
+		text-align: center;
+		color: $dark-gray;
+		margin-bottom: 10px;
+
+		.gform_drop_instructions {
+			font-family: $body-font-family;
+			font-size: 16px;
+		}
+
+		.button {
+			font-size: 16px;
+			font-family: $body-font-family;
+			background: none;
+			box-shadow: none;
+			height: auto;
+			width: auto;
+			display: inline;
+			color: $dark-gray;
+			padding: 0;
+			margin: 0;
+			line-height: 23px;
+			text-transform: lowercase;
+		}
+	}
+
+	#field_3_1 {
+		input {
+			width: 100%;
+		}
+	}
+
+	#input_3_2_1_label,
+	#input_3_2_3_label,
+	#input_3_2_4_label,
+	#input_3_2_5_label,
+	#field_3_3 label,
+	#field_3_4 label {
+		display: none;
+	}
+
+	.gform_validation_container {
+		height: 0;
+		overflow: hidden;
+	}
+
+	.gform_footer {
+		text-align: center;
+		
+		.gform_button {
+			@include blue-btn;
+			width: 100%;
+		}
+	}
+
+	.terms-condition-wrapper {
+		text-align: center;
+		
+		p {
+			font-size: 14px;
+			color: $medium-gray;
+		}
+	}
+}
+

@@ -35,11 +35,13 @@
 						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 					</div>
 
-					<div class="mini-menu">
-						<ul>
-							<li><a href="/post-a-project">Find Professionals</a></li>
-							<li><a href="/how-it-works">How it Works</a></li>
-						</ul>
+					<div class="mini-menu-container">
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'mini-menu',
+								'container_class' => 'mini-menu'
+							) );
+						?>
 					</div>
 
 					<div class="primary nav-menu">
@@ -52,14 +54,14 @@
 					</div>
 				</div>
 
-				<?php if ( ! listify_has_integration( 'facetwp' ) && listify_theme_mod( 'nav-search' ) ) : ?>
-				<div id="search-header" class="search-overlay">
+				<?php //if ( ! listify_has_integration( 'facetwp' ) && listify_theme_mod( 'nav-search' ) ) : ?>
+				<!-- <div id="search-header" class="search-overlay">
 					<div class="container">
-						<?php locate_template( array( 'searchform-header.php', 'searchform.php' ), true, false ); ?>
+						<?php // locate_template( array( 'searchform-header.php', 'searchform.php' ), true, false ); ?>
 						<a href="#search-header" data-toggle="#search-header" class="ion-close search-overlay-toggle"></a>
 					</div>
-				</div>
-				<?php endif; ?>
+				</div> -->
+				<?php //endif; ?>
 			</div>
 		</div>
 

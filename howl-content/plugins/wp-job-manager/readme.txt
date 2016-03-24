@@ -3,7 +3,7 @@ Contributors: mikejolley, automattic
 Tags: job manager, job listing, job board, job management, job lists, job list, job, jobs, company, hiring, employment, employer, employees, candidate, freelance, internship, job listings, positions, board, application, hiring, listing, manager, recruiting, recruitment, talent
 Requires at least: 4.1
 Tested up to: 4.4
-Stable tag: 1.24.0
+Stable tag: 1.25.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,7 +80,7 @@ If you want help with a customisation, please consider hiring a developer! [http
 
 Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't even need to leave your web browser. To do an automatic install, log in to your WordPress admin panel, navigate to the Plugins menu and click Add New.
 
-In the search field type "WP Job Manager" and click Search Plugins. Once you've found the plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by clicking _Install Now_.
+In the search field type "WP Job Manager" and click Search Plugins. Once you've found the plugin you can view details about it such as the point release, rating and description. Most importantly of course, you can install it by clicking _Install Now_.
 
 = Manual installation =
 
@@ -140,6 +140,16 @@ You can view (and contribute) translations via the [translate.wordpress.org](htt
 6. Job listings in admin.
 
 == Changelog ==
+
+= 1.25.0 =
+* Feature - Ability to duplicate listings from job dashboard.
+* Fix - Support WP_EMBED in job descriptions.
+* Fix - Ensure logo is displayed on edit, before submission.
+* Fix - Attachment URLs on multisite.
+* Fix - Refactored WPML workaround, which was causing no job listings on non-default languages. (https://github.com/Automattic/WP-Job-Manager/issues/617)
+* Fix - No need to decode URLs anymore https://core.trac.wordpress.org/ticket/23605.
+* Dev - submit_job_form_end/submit_job_form_start actions.
+* Dev - job-manager-datepicker class for backend date fields.
 
 = 1.24.0 =
 * Feature - Use featured images to store company logos.

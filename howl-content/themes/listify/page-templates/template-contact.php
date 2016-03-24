@@ -168,7 +168,7 @@ get_header(); ?>
             <div class="modal-dialog modal-md">
               <div class="modal-content text-center">
                 <h1>Thanks for requesting a call.</h1>
-                <p>A Howl customer service representative will give you a call at <?php $field_value; ?>right away.</p>
+                <p>A Howl customer service representative will give you a call at right away.</p>
 
                 <a href="#" class="blue-btn">Cancel call</a>
 

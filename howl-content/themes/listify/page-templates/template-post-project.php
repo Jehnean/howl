@@ -19,8 +19,9 @@ get_header(); ?>
       </div>
       
       <?php 
-        echo apply_filters( 'the_content','[piklist_form form="post-project" add_on="theme"]'); 
+        // echo apply_filters( 'the_content','[piklist_form form="post-project" add_on="theme"]'); 
       ?>
+      <?php gravity_form('Post a Project', false, false, false, '', true); ?>
       </main>
 
     </div>

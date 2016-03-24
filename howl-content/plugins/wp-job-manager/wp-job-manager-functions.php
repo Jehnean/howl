@@ -39,6 +39,11 @@ function get_job_listings( $args = array() ) {
 		'fields'                 => $args['fields']
 	);
 
+	// WPML workaround
+	if ( ( strstr( $_SERVER['REQUEST_URI'], '/jm-ajax/' ) || ! empty( $_GET['jm-ajax'] ) ) && isset( $_POST['lang'] ) ) {
+		do_action( 'wpml_switch_language', sanitize_text_field( $_POST['lang'] ) );
+	}
+
 	if ( $args['posts_per_page'] < 0 ) {
 		$query_args['no_found_rows'] = true;
 	}
@@ -628,7 +633,7 @@ function job_manager_upload_dir( $pathdata ) {
 	global $job_manager_upload, $job_manager_uploading_file;
 
 	if ( ! empty( $job_manager_upload ) ) {
-		$dir = apply_filters( 'job_manager_upload_dir', 'job-manager-uploads/' . sanitize_key( $job_manager_uploading_file ), sanitize_key( $job_manager_uploading_file ) );
+		$dir = untrailingslashit( apply_filters( 'job_manager_upload_dir', 'job-manager-uploads/' . sanitize_key( $job_manager_uploading_file ), sanitize_key( $job_manager_uploading_file ) ) );
 
 		if ( empty( $pathdata['subdir'] ) ) {
 			$pathdata['path']   = $pathdata['path'] . '/' . $dir;
@@ -638,7 +643,7 @@ function job_manager_upload_dir( $pathdata ) {
 			$new_subdir         = '/' . $dir . $pathdata['subdir'];
 			$pathdata['path']   = str_replace( $pathdata['subdir'], $new_subdir, $pathdata['path'] );
 			$pathdata['url']    = str_replace( $pathdata['subdir'], $new_subdir, $pathdata['url'] );
-			$pathdata['subdir'] = str_replace( $pathdata['subdir'], $new_subdir, $pathdata['subdir'] );
+			$pathdata['subdir'] = $new_subdir;
 		}
 	}
 
@@ -746,14 +751,63 @@ function calculate_job_expiry( $job_id ) {
 }
 
 /**
- * Set the current language of the ajax request
- * @param  string $lang
- * @return string
+ * Duplicate a listing.
+ * @param  int $post_id
+ * @return int 0 on fail or the post ID.
  */
-function job_manager_set_ajax_language( $lang ) {
-    if ( ( strstr( $_SERVER['REQUEST_URI'], '/jm-ajax/' ) || ! empty( $_GET['jm-ajax'] ) ) && isset( $_POST['lang'] ) ) {
-		$lang = sanitize_text_field( $_POST['lang'] );
+function job_manager_duplicate_listing( $post_id ) {
+	if ( empty( $post_id ) || ! ( $post = get_post( $post_id ) ) ) {
+		return 0;
 	}
-    return $lang;
+
+	global $wpdb;
+
+	/**
+	 * Duplicate the post.
+	 */
+	$new_post_id = wp_insert_post( array(
+		'comment_status' => $post->comment_status,
+		'ping_status'    => $post->ping_status,
+		'post_author'    => $post->post_author,
+		'post_content'   => $post->post_content,
+		'post_excerpt'   => $post->post_excerpt,
+		'post_name'      => $post->post_name,
+		'post_parent'    => $post->post_parent,
+		'post_password'  => $post->post_password,
+		'post_status'    => 'preview',
+		'post_title'     => $post->post_title,
+		'post_type'      => $post->post_type,
+		'to_ping'        => $post->to_ping,
+		'menu_order'     => $post->menu_order
+	) );
+
+	/**
+	 * Copy taxonomies.
+	 */
+	$taxonomies = get_object_taxonomies( $post->post_type );
+
+	foreach ( $taxonomies as $taxonomy ) {
+		$post_terms = wp_get_object_terms( $post_id, $taxonomy, array( 'fields' => 'slugs' ) );
+		wp_set_object_terms( $new_post_id, $post_terms, $taxonomy, false );
+	}
+
+	/*
+	 * Duplicate post meta, aside from some reserved fields.
+	 */
+	$post_meta = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id=%d", $post_id ) );
+
+	if ( ! empty( $post_meta ) ) {
+		$post_meta = wp_list_pluck( $post_meta, 'meta_value', 'meta_key' );
+		foreach ( $post_meta as $meta_key => $meta_value ) {
+			if ( in_array( $meta_key, apply_filters( 'job_manager_duplicate_listing_ignore_keys', array( '_filled', '_featured', '_job_expires', '_job_duration', '_package_id', '_user_package_id' ) ) ) ) {
+				continue;
+			}
+			update_post_meta( $new_post_id, $meta_key, $meta_value );
+		}
+	}
+
+	update_post_meta( $new_post_id, '_filled', 0 );
+	update_post_meta( $new_post_id, '_featured', 0 );
+
+	return $new_post_id;
 }
-add_filter( 'icl_current_language', 'job_manager_set_ajax_language' );

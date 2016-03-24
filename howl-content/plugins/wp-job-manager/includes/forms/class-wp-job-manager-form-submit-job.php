@@ -341,6 +341,9 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 						case 'job_category' :
 							$this->fields[ $group_key ][ $key ]['value'] = wp_get_object_terms( $job->ID, 'job_listing_category', array( 'fields' => 'ids' ) );
 						break;
+						case 'company_logo' :
+							$this->fields[ $group_key ][ $key ]['value'] = has_post_thumbnail( $job->ID ) ? get_post_thumbnail_id( $job->ID ) : get_post_meta( $job->ID, '_' . $key, true );
+						break;
 						default:
 							$this->fields[ $group_key ][ $key ]['value'] = get_post_meta( $job->ID, '_' . $key, true );
 						break;
@@ -515,7 +518,13 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 		include_once( ABSPATH . 'wp-admin/includes/image.php' );
 		include_once( ABSPATH . 'wp-admin/includes/media.php' );
 
-		$attachment_url = str_replace( array( WP_CONTENT_URL, site_url() ), array( WP_CONTENT_DIR, ABSPATH ), $attachment_url );
+		$upload_dir     = wp_upload_dir();
+		$attachment_url = str_replace( array( $upload_dir['baseurl'], WP_CONTENT_URL, site_url( '/' ) ), array( $upload_dir['basedir'], WP_CONTENT_DIR, ABSPATH ), $attachment_url );
+
+		if ( empty( $attachment_url ) || ! is_string( $attachment_url ) ) {
+			return 0;
+		}
+
 		$attachment     = array(
 			'post_title'   => get_the_title( $this->job_id ),
 			'post_content' => '',
