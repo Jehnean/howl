@@ -73,7 +73,11 @@ get_header(); ?>
 <div class="list-group">
   <div class="list-group-item">
     <a href="/post-project/?_post[ID]=<?php echo $project_id ?>" class="edit-project-link">Edit Project</a>
-    <h4 class="list-group-item-heading"><a href="<?php the_permalink(); ?>"><?php echo get_post_meta( $post->ID, 'project_type', true ); ?></a></h4>
+    <h4 class="list-group-item-heading">
+      <a href="<?php the_permalink(); ?>">
+      <?php the_title(); ?>
+      </a>
+    </h4>
     <div class="list-group-item-text">
       <?php the_content(); ?>
     </div>

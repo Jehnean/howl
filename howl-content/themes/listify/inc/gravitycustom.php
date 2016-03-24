@@ -284,3 +284,16 @@ function gw_multi_file_merge_tag() {
 
 gw_multi_file_merge_tag()->register_settings();
 
+// add custom post statuses to the post status drop down on the Properties tab of post fields.
+// https://www.gravityhelp.com/documentation/article/gform_post_status_options/
+add_filter( 'gform_post_status_options', 'add_custom_post_status' );
+function add_custom_post_status( $post_status_options ) {
+    $post_status_options['ongoing'] = 'Ongoing';
+    $post_status_options['paused'] = 'Paused';
+    $post_status_options['completed'] = 'Completed';
+    unset( $post_status_options['draft'] );
+    unset( $post_status_options['published'] );
+    unset( $post_status_options['pending_review'] );    
+    return $post_status_options;
+    print_r($post_status_options);
+}
