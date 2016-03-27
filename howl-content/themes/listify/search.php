@@ -12,7 +12,7 @@ if ( isset( $_GET[ 'listings' ] ) ) {
 
 get_header(); ?>
 
-	<div <?php echo apply_filters( 'listify_cover', 'page-cover entry-cover' ); ?>>
+	<div>
 		<h1 class="page-title cover-wrapper"><?php printf( 'Search: %s', get_search_query() ); ?></h1>
 	</div>
 
