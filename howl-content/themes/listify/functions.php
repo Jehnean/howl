@@ -279,7 +279,7 @@ function listify_scripts() {
 		'archiveurl' => get_post_type_archive_link( 'job_listing' ),
         'is_job_manager_archive' => listify_is_job_manager_archive(),
         'megamenu' => array(
-            'taxonomy' => listify_theme_mod( 'nav-megamenu' ) 
+            'taxonomy' => listify_theme_mod( 'nav-megamenu' )
         ),
 		'l10n' => array(
 			'closed' => __( 'Closed', 'listify' ),
@@ -305,7 +305,7 @@ function listify_body_classes( $classes ) {
 
 	if (
 		is_page_template( 'page-templates/template-full-width-blank.php' ) ||
-		( isset( $post ) && has_shortcode( get_post()->post_content, 'jobs' ) ) 
+		( isset( $post ) && has_shortcode( get_post()->post_content, 'jobs' ) )
 	) {
 		$classes[] = 'unboxed';
 	}
@@ -452,7 +452,7 @@ function listify_get_cover_from_group( $args ) {
 			$ids = $args[ 'object_ids' ];
 
 			$published = $wpdb->get_results( "SELECT ID FROM $wpdb->posts WHERE post_status = 'publish' and ID IN ($ids)" );
-			
+
 			if ( empty( $published ) ) {
 				return $image;
 			}
@@ -545,6 +545,7 @@ $includes = array(
 	'woocustom.php',
 	'post-type-customer-projects.php',
 	'post-type-faqs.php',
+	'api-faq.php'
 );
 
 foreach ( $includes as $file ) {
