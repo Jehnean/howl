@@ -72,8 +72,7 @@ module.exports = function(grunt) {
 						'<%= dirs.woocommerce %>/source/woocommerce.js',
 						'<%= dirs.jetpack %>/jetpack.js',
 						'<%= dirs.js %>/source/app.js',
-						'<%= dirs.js %>/source/geo.js',
-						'<%= dirs.js %>/source/faq.js'
+						'<%= dirs.js %>/source/geo.js'
 					]
 				}
 			}

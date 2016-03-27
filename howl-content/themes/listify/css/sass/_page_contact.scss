@@ -17,9 +17,100 @@
 
       &:hover {
         text-decoration: underline;
-        
+
       }
-    }  
+    }
+  }
+}
+
+.page-template-template-contact {
+  #search-faq-form {
+    margin-top: 25px;
+    max-width: 594px;
+    margin: 0 auto;
+  }
+  .home-widget-section-title {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .home-widget-title {
+    margin-bottom: 25px;
+    font-size: 60px;
+  }
+  #search_faqs {
+    width: calc(100% - 100px);
+    min-width: calc(100% - 100px);
+    max-width: 100%;
+    float: left;
+    background: #fff;
+    height: 60px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-family: "Open Sans",sans-serif;
+    font-size: 18px;
+    line-height: 60px;
+    color: #ccc;
+  }
+  .update_faqs {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background: #0A82DC;
+    background: #0a82dc;
+    margin-left: 10px;
+    width: 90px;
+    height: 60px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-family: "Open Sans",sans-serif;
+    font-size: 18px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #fff;
+    float: left;
+    &:hover, &:focus {
+      background: #0A69A7;
+    }
+  }
+  .homepage-cover {
+    transition: padding 0.5s ease;
+    &.search-on {
+      padding: 11em 0 2em;
+    }
+  }
+  .content-area {
+    transition: margin 0.5s ease;
+    &.search-on {
+      margin-top: -1.5em;
+    }
+  }
+  .form-block.faq-block {
+    margin-bottom: 0;
+    transition: all 0.5s ease;
+    opacity: 0;
+    height: 1px;
+    &.search-on {
+      opacity: 1;
+      height: inherit;
+      margin-bottom: 20px;
+    }
+  }
+  .faq-entry-meta {
+    max-width: 580px;
+    width: 100%;
+    margin: 0 auto 30px;
+  }
+  .faq_listing-title {
+    font-size: 20px;
+    display: inline-block;
+  }
+  .answer {
+    font-family: Montserrat, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
   }
 }
 
@@ -43,7 +134,7 @@
 .gform_fields .gfield {
     margin-bottom: 21px;
     float: left;
-    width: 100%;    
+    width: 100%;
 
     &:last-child {
       margin-bottom: 0;
@@ -109,12 +200,12 @@
       }
 
       }
-    } 
+    }
 
   }
 }
 .form-block .inner-content-wrapper {
   max-width: 620px;
   display: block;
-  margin: 0 auto 20px;  
+  margin: 0 auto 20px;
 }
