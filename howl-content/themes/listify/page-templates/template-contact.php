@@ -33,7 +33,7 @@ get_header(); ?>
 						<div class="home-widget-section-title">
 							<h1 class="home-widget-title"><?php // the_title(); ?>How can we help you?</h1>
 
-							<form id="search-faq-form" class="" action="http://howl.wp/listings/" method="GET">
+							<form id="search-faq-form" method="GET">
 								<div class="search_keywords">
 								    <input type="text" name="s" id="search_faqs" placeholder="Search for anything. (booking a pro, getting paid, reviews)" />
 												<button type="submit" data-refresh="Loading..." data-label="Get Started" name="update_faqs" class="update_faqs">GO</button>
