@@ -68,65 +68,67 @@ get_header(); ?>
 
       </div>
 
-      
-        <div class="row home-how-it-works pro-how-it-works-area">
+        <div class="home-how-it-works pro-how-it-works-area" style="background-image: url('/howl-content/themes/listify/images/bg-how-it-works-home-section.png'); background-size: cover;">
+          <div class="row">
 
-        <div class="container">
+          <div class="container">
 
-            <div class="home-features-wrapper row">
-              <div class="col-md-4">
-                <div class="home-feature">
-                  <div class="home-feature-media">
-                    <img src="/howl-content/themes/listify/images/icon-computer.png" alt="1. Post your job.">
-                  </div>
-                  <div class="home-feature-title">
-                    <h2>1. Pick customers.</h2>
-                  </div>
-                  <div class="home-feature-description">
-                    <p>You will be notified when a new job becomes available in your area.</p>
+              <div class="home-features-wrapper row">
+                <div class="col-md-4">
+                  <div class="home-feature">
+                    <div class="home-feature-media">
+                      <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-pick-customers.png" alt="">
+                    </div>
+                    <div class="home-feature-title">
+                      <h2>1. Pick customers.</h2>
+                    </div>
+                    <div class="home-feature-description">
+                      <p>You will be notified when a new job becomes available in your area.</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="col-md-4">
-                <div class="home-feature">
-                  <div class="home-feature-media">
-                    <img src="/howl-content/themes/listify/images/icon-computer.png" alt="1. Post your job.">
-                  </div>
-                  <div class="home-feature-title">
-                    <h2>2. Send a Quote</h2>
-                  </div>
-                  <div class="home-feature-description">
-                    <p>Review the details, send a message, share your availability, submit a brief or proposal.</p>
+                <div class="col-md-4">
+                  <div class="home-feature">
+                    <div class="home-feature-media">
+                      <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-send-quote.png" alt="">
+                    </div>
+                    <div class="home-feature-title">
+                      <h2>2. Send a Quote</h2>
+                    </div>
+                    <div class="home-feature-description">
+                      <p>Review the details, send a message, share your availability, submit a brief or proposal.</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="col-md-4">
-                <div class="home-feature">
-                  <div class="home-feature-media">
-                    <img src="/howl-content/themes/listify/images/icon-computer.png" alt="1. Post your job.">
-                  </div>
-                  <div class="home-feature-title">
-                    <h2>3. Get Hired</h2>
-                  </div>
-                  <div class="home-feature-description">
-                    <p>Once you've been selected, you will be connected with a new client.</p>
+                <div class="col-md-4">
+                  <div class="home-feature">
+                    <div class="home-feature-media">
+                      <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-hired.png" alt="">
+                    </div>
+                    <div class="home-feature-title">
+                      <h2>3. Get Hired</h2>
+                    </div>
+                    <div class="home-feature-description">
+                      <p>Once you've been selected, you will be connected with a new client.</p>
+                    </div>
                   </div>
                 </div>
+                
               </div>
               
-            </div>
-            
-            <div class="row">
-              <div class="col-sm-12 text-center">
-                <a href="/pro-how-it-works" class="blue-btn">How it Works</a>
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <a href="/pro-how-it-works" class="blue-btn">How it Works</a>
+                </div>
               </div>
-            </div>
+          </div>
+
+
+        </div>  
         </div>
-
-
-      </div>
+        
 
 
     <!-- Plans -->
@@ -156,7 +158,9 @@ get_header(); ?>
           <div class="col-md-4 text-center">
             <div class="panel panel-pricing">
               <div class="panel-heading">
-                <i class="fa fa-desktop"></i>
+                <span class="module-icon">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-part-timer.png" alt="">
+                </span>
                 <h3>The Part Timer</h3>
               </div>
               <div class="panel-body text-center">
@@ -180,7 +184,9 @@ get_header(); ?>
           <div class="col-md-4 text-center">
             <div class="panel panel-pricing light-bg">
               <div class="panel-heading">
-                <i class="fa fa-desktop"></i>
+                <span class="module-icon">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-freelancer.png" alt="">
+                </span>
                 <h3>The Freelancer</h3>
               </div>
               <div class="panel-body text-center">
@@ -204,7 +210,9 @@ get_header(); ?>
           <div class="col-md-4 text-center">
             <div class="panel panel-pricing blue-bg">
               <div class="panel-heading">
-                <i class="fa fa-desktop"></i>
+                <span class="module-icon">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-professional.png" alt="">
+                </span>
                 <h3>The Professional</h3>
               </div>
               <div class="panel-body text-center">
@@ -228,7 +236,7 @@ get_header(); ?>
     </section>
     <!-- /Plans -->
 
-      <div class="image-headline-wrapper home-footer-headline" style="background-image: url('') !important;">
+      <div class="image-headline-wrapper home-footer-headline" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/build/features-bg.jpg') !important; background-size: cover;">
         <div class="content-area container ">
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 text-center">
@@ -251,7 +259,7 @@ get_header(); ?>
             <div class="col-md-4">
               <div class="home-feature">
                 <div class="inner-feature-media">
-                  <img src="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-project-matching.png">
                 </div>
 
                 <div class="home-feature-title">
@@ -268,7 +276,7 @@ get_header(); ?>
             <div class="col-md-4">
               <div class="home-feature">
                 <div class="inner-feature-media">
-                  <img src="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-business-profile.png">
                 </div>
 
                 <div class="home-feature-title">
@@ -285,7 +293,7 @@ get_header(); ?>
             <div class="col-md-4">
               <div class="home-feature">
                 <div class="inner-feature-media">
-                  <img src="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-reviews.png">
                 </div>
 
                 <div class="home-feature-title">
@@ -306,7 +314,7 @@ get_header(); ?>
             <div class="col-md-4">
               <div class="home-feature">
                 <div class="inner-feature-media">
-                  <img src="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-messaging.png">
                 </div>
 
                 <div class="home-feature-title">
@@ -323,7 +331,7 @@ get_header(); ?>
             <div class="col-md-4">
               <div class="home-feature">
                 <div class="inner-feature-media">
-                  <img src="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-estimates.png">
                 </div>
 
                 <div class="home-feature-title">
@@ -340,7 +348,7 @@ get_header(); ?>
             <div class="col-md-4">
               <div class="home-feature">
                 <div class="inner-feature-media">
-                  <img src="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/images/build/icon-pro-scheduling.png">
                 </div>
 
                 <div class="home-feature-title">

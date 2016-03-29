@@ -7,7 +7,9 @@
 .page-template-template-findpros,
 .page-template-template-about,
 .page-template-template-howitworks,
-.page-template-template-joinaspro {
+.page-template-template-joinaspro,
+body.error404,
+.page-template-template-help {
   
   .site-header {
 		position: absolute;
@@ -27,6 +29,23 @@
   .primary-header {
   	background: transparent !important;
   }
+}
+
+body.error404 {
+	.errorpage-cover {
+		background-image: url('../images/build/404-hero.jpg');
+
+		.home-widget-section-title {
+			h1,
+			p {
+				color: $white;
+			}
+		}
+
+		.content-area {
+			padding-bottom: 75px;
+		}
+	}
 }
 
 .site-header {

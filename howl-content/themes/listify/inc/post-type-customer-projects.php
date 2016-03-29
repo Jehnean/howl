@@ -78,3 +78,24 @@ function custom_post_status_completed(){
   ) );
 }
 add_action( 'init', 'custom_post_status_completed' );
+
+add_action('admin_footer-post.php', 'jc_append_post_status_list');
+function jc_append_post_status_list(){
+ global $post;
+ $complete = '';
+ $label = '';
+ if($post->post_type == 'customer_projects'){
+  if($post->post_status == 'ongoing'){
+   $complete = ' selected=\"selected\"';
+   $label = '<span id=\"post-status-display\"> Ongoing</span>';
+  }
+  echo '
+  <script>
+  jQuery(document).ready(function($){
+       $("select#post_status").append("<option value=\"ongoing\" '.$complete.'>Ongoing</option>");
+       $(".misc-pub-section label").append("'.$label.'");
+  });
+  </script>
+  ';
+  }
+}
