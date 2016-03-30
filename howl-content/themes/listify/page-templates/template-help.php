@@ -217,11 +217,11 @@ get_header(); ?>
 							?>
 
 					      <h4 class="panel-title">
-									<a class="faq-answer-title" role="button" data-toggle="collapse" href="#<?php echo $post_slug; ?>" aria-expanded="false" aria-controls="<?php echo $post_slug; ?>">
+									<a class="faq-answer-title" role="button" data-toggle="collapse" href="#<?php echo $post_slug; ?>p" aria-expanded="false" aria-controls="<?php echo $post_slug; ?>">
 									  <?php the_title(); ?>
 									</a>
 					      </h4>
-						    <div id="<?php echo $post_slug; ?>" class="collapse" aria-labelledby="<?php echo $post_slug; ?>">
+						    <div id="<?php echo $post_slug; ?>p" class="collapse" aria-labelledby="<?php echo $post_slug; ?>">
 						      <div class="faq-answer-container">
 						        <?php the_content(); ?>
 						      </div>
