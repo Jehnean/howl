@@ -46,8 +46,8 @@
 function custom_post_status_ongoing(){
   register_post_status( 'ongoing', array(
     'label'                     => _x( 'Ongoing', 'customer_projects' ),
-    'public'                    => false,
-    'exclude_from_search'       => true,
+    'public'                    => true,
+    'exclude_from_search'       => false,
     'show_in_admin_all_list'    => true,
     'show_in_admin_status_list' => true,
     'label_count'               => _n_noop( 'Ongoing <span class="count">(%s)</span>', 'Ongoing <span class="count">(%s)</span>' ),
@@ -58,8 +58,8 @@ add_action( 'init', 'custom_post_status_ongoing' );
 function custom_post_status_paused(){
   register_post_status( 'paused', array(
     'label'                     => _x( 'Paused', 'customer_projects' ),
-    'public'                    => false,
-    'exclude_from_search'       => true,
+    'public'                    => true,
+    'exclude_from_search'       => false,
     'show_in_admin_all_list'    => true,
     'show_in_admin_status_list' => true,
     'label_count'               => _n_noop( 'Paused <span class="count">(%s)</span>', 'Paused <span class="count">(%s)</span>' ),
@@ -70,8 +70,8 @@ add_action( 'init', 'custom_post_status_paused' );
 function custom_post_status_completed(){
   register_post_status( 'completed', array(
     'label'                     => _x( 'Completed', 'customer_projects' ),
-    'public'                    => false,
-    'exclude_from_search'       => true,
+    'public'                    => true,
+    'exclude_from_search'       => false,
     'show_in_admin_all_list'    => true,
     'show_in_admin_status_list' => true,
     'label_count'               => _n_noop( 'Completed <span class="count">(%s)</span>', 'Completed <span class="count">(%s)</span>' ),
@@ -79,23 +79,28 @@ function custom_post_status_completed(){
 }
 add_action( 'init', 'custom_post_status_completed' );
 
-add_action('admin_footer-post.php', 'jc_append_post_status_list');
-function jc_append_post_status_list(){
- global $post;
- $complete = '';
- $label = '';
- if($post->post_type == 'customer_projects'){
-  if($post->post_status == 'ongoing'){
-   $complete = ' selected=\"selected\"';
-   $label = '<span id=\"post-status-display\"> Ongoing</span>';
-  }
-  echo '
-  <script>
-  jQuery(document).ready(function($){
-       $("select#post_status").append("<option value=\"ongoing\" '.$complete.'>Ongoing</option>");
-       $(".misc-pub-section label").append("'.$label.'");
-  });
-  </script>
-  ';
-  }
+// add_action('admin_footer-post.php', 'jc_append_post_status_list');
+// function jc_append_post_status_list(){
+//  global $post;
+//  $complete = '';
+//  $label = '';
+//  if($post->post_type == 'customer_projects'){
+//   if($post->post_status == 'ongoing'){
+//    $complete = ' selected=\"selected\"';
+//    $label = '<span id=\"post-status-display\"> Ongoing</span>';
+//   }
+//   echo '
+//   <script>
+//   jQuery(document).ready(function($){
+//        $("select#post_status").append("<option value=\"ongoing\" '.$complete.'>Ongoing</option>");
+//        $(".misc-pub-section label").append("'.$label.'");
+//   });
+//   </script>
+//   ';
+//   }
+// }
+function db_add_ef_post_type_support() {
+add_post_type_support('customer_projects', 'ef_notifications');
+// add_post_type_support('Patterns', 'ef_custom_statuses');
 }
+add_action('init', 'db_add_ef_post_type_support');

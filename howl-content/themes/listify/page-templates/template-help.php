@@ -147,22 +147,97 @@ get_header(); ?>
 
 								</div>
 
-        <div class="row content-area">
+  <div class="row content-area">
 
-            <main id="main" class="site-main col-md-8 col-sm-7 col-xs-12" role="main">
+      <main id="main" class="site-main col-md-8 col-sm-7 col-xs-12" role="main">
 
-              <h3>Help Center</h3>
+        <h3>Help Center</h3>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto esse ut perspiciatis maiores earum atque veritatis tempora, expedita dolorem reiciendis? Ratione ea amet doloremque, quis aspernatur recusandae, animi saepe eaque.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto esse ut perspiciatis maiores earum atque veritatis tempora, expedita dolorem reiciendis? Ratione ea amet doloremque, quis aspernatur recusandae, animi saepe eaque.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto esse ut perspiciatis maiores earum atque veritatis tempora, expedita dolorem reiciendis? Ratione ea amet doloremque, quis aspernatur recusandae, animi saepe eaque.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto esse ut perspiciatis maiores earum atque veritatis tempora, expedita dolorem reiciendis? Ratione ea amet doloremque, quis aspernatur recusandae, animi saepe eaque.</p>
+        <div id="help-tabs-content" class="tab-content">
+        	<div class="tab-pane active" id="customer">
+					<?php 
+					// Define custom query parameters
+					$customer_args = array(
+					  'post_type' => 'faq',
+						'showposts' => -1,
+						'faqtags' => 'customer-answers',
+						'order' => 'ASC'
+					);
 
-            </main>
+					// Instantiate custom query
+					$custom_query = new WP_Query( $customer_args);
 
-             <?php get_sidebar(); ?>
+					?>
 
+					<?php if ( $custom_query->have_posts() ) : ?>
+					  <?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
+
+					  	<?php 
+					  		$postid = get_the_ID(); 
+					  		$post_slug=$post->post_name;
+					  	?>
+
+					      <h4 class="panel-title">
+									<a class="faq-title-toggle" role="button" data-toggle="collapse" href="#<?php echo $post_slug; ?>" aria-expanded="false" aria-controls="<?php echo $post_slug; ?>">
+									  <?php the_title(); ?>
+									</a>
+					      </h4>
+						    <div id="<?php echo $post_slug; ?>" class="collapse" aria-labelledby="<?php echo $post_slug; ?>">
+						      <div class="well">
+						        <?php the_content(); ?>
+						      </div>
+						    </div>
+
+
+					  <?php endwhile; endif; wp_reset_postdata(); ?>				
+
+        	</div>
+
+        	<div class="tab-pane" id="professional">
+        	<?php 
+					// Define custom query parameters
+					$pro_args = array(
+					  'post_type' => 'faq',
+						'showposts' => -1,
+						'faqtags' => 'professional-answers',
+						'order' => 'ASC'
+					);
+
+					// Instantiate custom query
+					$pro_query = new WP_Query( $pro_args);
+
+					?>
+
+					<?php if ( $pro_query->have_posts() ) : ?>
+					  <?php while ( $pro_query->have_posts() ) : $pro_query->the_post(); ?>
+
+					  	<?php 
+					  	$postid = get_the_ID();
+							$post_slug=$post->post_name;
+							?>
+
+					      <h4 class="panel-title">
+									<a class="faq-answer-title" role="button" data-toggle="collapse" href="#<?php echo $post_slug; ?>" aria-expanded="false" aria-controls="<?php echo $post_slug; ?>">
+									  <?php the_title(); ?>
+									</a>
+					      </h4>
+						    <div id="<?php echo $post_slug; ?>" class="collapse" aria-labelledby="<?php echo $post_slug; ?>">
+						      <div class="faq-answer-container">
+						        <?php the_content(); ?>
+						      </div>
+						    </div>
+
+
+					  <?php endwhile; endif; wp_reset_postdata(); ?>
+        	</div>
+        	
         </div>
+
+      </main>
+
+       <?php get_sidebar('faq-module'); ?>
+
+  </div>
     </div>
 
 	<?php endwhile; ?>

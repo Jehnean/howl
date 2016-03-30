@@ -24,11 +24,6 @@ get_header(); ?>
     $edit_post_status    = get_post_status($edit_post_id);
     $edit_post_published = ( 'ongoing' === $edit_post_status ) ? true : false;
 
-    // Hide field if editing a published post
-    if ( ! $edit_post_published ) {
-        // My piklist field(s)
-
-    }
     ?>
     </div>
 	<?php endwhile; ?>

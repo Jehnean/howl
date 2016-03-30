@@ -227,4 +227,7 @@
 
 	listify.init();
 
+
+	$('#help-tabs').tab();
+
 })(jQuery);
