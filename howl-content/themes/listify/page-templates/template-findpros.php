@@ -52,16 +52,62 @@ get_header(); ?>
 		<?php endif; ?>
 
 		<?php do_action( 'listify_page_before' ); ?>
-			
-			<div class="container homepage-hero-style-<?php echo $style; ?>">
-			<?php
-				if ( is_active_sidebar( 'widget-area-findpro' ) ) :
-					dynamic_sidebar( 'widget-area-findpro' );
-				endif;
-			?>				
+    <main id="main" class="site-main" role="main">			
+			<div class="container">
+					<div class="row">
+	            
+		        <section id="image-grid-term-dog-walking" class="col-xs-12 col-sm-6 col-md-4 image-grid-item">
+		            <div style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/build/service-dog-walking.jpg');" class="col-xs-12 col-sm-6 col-md- image-grid-cover entry-cover has-image">
+		                <a href="" class="image-grid-clickbox"></a>
+		                <a href="" class="cover-wrapper">Dog Walking</a>
+		            </div>
+		        </section>
+
+		        
+		        <section id="image-grid-term-handyman" class="col-xs-12 col-sm-6 col-md-4 image-grid-item">
+		            <div style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/build/service-handyman.jpg');" class="col-xs-12 col-sm-6 col-md- image-grid-cover entry-cover has-image">
+		                <a href="" class="image-grid-clickbox"></a>
+		                <a href="" class="cover-wrapper">Handyman</a>
+		            </div>
+		        </section>
+
+		        
+		        <section id="image-grid-term-plumbers" class="col-xs-12 col-sm-6 col-md-4 image-grid-item">
+		            <div style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/build/service-plumbing-service.jpg');" class="col-xs-12 col-sm-6 col-md- image-grid-cover entry-cover has-image">
+		                <a href="" class="image-grid-clickbox"></a>
+		                <a href="" class="cover-wrapper">Plumbers</a>
+		            </div>
+		        </section>
+
+		        
+		        <section id="image-grid-term-electricians" class="col-xs-12 col-sm-6 col-md-4 image-grid-item">
+		            <div style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/build/service-electrician.jpg');" class="col-xs-12 col-sm-6 col-md- image-grid-cover entry-cover has-image">
+		                <a href="" class="image-grid-clickbox"></a>
+		                <a href="" class="cover-wrapper">Electricians</a>
+		            </div>
+		        </section>
+
+		        
+		        <section id="image-grid-term-hvac" class="col-xs-12 col-sm-6 col-md-4 image-grid-item">
+		            <div style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/build/service-ac-repair.jpg');" class="col-xs-12 col-sm-6 col-md- image-grid-cover entry-cover has-image">
+		                <a href="" class="image-grid-clickbox"></a>
+		                <a href="" class="cover-wrapper">HVAC</a>
+		            </div>
+		        </section>
+
+		        
+		        <section id="image-grid-term-car-washing" class="col-xs-12 col-sm-6 col-md-4 image-grid-item">
+		            <div style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/build/service-car-wash.jpg');" class="col-xs-12 col-sm-6 col-md- image-grid-cover entry-cover has-image">
+		                <a href="" class="image-grid-clickbox"></a>
+		                <a href="" class="cover-wrapper">Car Washing</a>
+		            </div>
+		        </section>
+
+	            
+	        </div>
 
 			</div>
-
+	</main>
 	<?php endwhile; ?>
 
 

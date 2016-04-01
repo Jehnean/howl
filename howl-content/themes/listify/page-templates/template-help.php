@@ -27,85 +27,85 @@ get_header(); ?>
 							<h1 class="home-widget-title"><?php // the_title(); ?>How can we help you?</h1>
 
 
-														<form id="search-faq-form" method="GET">
-															<div class="search_keywords">
-															    <input type="text" name="s" id="search_faqs" placeholder="Search for anything. (booking a pro, getting paid, reviews)" />
-																			<button type="submit" data-refresh="Loading..." data-label="Get Started" name="update_faqs" class="update_faqs">GO</button>
-															</div>
-														</form>
+						<form id="search-faq-form" method="GET">
+							<div class="search_keywords">
+							    <input type="text" name="s" id="search_faqs" placeholder="Search for anything. (booking a pro, getting paid, reviews)" />
+											<button type="submit" data-refresh="Loading..." data-label="Get Started" name="update_faqs" class="update_faqs">GO</button>
+							</div>
+						</form>
 
 
-														<script type="text/javascript">
-															jQuery(document).ready(function($){
+						<script type="text/javascript">
+							jQuery(document).ready(function($){
 
-																	$("#search-faq-form").on("submit", function(e){
-																			e.preventDefault();
-																			var faqsearch = $(this).find("#search_faqs").val();
-																			$(".page-template-template-help .homepage-cover").addClass("search-on");
-																			$(".page-template-template-help .form-block.faq-block").addClass("search-on");
-																			$(".page-template-template-help .content-area").addClass("search-on");
-
-
-																			<?php
-																			global $current_user;
-
-																			$user_role = false;
-																			if(!empty($current_user)){
-																					$user_roles = $current_user->roles;
-																					$user_role = array_shift($user_roles);
-																			}
-
-																			switch ($user_role) {
-																				case 'administrator':
-																				case 'professional':
-																							$usertype = "pro";
-																					break;
-																				default:
-																							$usertype = "customer";
-																					break;
-																			}
-																			?>
-																			var usertype = '<?php echo $usertype; ?>';
-
-																			$.ajax({
-																					url: listifySettings.ajaxurl,
-																					dataType: "json",
-																					data: {
-																						'action':'search_ajax_faqs',
-																						'usertype' : usertype,
-																						's': faqsearch
-																					},
-																					success:function(data) {
-																					  	//console.log(data);
-
-																								var list = "";
-																								function tplr(title, answer){
-																										var tpl = '<h1 itemprop="name" class="faq_listing-title">'+title+'</h1>' +
-																										'<div class="job_listing-location job_listing-location-formatted">' +
-																										'		<span class="answer">'+answer+'</span>' +
-																										'</div>';
-																										return tpl;
-																								}
-
-																								$.each(data, function(index, value){
-																										list += tplr(value.question, value.answer);
-																								});
-
-																								$(".faq-entry-meta").html(list);
-																					},
-																					error: function(errorThrown){
-																					   //console.log(errorThrown);
-																								$(".faq-entry-meta").html(errorThrown);
-																					}
-																			});
-
-																			return false;
-																	});
+									$("#search-faq-form").on("submit", function(e){
+											e.preventDefault();
+											var faqsearch = $(this).find("#search_faqs").val();
+											$(".page-template-template-help .homepage-cover").addClass("search-on");
+											$(".page-template-template-help .form-block.faq-block").addClass("search-on");
+											$(".page-template-template-help .content-area").addClass("search-on");
 
 
+											<?php
+											global $current_user;
 
-															});
-														</script>
+											$user_role = false;
+											if(!empty($current_user)){
+													$user_roles = $current_user->roles;
+													$user_role = array_shift($user_roles);
+											}
+
+											switch ($user_role) {
+												case 'administrator':
+												case 'professional':
+															$usertype = "pro";
+													break;
+												default:
+															$usertype = "customer";
+													break;
+											}
+											?>
+											var usertype = '<?php echo $usertype; ?>';
+
+											$.ajax({
+													url: listifySettings.ajaxurl,
+													dataType: "json",
+													data: {
+														'action':'search_ajax_faqs',
+														'usertype' : usertype,
+														's': faqsearch
+													},
+													success:function(data) {
+													  	//console.log(data);
+
+																var list = "";
+																function tplr(title, answer){
+																		var tpl = '<h1 itemprop="name" class="faq_listing-title">'+title+'</h1>' +
+																		'<div class="job_listing-location job_listing-location-formatted">' +
+																		'		<span class="answer">'+answer+'</span>' +
+																		'</div>';
+																		return tpl;
+																}
+
+																$.each(data, function(index, value){
+																		list += tplr(value.question, value.answer);
+																});
+
+																$(".faq-entry-meta").html(list);
+													},
+													error: function(errorThrown){
+													   //console.log(errorThrown);
+																$(".faq-entry-meta").html(errorThrown);
+													}
+											});
+
+											return false;
+									});
+
+
+
+							});
+						</script>
 
 
 					</div>
@@ -134,18 +134,18 @@ get_header(); ?>
 
     <div id="primary" class="container">
 
-								<div class="container large-text-description-block">
+			<div class="container large-text-description-block">
 
-										<div class="content-area leadertext-area">
+					<div class="content-area leadertext-area">
 
-												<div class="form-block faq-block col-md-12 col-sm-12 col-xs-12">
-															<div class="faq-entry-meta">
-															</div>
-												</div>
-
+							<div class="form-block faq-block col-md-12 col-sm-12 col-xs-12">
+										<div class="faq-entry-meta">
 										</div>
+							</div>
 
-								</div>
+					</div>
+
+			</div>
 
   <div class="row content-area">
 
