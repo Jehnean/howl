@@ -13,7 +13,8 @@ get_header(); ?>
 
   <?php while ( have_posts() ) : the_post(); ?>
 
-  <div class="listify_widget_search_listings">
+<div class="login-content-wrapper">
+  <div class="login-header-title-container">
     <div class="home-widget-section-title">
       <h1 class="home-widget-title"><?php // the_title(); ?>Professional Sign Up</h1>
       <h2 class="home-widget-description"><?php //echo strip_shortcodes( get_the_content() ); ?> Not a professional? <a href="<?php echo esc_url( home_url( '/sign-up' ) ); ?>">Sign up here!</a> Already have an account? <a href="<?php echo esc_url( home_url( '/login' ) ); ?>">Log in</a></h2>
@@ -28,7 +29,7 @@ get_header(); ?>
 
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
-  </div>
+  <!-- </div> -->
 
   <div class="col-2">
 
@@ -54,7 +55,7 @@ get_header(); ?>
 
         <p class="form-row form-row-wide">
           <label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-          <input type="password" class="input-text" name="password" id="reg_password" />
+          <input type="password" class="input-text" name="password" placeholder="Password" id="reg_password" />
         </p>
 
       <?php endif; ?>
@@ -73,19 +74,23 @@ get_header(); ?>
         <input type="submit" class="blue-btn" name="register" value="<?php esc_attr_e( 'Professional Sign Up', 'woocommerce' ); ?>" />
       </p>
 
+      <div class="form-disclaimer text-center">
+        <p>By signing up with Howl, you agree with our <a href="/terms-of-service">Terms &amp; Conditions.</a></p>
+      </div>      
+
       <?php do_action( 'woocommerce_register_form_end' ); ?>
 
     </form>
 
   </div>
 
-</div>
+<!-- </div> -->
 <?php endif; ?>
 
 <?php //do_action( 'woocommerce_after_customer_login_form' ); ?>
 
     <?php do_action( 'listify_page_before' ); ?>
-
+</div>
   <?php endwhile; ?>
 
 

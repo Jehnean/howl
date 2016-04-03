@@ -99,8 +99,3 @@ add_action( 'init', 'custom_post_status_completed' );
 //   ';
 //   }
 // }
-function db_add_ef_post_type_support() {
-add_post_type_support('customer_projects', 'ef_notifications');
-// add_post_type_support('Patterns', 'ef_custom_statuses');
-}
-add_action('init', 'db_add_ef_post_type_support');

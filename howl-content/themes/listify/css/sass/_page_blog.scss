@@ -53,36 +53,6 @@
 .blog,
 .category-blog,
 .search-results,
-.single-post,
-.page-template-template-login-customer,
-.page-template-template-signup-customer {
-  .site-header .primary-header {
-    .nav-menu li>a,
-    ul.nav-menu li>a {
-      color: $dark-gray !important;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-  .site-branding img {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: url(../images/build/howl-logo-dark.png) no-repeat;
-    background-size: contain;
-    width: 115px; /* Width of new image */
-    height: 47px; /* Height of new image */
-    padding-left: 115px; /* Equal to width of new image */
-  }
-
-
-  }
-}
-
-.blog,
-.category-blog,
-.search-results,
 .single-post {
 
   .widget {

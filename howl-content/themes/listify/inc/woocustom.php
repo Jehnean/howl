@@ -87,12 +87,12 @@ add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
 function howl_pro_form() {?> 
 	<?php if ( is_page('pro-sign-up') ) : ?>
 		<p class="form-row form-row-wide">
-			<label for="reg_business_service"><?php _e( 'What kind of services do you offer?', 'woocommerce' ); ?></label>
+      <span>What kind of services do you offer?</span>
   		<input type="text" class="input-text" name="business_primary_service" id="reg_business_service" value="<?php if ( ! empty( $_POST['business_primary_service'] ) ) esc_attr_e( $_POST['business_primary_service'] ); ?>" />
 		</p>
 
 		<p class="form-row form-row-wide">
-			<label for="reg_business_location"><?php _e( 'Where is your business located?', 'woocommerce' ); ?></label>
+			<span>Where is your business located?</span>
   		<input type="text" class="input-text" name="business_location" id="reg_business_location" value="<?php if ( ! empty( $_POST['business_location'] ) ) esc_attr_e( $_POST['business_location'] ); ?>" />
 		</p>
 		
