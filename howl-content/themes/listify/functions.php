@@ -582,6 +582,46 @@ foreach ( $integrations as $file => $dependancy ) {
 	}
 }
 
+
+function findpros_autocomplete_init() {
+    // Register our jQuery UI style and our custom javascript file
+				wp_enqueue_script( 'jquery' );
+				wp_enqueue_script( 'jquery-ui-autocomplete' );
+				wp_register_style( 'jquery-ui-styles',get_template_directory_uri() . '/js/jquery-ui.css' );
+				wp_enqueue_style(  'jquery-ui-styles' );
+				wp_register_script( 'findpros-autocomplete', get_template_directory_uri() . '/js/findpros-autocomplete.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0', false );
+
+				wp_localize_script( 'findpros-autocomplete', 'FindPros', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
+				wp_enqueue_script( 'findpros-autocomplete' );
+}
+
+add_action( 'wp_enqueue_scripts', 'findpros_autocomplete_init' );
+
+function findpros_search() {
+		$term = strtolower( $_GET['term'] );
+		$pros = array();
+		$terms = get_terms("job_listing_category", array(
+			"name__like" => $term,
+			"hide_empty" => false
+		));
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+		    foreach ( $terms as $term ) {
+										$pro = array();
+		        $pro["label"] = htmlspecialchars_decode($term->name);
+		        $pro["link"] = get_term_link( $term );
+										$pros[] = $pro;
+		    }
+		}
+
+ 	$response = json_encode( $pros );
+ 	echo $response;
+ 	exit();
+
+}
+
+add_action( 'wp_ajax_findpros_search', 'findpros_search' );
+add_action( 'wp_ajax_nopriv_findpros_search', 'findpros_search' );
+
 /* Howl Custom functions */
 
 //  function post_project_template_redirect() {
