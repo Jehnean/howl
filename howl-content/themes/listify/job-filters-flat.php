@@ -1,5 +1,5 @@
 <?php
-$atts = apply_filters( 'job_manager_ouput_jobs_defaut', array( 
+$atts = apply_filters( 'job_manager_ouput_jobs_defaut', array(
     'per_page' => get_option( 'job_manager_per_page' ),
     'orderby' => 'featured',
     'order' => 'DESC',
@@ -17,7 +17,7 @@ $atts = apply_filters( 'job_manager_ouput_jobs_defaut', array(
 
 <?php do_action( 'job_manager_job_filters_before', $atts ); ?>
 
-<form class="job_search_form" action="<?php echo get_post_type_archive_link( 'job_listing' ); ?>" method="GET">
+<form name="job_search_form" class="job_search_form" action="<?php echo get_post_type_archive_link( 'job_listing' ); ?>" method="GET">
 	<?php do_action( 'job_manager_job_filters_start', $atts ); ?>
 
 	<div class="search_jobs">
