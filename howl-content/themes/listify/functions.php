@@ -622,6 +622,117 @@ function findpros_search() {
 add_action( 'wp_ajax_findpros_search', 'findpros_search' );
 add_action( 'wp_ajax_nopriv_findpros_search', 'findpros_search' );
 
+
+add_filter( 'gform_field_value_project_tags', 'populate_project_tags' );
+function populate_project_tags( $value ) {
+			if(isset($_POST)){
+					if(!empty($_POST)){
+							if(isset($_POST["search_keywords"])){
+									if(!empty($_POST["search_keywords"])){
+											$value = $_POST["search_keywords"];
+									}
+							}
+					}
+			}
+
+			return $value;
+
+}
+
+add_filter( 'gform_field_value_street_address', 'populate_street_address' );
+function populate_street_address( $value ) {
+			if(isset($_POST)){
+					if(!empty($_POST)){
+							if(isset($_POST["street_address"])){
+									if(!empty($_POST["street_address"])){
+											$value = $_POST["street_address"];
+									}
+							}
+					}
+			}
+
+			return $value;
+}
+
+
+add_filter( 'gform_field_value_address_line_2', 'populate_address_line_2' );
+function populate_address_line_2( $value ) {
+			if(isset($_POST)){
+					if(!empty($_POST)){
+							if(isset($_POST["address_line_2"])){
+									if(!empty($_POST["address_line_2"])){
+											$value = $_POST["address_line_2"];
+									}
+							}
+					}
+			}
+
+			return $value;
+
+}
+
+
+add_filter( 'gform_field_value_city', 'populate_city' );
+function populate_city( $value ) {
+			if(isset($_POST)){
+					if(!empty($_POST)){
+							if(isset($_POST["city"])){
+									if(!empty($_POST["city"])){
+											$value = $_POST["city"];
+									}
+							}
+					}
+			}
+
+			return $value;
+
+}
+
+
+add_filter( 'gform_field_value_state', 'populate_state' );
+function populate_state( $value ) {
+			if(isset($_POST)){
+					if(!empty($_POST)){
+							if(isset($_POST["state"])){
+									if(!empty($_POST["state"])){
+											$value = $_POST["state"];
+									}
+							}
+					}
+			}
+			return $value;
+}
+
+
+add_filter( 'gform_field_value_zip', 'populate_zip' );
+function populate_zip( $value ) {
+			if(isset($_POST)){
+					if(!empty($_POST)){
+							if(isset($_POST["zip"])){
+									if(!empty($_POST["zip"])){
+											$value = $_POST["zip"];
+									}
+							}
+					}
+			}
+			return $value;
+}
+
+
+add_filter( 'gform_field_value_country', 'populate_country' );
+function populate_country( $value ) {
+			if(isset($_POST)){
+					if(!empty($_POST)){
+							if(isset($_POST["country"])){
+									if(!empty($_POST["country"])){
+											$value = $_POST["country"];
+									}
+							}
+					}
+			}
+			return $value;
+}
+
 /* Howl Custom functions */
 
 //  function post_project_template_redirect() {
