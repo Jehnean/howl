@@ -600,7 +600,7 @@ add_action( 'wp_enqueue_scripts', 'findpros_autocomplete_init' );
 function findpros_search() {
 		$term = strtolower( $_GET['term'] );
 		$pros = array();
-		$terms = get_terms("job_listing_category", array(
+		$terms = get_terms("project_tags", array(
 			"name__like" => $term,
 			"hide_empty" => false
 		));

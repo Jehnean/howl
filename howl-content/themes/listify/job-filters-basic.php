@@ -34,19 +34,6 @@ $atts = apply_filters( 'job_manager_ouput_jobs_defaut', array(
 	<?php do_action( 'job_manager_job_filters_end', $atts ); ?>
 
 </form>
-<script type="text/javascript">
-(function( $ ) {
-	$(function() {
-		var url = FindPros.url + "?action=findpros_search";
-		$( "#search_keywords" ).autocomplete({
-			source: url,
-			delay: 500,
-			minLength: 3
-		});
-	});
-
-})( jQuery );
-</script>
 <?php do_action( 'job_manager_job_filters_after', $atts ); ?>
 
 <noscript><?php _e( 'Your browser does not support JavaScript, or it is disabled. JavaScript must be enabled in order to view listings.', 'wp-job-manager' ); ?></noscript>
