@@ -16,32 +16,31 @@ get_header(); ?>
       <div class="start-project-container">
         <a href="/post-a-project/">New Project</a>
       </div>
-    </div> 
+    </div>
 
     <div class="row">
 
       <div class="sidebar col-md-4 col-xs-12">
         sticky sidebar
       </div>
-    
+
     <main id="main" class="site-main col-md-8 col-xs-12" role="main">
 
 
-    <?php    
-
+    <?php
 
     // do_shortcode('[piklist_form form="profile-edit" add_on="theme"]');
     // echo apply_filters( 'the_content','[piklist_form form="profile-edit" add_on="theme"]');
 
     if ( !is_user_logged_in() ) {
       echo 'Please login to view this page';
-    } else { 
+    } else {
 
     ?>
 
-     
-      
-<?php 
+
+
+<?php
   $user_id = get_current_user_id();
   $custom_query_args = array(
     'post_type'=> 'customer_projects',
@@ -50,13 +49,13 @@ get_header(); ?>
     // 'paged' => $paged,
     'posts_per_page' => 14,
     'order'    => 'DESC',
-    
+
 
 
   );
 
   // Get current page and append to custom query parameters array
-  // $custom_query_args['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;                
+  // $custom_query_args['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
   // Pagination fix
   // $temp_query = $wp_query;
@@ -65,7 +64,7 @@ get_header(); ?>
 
 
   $the_query = new WP_Query( $custom_query_args );
-  if($the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+  if($the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
   $project_id = get_the_ID();
 
 ?>
