@@ -4,7 +4,6 @@
  * Global labels, inputs, buttons, fieldsets, etc.
  */
 
-
 /** Labels */
 
 label {
@@ -102,7 +101,7 @@ span.page-numbers,
 	border-radius: 4px;
 
     select {
-        text-overflow: ellipsis; 
+        text-overflow: ellipsis;
     }
 }
 
@@ -399,7 +398,7 @@ body .gform_wrapper ul.gfield_checkbox li input[type="checkbox"]:checked+label {
     	top: 0;
     	width: 15%;
     	height: 60px;
-    }    
+    }
 	}
 }
 
@@ -416,7 +415,7 @@ body .gform_wrapper ul.gfield_checkbox li input[type="checkbox"]:checked+label {
 
   button {
   	@include blue-btn;
-    width: auto; 	
+    width: auto;
   }
 }
 
@@ -474,7 +473,7 @@ body .gform_wrapper ul.gfield_checkbox li input[type="checkbox"]:checked+label {
 
 	.gform_footer {
 		text-align: center;
-		
+
 		.gform_button {
 			@include blue-btn;
 			width: 100%;
@@ -483,11 +482,10 @@ body .gform_wrapper ul.gfield_checkbox li input[type="checkbox"]:checked+label {
 
 	.terms-condition-wrapper {
 		text-align: center;
-		
+
 		p {
 			font-size: 14px;
 			color: $medium-gray;
 		}
 	}
 }
-

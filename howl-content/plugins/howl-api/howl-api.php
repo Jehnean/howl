@@ -16,7 +16,7 @@ define( 'TOKEN_SECRET', 'l1CH__MsiBrIoJL1yM-GYeNptys' );
 define( 'API_HOST', 'api.yelp.com' );
 define( 'DEFAULT_TERM', 'dinner' );
 define( 'DEFAULT_LOCATION', 'San Francisco, CA' );
-define( 'SEARCH_LIMIT', 3 );
+define( 'SEARCH_LIMIT', 5 );
 define( 'SEARCH_PATH', '/v2/search/' );
 define( 'BUSINESS_PATH', '/v2/business/' );
 
@@ -114,9 +114,10 @@ function get_business($business_id) {
  * @param    $term        The search term to query
  * @param    $location    The location of the business to query
  */
-function how_query_api($term, $location) {
+function howl_query_api($term, $location) {
     $full_response = json_decode(search($term, $location));
-    $business_id = $full_response->businesses[0]->id;
-    $response = get_business($business_id);
-    return array($business_id, count($response->businesses),  $response, $full_response);
+    //$business_id = $full_response->businesses[0]->id;
+    //$response = get_business($business_id);
+    //return array($business_id, count($response->businesses),  json_decode($response), $full_response);
+    return $full_response;
 }

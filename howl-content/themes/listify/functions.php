@@ -733,6 +733,67 @@ function populate_country( $value ) {
 			return $value;
 }
 
+
+  function display_client_dashboard_pro($business){
+    $name = $business->name;
+				$html = "";
+    if(strlen($name) > 23){
+      $name = mb_strimwidth($name, 0, 22, "...");
+    }
+    $image_url = $business->image_url;
+    $rating = $business->rating;
+    $rating_img_url = $business->rating_img_url;
+    $review_count = $business->review_count;
+    $id = $business->id;
+    $distance = $business->distance;
+    $html .= "<div class='client-dashboard-pro'>";
+    $html .= "<img class='pro-image' src='" . $image_url . "'/>";
+    $html .= "<h4>" . $name . "</h4>";
+    $html .= "<img src='" . $rating_img_url . "'/>";
+    $html .= "<p>" . $review_count . " reviews</h4>";
+    $html .= "</div>";
+				return $html;
+  }
+
+  function display_client_dashboard_5_pro($businesses){
+				$html = "";
+    $html .= "<div class='client-dashboard-pro-container'>";
+    foreach ($businesses as $business) {
+      $html .= display_client_dashboard_pro($business);
+    }
+    $html .= "<div class='clearfix'></div>";
+    $html .= "</div>";
+				return $html;
+  }
+
+add_action( 'wp_ajax_nopriv_dashboard_pros', 'dashboard_pros' );
+add_action( 'wp_ajax_dashboard_pros', 'dashboard_pros' );
+
+function dashboard_pros() {
+				$html = "";
+
+				$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
+
+    $query_vars['paged'] = $_POST['page'];
+
+				$action = sanitize_text_field($_POST['action']);
+				$postId = sanitize_text_field($_POST['postId']);
+				$projectType = sanitize_text_field($_POST['projectType']);
+				$location = sanitize_text_field($_POST['location']);
+
+				if($action === "dashboard_pros"){
+					 if(!empty($postId)){
+								$how_query = howl_query_api($projectType, $location);
+								$businesses = $how_query->businesses;
+								update_post_meta($postId, 'pro_options', json_encode($businesses));
+								$html .= display_client_dashboard_5_pro($businesses);
+						}
+				}
+
+    die($html);
+}
+
+
 /* Howl Custom functions */
 
 //  function post_project_template_redirect() {
