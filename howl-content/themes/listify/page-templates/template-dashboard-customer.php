@@ -8,6 +8,40 @@ get_header(); ?>
 
   <?php do_action( 'listify_page_before' ); ?>
 
+  <?php
+
+    // $pr = get_users( array("role" => "professional") );
+    // foreach ($pr as $prr) {
+    //   wp_delete_user($prr->ID);
+    // }
+
+    /*
+    TODO:
+      # https://developers.google.com/maps/articles/phpsqlsearch_v3?csw=1
+      # geo searching in mysql, but in order to use need to add lat, lan to each user
+      SELECT id, ( 3959 * acos( cos( radians(37) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(-122) ) + sin( radians(37) ) * sin( radians( lat ) ) ) ) AS distance FROM markers HAVING distance < 25 ORDER BY distance LIMIT 0 , 20;
+     */
+    // $Address = urlencode("75 Tremont St, Braintree, MA");
+    // $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$Address."&sensor=true";
+    // $xml = simplexml_load_file($request_url) or die("url not loading");
+    // $status = $xml->status;
+    // if ($status=="OK") {
+    //     $Lat = $xml->result->geometry->location->lat;
+    //     $Lon = $xml->result->geometry->location->lng;
+    //     $LatLng = "$Lat,$Lon";
+    //     echo "<pre>";
+    //     echo $LatLng;
+    //     echo "</pre>";
+    // }
+    //
+    //
+    //
+    // $all_users = get_users();
+    // foreach ( $all_users as $user ) {
+    // 	echo '<span>' . esc_html( $user->user_email ) . '</span>';
+    // }
+  ?>
+
   <div id="primary" class="container">
 
     <div class="dashboard-header-container">
@@ -127,6 +161,9 @@ get_header(); ?>
   $project_city = get_post_meta( get_the_ID(), 'project_city', true );
   $project_state = get_post_meta( get_the_ID(), 'project_state', true );
   $pros = get_post_meta($project_id, 'pro_options', true);
+  // if(!empty($pros)){
+  //   $pros = strip_tags($pros);
+  // }
   $has_pros = (!empty($pros)) ? true : false;
   $has_city_state = !empty($project_city) && !empty($project_state);
   $has_howl_api = function_exists("howl_query_api");
@@ -168,10 +205,11 @@ get_header(); ?>
       <?php
       if($has_city_state){
         if($has_pros){
-           // echo "<pre>";
-           // var_dump($pros);
-           // echo "</pre>";
-           echo display_client_dashboard_5_pro(json_decode($pros));
+          //  echo "<pre>";
+          //  var_export($business->location);
+          //  echo "</pre>";
+          //echo display_client_dashboard_5_pro(json_decode($pros));
+          echo display_client_dashboard_5_pro($pros);
         }else{
          echo "<div class='prep-pros'>";
          echo "<p>";
@@ -215,8 +253,9 @@ jQuery(document).ready(function($){
     	url: FindPros.url,
     	type: 'post',
     	data: {
-    		action: 'dashboard_pros',
+    		action: 'save_dashboard_pros',
     		postId: $element.attr("data-post-id"),
+    		currentUser: <?php echo get_current_user_id(); ?>,
     		projectType: $element.attr("data-project-type"),
     		location: $element.attr("data-location")
     	},

@@ -16,7 +16,7 @@ define( 'TOKEN_SECRET', 'l1CH__MsiBrIoJL1yM-GYeNptys' );
 define( 'API_HOST', 'api.yelp.com' );
 define( 'DEFAULT_TERM', 'dinner' );
 define( 'DEFAULT_LOCATION', 'San Francisco, CA' );
-define( 'SEARCH_LIMIT', 5 );
+define( 'SEARCH_LIMIT', 20 );
 define( 'SEARCH_PATH', '/v2/search/' );
 define( 'BUSINESS_PATH', '/v2/business/' );
 

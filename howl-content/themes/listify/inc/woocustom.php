@@ -64,7 +64,8 @@ add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 
  * @return void
  */
 function wooc_save_extra_register_fields( $customer_id ) {
-	if ( isset( $_POST['billing_first_name'] ) ) {
+
+  if ( isset( $_POST['billing_first_name'] ) ) {
 		// WordPress default first name field.
 		update_user_meta( $customer_id, 'first_name', sanitize_text_field( $_POST['billing_first_name'] ) );
 
@@ -79,23 +80,36 @@ function wooc_save_extra_register_fields( $customer_id ) {
 		// WooCommerce billing last name.
 		update_user_meta( $customer_id, 'billing_last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
 	}
+
 }
 
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
 
 // Extra fields for professional sign up form short flow
-function howl_pro_form() {?> 
+function howl_pro_form() {?>
 	<?php if ( is_page('pro-sign-up') ) : ?>
 		<p class="form-row form-row-wide">
       <span>What kind of services do you offer?</span>
   		<input type="text" class="input-text" name="business_primary_service" id="reg_business_service" value="<?php if ( ! empty( $_POST['business_primary_service'] ) ) esc_attr_e( $_POST['business_primary_service'] ); ?>" />
 		</p>
 
-		<p class="form-row form-row-wide">
-			<span>Where is your business located?</span>
-  		<input type="text" class="input-text" name="business_location" id="reg_business_location" value="<?php if ( ! empty( $_POST['business_location'] ) ) esc_attr_e( $_POST['business_location'] ); ?>" />
+		<p class="form-row form-row-first">
+			<span>Street Address</span>
+  		<input type="text" class="input-text" name="street_address" id="reg_street_address" value="<?php if ( ! empty( $_POST['street_address'] ) ) esc_attr_e( $_POST['street_address'] ); ?>" />
 		</p>
-		
+		<p class="form-row form-row-last">
+			<span>City</span>
+  		<input type="text" class="input-text" name="city" id="reg_city" value="<?php if ( ! empty( $_POST['city'] ) ) esc_attr_e( $_POST['city'] ); ?>" />
+		</p>
+		<p class="form-row form-row-first">
+			<span>State</span>
+  		<input type="text" class="input-text" name="state" id="reg_state" value="<?php if ( ! empty( $_POST['state'] ) ) esc_attr_e( $_POST['state'] ); ?>" />
+		</p>
+		<p class="form-row form-row-last">
+			<span>Zip</span>
+  		<input type="text" class="input-text" name="zip" id="reg_zip" value="<?php if ( ! empty( $_POST['zip'] ) ) esc_attr_e( $_POST['zip'] ); ?>" />
+		</p>
+
 	<?php endif;
 }
 ?>
@@ -136,19 +150,70 @@ function wooc_save_extra_howl_pro_form_fields( $customer_id ) {
 	if ( isset( $_POST['business_primary_service'] ) ) {
 		// WordPress default first name field.
 		update_user_meta( $customer_id, 'business_primary_service', sanitize_text_field( $_POST['business_primary_service'] ) );
-	
+
 		wp_update_user(array(
 		  'ID' => $customer_id,
 		  'role' => 'professional' // Update to desired role
-		));	
+		));
 
 	}
 
-	if ( isset( $_POST['business_location'] ) ) {
+	//if ( isset( $_POST['street_address'] ) ) {
 		// WordPress default last name field.
-		update_user_meta( $customer_id, 'business_location', sanitize_text_field( $_POST['business_location'] ) );
-	}
-	
+
+    //update_user_meta( $customer_id, 'business_location', sanitize_text_field( $_POST['business_location'] ) );
+
+    $street_address =  isset( $_POST['street_address']) ?  $_POST['street_address'] : '';
+    $city =  isset( $_POST['city']) ?  $_POST['city'] : '';
+    $state =  isset( $_POST['state']) ?  $_POST['state'] : '';
+    $zip =  isset( $_POST['zip']) ?  $_POST['zip'] : '';
+
+    if(!empty($street_address)){
+         update_user_meta( $customer_id, 'billing_address_1', $street_address);
+     }
+
+     if(!empty($city)){
+         update_user_meta( $customer_id, 'billing_city', $city);
+     }
+
+     if(!empty($zip)){
+         update_user_meta( $customer_id, 'billing_postcode', $zip);
+     }
+
+     if(!empty($state)){
+         update_user_meta( $customer_id, 'billing_state', $state);
+     }
+
+
+    $lat = false;
+  	$lon = false;
+    $full_address = $street_address . ", " . $city . ", " . $state  . ", " . $zip;
+    $use_address = urlencode($full_address);
+    $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$use_address."&sensor=true";
+    $xml = simplexml_load_file($request_url);
+    if(!empty($xml)){
+      $status = $xml->status;
+      if ($status=="OK") {
+        $lat = (string)$xml->result->geometry->location->lat;
+        $lon = (string)$xml->result->geometry->location->lng;
+      }
+    }
+
+    if($lat){
+      update_user_meta( $customer_id, 'lat', $lat);
+    }
+
+    if($lon){
+      update_user_meta( $customer_id, 'lon', $lon);
+    }
+	//}
+
+  update_user_meta( $customer_id, 'review_count', 0);
+
+  update_user_meta( $customer_id, 'rating', 3);
+
+  update_user_meta( $customer_id, 'business_image', "");
+
 }
 
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_howl_pro_form_fields' );
@@ -251,7 +316,7 @@ function howl_get_related_posts( $post_id, $related_count, $args = array() ) {
         'orderby' => 'rand',
         'return'  => 'query', // Valid values are: 'query' (WP_Query object), 'array' (the arguments array)
     ) );
- 
+
     $related_args = array(
         'post_type'      => get_post_type( $post_id ),
         'posts_per_page' => $related_count,
@@ -260,10 +325,10 @@ function howl_get_related_posts( $post_id, $related_count, $args = array() ) {
         'orderby'        => $args['orderby'],
         'tax_query'      => array()
     );
- 
+
     $post       = get_post( $post_id );
     $taxonomies = get_object_taxonomies( $post, 'names' );
- 
+
     foreach( $taxonomies as $taxonomy ) {
         $terms = get_the_terms( $post_id, $taxonomy );
         if ( empty( $terms ) ) continue;
@@ -278,7 +343,7 @@ function howl_get_related_posts( $post_id, $related_count, $args = array() ) {
         }
 
     }
- 
+
     if( count( $related_args['tax_query'] ) > 1 ) {
         $related_args['tax_query']['relation'] = 'OR';
     }
