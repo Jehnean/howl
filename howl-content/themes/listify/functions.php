@@ -1108,6 +1108,9 @@ function save_dashboard_pros() {
 	$current_user = sanitize_text_field($_POST['currentUser']);
 	$projectType = sanitize_text_field($_POST['projectType']);
 	$location = sanitize_text_field($_POST['location']);
+	$address = sanitize_text_field($_POST['address']);
+	$city = sanitize_text_field($_POST['city']);
+	$state = sanitize_text_field($_POST['state']);
 
 	if($action === "save_dashboard_pros"){
 		 if(!empty($postId)){
@@ -1116,10 +1119,31 @@ function save_dashboard_pros() {
 					save_howl_pros($businesses, $projectType);
 					//$encoded_business = wp_slash(json_encode($businesses));
 					global $wpdb;
-		 			$lat = get_user_meta( $current_user, 'lat', true);
-					$lat = ($lat) ? $lat : 0;
-		 			$lon = get_user_meta( $current_user, 'lon', true);
-					$lon = ($lon) ? $lon : 0;
+		 			$lat = get_post_meta( $postId, 'lat', true);
+		 			$lon = get_post_meta( $postId, 'lon', true);
+					if(!$lat || !$lon){
+						$full_address = $street_address . ", " . $city . ", " . $state;
+				    $use_address = urlencode($full_address);
+				    $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$use_address."&sensor=true";
+				    $xml = simplexml_load_file($request_url);
+				    //sleep(1);
+				    if(!empty($xml)){
+				      $status = $xml->status;
+				      if ($status=="OK") {
+				        $lat = (string)$xml->result->geometry->location->lat;
+				        $lon = (string)$xml->result->geometry->location->lng;
+
+									if($lat){
+										update_post_meta( $postId, 'lat', $lat);
+									}
+
+									if($lon){
+										update_post_meta( $postId, 'lon', $lon);
+									}
+
+				      }
+				    }
+					}
 	      $ssql = "SELECT u1.ID,
 	           m1.meta_value AS billing_company,
 	           m2.meta_value AS lat,

@@ -201,6 +201,10 @@ get_header(); ?>
      data-post-id="<?php echo $project_id; ?>"
      data-project-type="<?php echo $term; ?>"
      data-location="<?php echo $location; ?>"
+     data-address="<?php echo $project_address; ?>"
+     data-city="<?php echo $project_city; ?>"
+     data-state="<?php echo $project_state; ?>"
+     data-zip="<?php echo $project_state; ?>"
      class="list-pros<?php if(!$has_pros){ echo " need-pros"; } ?>">
       <?php
       if($has_city_state){
@@ -257,7 +261,11 @@ jQuery(document).ready(function($){
     		postId: $element.attr("data-post-id"),
     		currentUser: <?php echo get_current_user_id(); ?>,
     		projectType: $element.attr("data-project-type"),
-    		location: $element.attr("data-location")
+    		location: $element.attr("data-location"),
+       address: $element.attr("data-address"),
+       city: $element.attr("data-city"),
+       state: $element.attr("data-state"),
+       zip: $element.attr("data-zip")
     	},
     	success: function( html ) {
     		$("#" + elId).html( html );
