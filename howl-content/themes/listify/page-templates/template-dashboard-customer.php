@@ -186,7 +186,20 @@ get_header(); ?>
 
 <div class="list-group">
   <div class="list-group-item">
-    <a href="/post-project/?_post[ID]=<?php echo $project_id ?>" class="edit-project-link">Update Project</a>
+  <?php
+    $edit_page_id = 1338;
+
+    do_action('gform_update_post/edit_link', array(
+        'post_id' => $post->ID,
+        'url' => $edit_page_id,
+        'text'    => 'Update Project',
+    ) );
+
+    // do_action('gform_update_post/setup_form', array(
+    //   'post_id' => $post->ID, 
+    //   'text'    => 'Update Project',
+    //   ));
+  ?>
     <h4 class="list-group-item-heading">
       <a href="<?php the_permalink(); ?>">
       <?php the_title(); ?>

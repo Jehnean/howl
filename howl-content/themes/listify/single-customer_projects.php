@@ -18,13 +18,6 @@ get_header(); ?>
 				<?php get_template_part( 'content', 'customer_projects' ); ?>
 			</main>
 
-    <?php  
-    $edit_post_data      = isset($_GET['_post']) ? $_GET['_post'] : null;
-    $edit_post_id        = isset($edit_post_data['ID']) ? absint($edit_post_data['ID']) : -1;
-    $edit_post_status    = get_post_status($edit_post_id);
-    $edit_post_published = ( 'ongoing' === $edit_post_status ) ? true : false;
-
-    ?>
     </div>
 	<?php endwhile; ?>
 
