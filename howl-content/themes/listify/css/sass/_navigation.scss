@@ -247,7 +247,8 @@ ul.nav-menu li > a,
 
 			// top level link
 			a {
-				font-size: 100%;
+				font-size: 18px;
+				font-weight: 400;
 				padding: 18px 0;
 				display: inline-block;
 
@@ -476,4 +477,16 @@ ul.nav-menu li > a,
 	.nav-menu .account-avatar > a {
 		padding: 8px 0;
 	}
+}
+
+#menu-item-837 > .sub-menu a{
+	color: #686868 !important;
+}
+
+.home .nav-menu .account-avatar>a{
+	color: #FFFFFF !important;
+}
+
+.nav-menu .account-avatar>a{
+	color: #686868 !important;
 }
