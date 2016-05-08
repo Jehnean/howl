@@ -483,7 +483,12 @@ ul.nav-menu li > a,
 	color: #686868 !important;
 }
 
-.home .nav-menu .account-avatar>a{
+.home .nav-menu .account-avatar>a,
+.page-template-template-findpros .nav-menu .account-avatar>a,
+.page-template-template-howitworks .nav-menu .account-avatar>a,
+.page-template-template-about .nav-menu .account-avatar>a,
+.page-template-template-contact .nav-menu .account-avatar>a,
+.page-template-template-help .nav-menu .account-avatar>a{
 	color: #FFFFFF !important;
 }
 
