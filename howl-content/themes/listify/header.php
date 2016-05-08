@@ -29,7 +29,7 @@
 			<div class="container">
 				<div class="primary-header-inner">
 					<div class="site-branding">
-							<?php if(is_home() || is_page("professional-services") || is_page("how-it-works-professionals") || is_page("about") || is_page("contact-us") || is_page("help")){ ?>
+							<?php if(is_front_page() || is_page("professional-services") || is_page("how-it-works-professionals") || is_page("about") || is_page("contact-us") || is_page("help")){ ?>
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="/howl-content/uploads/2016/01/howl-logo-white-small.png" alt=""></a>
 							<?php }else{ ?>
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="/howl-content/themes/listify/images/howl-dark-logo.png" alt=""></a>
