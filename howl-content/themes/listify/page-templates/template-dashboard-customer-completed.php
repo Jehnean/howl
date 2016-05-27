@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Customer Dashboard
+ * Template Name: Customer Dashboard Completed
  *
  */
 
@@ -45,7 +45,7 @@ get_header(); ?>
   <div id="primary" class="container">
 
     <div class="dashboard-header-container">
-      <h1 class="dashboard-title">Your Projects</h1>
+      <h1 class="dashboard-title">Completed Projects</h1>
 
       <div class="start-project-container">
         <a href="/post-a-project/">New Project</a>
@@ -55,7 +55,7 @@ get_header(); ?>
     <div class="row">
 
       <div class="sidebar col-md-4 col-xs-12">
-        sticky sidebar
+      make sticky sidebar
         <ul>
           <li>
             <a href="/customer-dashboard">Current Projects</a>
@@ -151,7 +151,7 @@ get_header(); ?>
   $custom_query_args = array(
     'post_type'=> 'customer_projects',
     'author' => $user_id,
-    'post_status'=> 'ongoing',
+    'post_status'=> 'completed',
     // 'paged' => $paged,
     'posts_per_page' => 14,
     'order'    => 'DESC'
@@ -198,13 +198,13 @@ get_header(); ?>
 <div class="list-group">
   <div class="list-group-item">
   <?php
-    $edit_page_id = 1338;
+    // $edit_page_id = 1338;
 
-    do_action('gform_update_post/edit_link', array(
-        'post_id' => $post->ID,
-        'url' => $edit_page_id,
-        'text'    => 'Update Project',
-    ) );
+    // do_action('gform_update_post/edit_link', array(
+    //     'post_id' => $post->ID,
+    //     'url' => $edit_page_id,
+    //     'text'    => 'Update Project',
+    // ) );
   ?>
     <h4 class="list-group-item-heading">
       <a href="<?php the_permalink(); ?>">

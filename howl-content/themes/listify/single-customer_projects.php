@@ -12,11 +12,11 @@ get_header(); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php $author = get_the_author(); ?>
 	
-		<div class="row content-area">
+		<!-- <div class="row content-area"> -->
 
-			<main id="main" class="site-main col-md-8 col-sm-7 col-xs-12" role="main">
+			<!-- <main id="main" class="site-main col-md-8 col-sm-7 col-xs-12" role="main"> -->
 				<?php get_template_part( 'content', 'customer_projects' ); ?>
-			</main>
+			<!-- </main> -->
 
     </div>
 	<?php endwhile; ?>

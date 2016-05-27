@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Customer Dashboard
+ * Template Name: Customer Dashboard Paused
  *
  */
 
@@ -45,7 +45,7 @@ get_header(); ?>
   <div id="primary" class="container">
 
     <div class="dashboard-header-container">
-      <h1 class="dashboard-title">Your Projects</h1>
+      <h1 class="dashboard-title">Paused Projects</h1>
 
       <div class="start-project-container">
         <a href="/post-a-project/">New Project</a>
@@ -55,7 +55,7 @@ get_header(); ?>
     <div class="row">
 
       <div class="sidebar col-md-4 col-xs-12">
-        sticky sidebar
+      make sticky sidebar
         <ul>
           <li>
             <a href="/customer-dashboard">Current Projects</a>
@@ -151,7 +151,7 @@ get_header(); ?>
   $custom_query_args = array(
     'post_type'=> 'customer_projects',
     'author' => $user_id,
-    'post_status'=> 'ongoing',
+    'post_status'=> 'paused',
     // 'paged' => $paged,
     'posts_per_page' => 14,
     'order'    => 'DESC'
@@ -250,7 +250,7 @@ get_header(); ?>
 
 <?php endwhile; else: ?>
 
-<p>You don't have any completed projects yet. <a href="/post-a-project">Start a new project</a></p>
+<p>You don't have any paused projects yet. <a href="/post-a-project">Start a new project</a></p>
 
 <?php endif; wp_reset_postdata(); ?>
 
