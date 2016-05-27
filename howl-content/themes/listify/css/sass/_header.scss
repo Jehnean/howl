@@ -10,11 +10,11 @@
 .page-template-template-joinaspro,
 body.error404,
 .page-template-template-help {
-  
+
   .site-header {
 		position: absolute;
-		width: 100%;  	
-  } 
+		width: 100%;
+  }
 
   .mini-menu {
   	ul li a {
@@ -24,7 +24,7 @@ body.error404,
 
 	.primary.nav-menu .menu a {
 		color: $white;
-	}  
+	}
 
   .primary-header {
   	background: transparent !important;
@@ -140,19 +140,19 @@ body.error404 {
   ul {
   	list-style-type: none;
   	margin: 28px 0;
-  	
+
   	li {
   		display: inline-block;
-	    font-size: 15px;
+	    font-size: 18px;
 	    margin-right: 12px;
-	    font-weight: 300;
+	    font-weight: 400;
 	    font-family: $body-font-family;
 
 	    a {
 	    	color: $dark-gray;
 	    }
   	}
-  }	
+  }
 }
 
 .site-title {
@@ -168,7 +168,10 @@ body.error404 {
 	display: inline-block;
 
 	img {
-		max-width: 100%;
+    max-width: 100%;
+    width: 85px;
+    height: 35px;
+    max-height: 100%;
 	}
 }
 

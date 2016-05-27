@@ -29,7 +29,11 @@
 			<div class="container">
 				<div class="primary-header-inner">
 					<div class="site-branding">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="/howl-content/uploads/2016/01/howl-logo-white-small.png" alt=""></a>
+							<?php if(is_front_page() || is_page("professional-services") || is_page("how-it-works-professionals") || is_page("about") || is_page("contact-us") || is_page("help") || is_page("join-as-pro")){ ?>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="/howl-content/uploads/2016/01/howl-logo-white-small.png" alt=""></a>
+							<?php }else{ ?>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="/howl-content/themes/listify/images/howl-dark-logo.png" alt=""></a>
+							<?php } ?>
 
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>

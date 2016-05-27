@@ -247,9 +247,11 @@ ul.nav-menu li > a,
 
 			// top level link
 			a {
-				font-size: 100%;
+				font-size: 18px;
+				font-weight: 400;
 				padding: 18px 0;
-				display: inline-block;
+				display: inline-block;	
+    	font-family: "Open Sans",sans-serif;
 
 				&:hover {
 					text-decoration: none;
@@ -476,4 +478,25 @@ ul.nav-menu li > a,
 	.nav-menu .account-avatar > a {
 		padding: 8px 0;
 	}
+}
+
+#menu-item-837 > .sub-menu a{
+	color: #686868 !important;
+}
+
+.home .nav-menu .account-avatar>a,
+.page-template-template-findpros .nav-menu .account-avatar>a,
+.page-template-template-howitworks .nav-menu .account-avatar>a,
+.page-template-template-about .nav-menu .account-avatar>a,
+.page-template-template-contact .nav-menu .account-avatar>a,
+.page-template-template-help .nav-menu .account-avatar>a{
+	color: #FFFFFF !important;
+}
+
+.nav-menu .account-avatar>a{
+	color: #686868 !important;
+}
+
+.page-id-25 #menu-primary a{
+	color: #686868 !important;
 }
